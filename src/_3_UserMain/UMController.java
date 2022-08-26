@@ -10,8 +10,7 @@ import javafx.scene.control.Label;
 
 public class UMController implements Initializable{
 	@FXML private Label umIDLabel;
-	@FXML private Label umNameLabel;
-	@FXML private Label umNameLabel2;
+	@FXML private Label umNameLabel,umNameLabel2;
 	@FXML private Label umLastday;
 	@FXML private Label umPtLabel;
 	@FXML private Button umgoToUiButton;
@@ -32,10 +31,31 @@ public class UMController implements Initializable{
 	@FXML private Button umGoToRc;
 	@FXML private Button umGoToInboby;
 	
+	//서비스불러오기
+	private UMService umService;
+	private String userId;
+	private String userName;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
 	}
+	//서비스에서 아이디값 호출
+	public void setIdLabel() {
+		userId=umService.getId();
+		umIDLabel.setText(userId);
+	}
+	public void setNameLabel() {
+		userName=umService.getName();
+		umNameLabel.setText(userName);
+		umNameLabel2.setText(userName);
+	}
+	public void umLastday() {
+		umPtLabel.setText(umService.getLastDay());
+	}
 	
+	public void umPtLabel() {
+		umPtLabel.setText(umService.getPTCount());
+	}
 }
