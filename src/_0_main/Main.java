@@ -9,6 +9,7 @@ public class Main {
 		System.out.println("메인클래스");
 		System.out.println("메인클래스");
 		System.out.println("메인클래스");
+		System.out.println("메인클래스");
 	}
 
 }
