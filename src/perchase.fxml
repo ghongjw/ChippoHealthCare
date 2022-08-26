@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="24.0" layoutY="74.0" mnemonicParsing="false" text="&lt;" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label text="헬스장 이용권 구매">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <ComboBox prefWidth="100.0" />
+                  <Label text="개월">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="MONTH">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="개월 이용료">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="USEFARE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="원">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label text="PT 이용권 구매">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <ComboBox prefWidth="100.0" />
+                  <Label text="번">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="PTCOUNT">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="번 이용료">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="PTFARE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="원">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="20.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="--------------------------------------------------------------------">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="USEFARE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="원">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="+">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="PTFARE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="원">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="20.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="--------------------------------------------------------------------">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="합">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="TOTALFARE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="원">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="결제" />
+                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="취소" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="20.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="498.0" text="-----------------------------------------------------------------------------------">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" text="1개월 ~2 개월 등록 시 요금 월 100000원" />
+            <Label alignment="CENTER" text="3개월 ~5 개월 등록 시 요금 월 90000원" />
+            <Label alignment="CENTER" text="6개월이상 등록 시 요금 월 85000원" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
