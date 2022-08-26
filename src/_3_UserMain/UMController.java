@@ -1,5 +1,7 @@
 package _3_UserMain;
 
-public class UMController {
+import javafx.scene.control.Label;
 
+public class UMController {
+	private Label umIDLabel;
 }
