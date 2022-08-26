@@ -6,6 +6,9 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("메인클래스");
 		System.out.println("메인클래스");
+		System.out.println("메인클래스");
+		System.out.println("메인클래스");
+		System.out.println("메인클래스");
 	}
 
 }
