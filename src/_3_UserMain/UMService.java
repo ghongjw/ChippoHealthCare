@@ -1,22 +1,31 @@
 package _3_UserMain;
 
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
+
 public class UMService {
 	private UMDAO umDao;
 	private String userId;
 	private String userName;
 	private UMController umController;
-	//유저 메인 실행(이 메서ㅡ의 구현은 로그인 이밴트로
-	public UMService(String userId,String userName) {
+	//유저 메인 실행(이 메서드의 구현은 로그인 이밴트로
+	UMDTO umDto;
+	public UMService() {
 		umDao = new UMDAO();
+		umDto = new UMDTO();
+
+	}
+
+	public void setId(String userId,String userName) {
 		this.userId=userId;
-		getId();//유저메인화면구현과 동시에  아이디표시
-		getName();
-		umController.setUmYearLabel();
-		umController.setUmMonthLabel();
+		this.userName=userName;
+		//umController.setUmYearLabel();
+		//umController.setUmMonthLabel();
 	}
 	
 	//라벨에 아이디값 전송
 	public String getId() {
+		System.out.println(userId);
 		return userId;
 	}
 	//라벨에 이름 값 전송
@@ -30,7 +39,7 @@ public class UMService {
 	}
 	//쿼리문으로 헬스이용마지막 날 가져오기
 	public String getLastDay() {
-		UMDTO umDto = umDao.lastday(userId);
+		umDao.lastday(umDto);
 		int expireYear = umDto.getExpire_year();
 		int expireMonth = umDto.getExpire_month();
 		int expireDay = umDto.getExpire_day();

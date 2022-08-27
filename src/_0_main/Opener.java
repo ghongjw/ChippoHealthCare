@@ -3,6 +3,8 @@ package _0_main;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import _3_UserMain.UMController;
+import _3_UserMain.UMService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,14 +12,8 @@ import javafx.stage.Stage;
 
 public class Opener {
 	private Stage primaryStage;
-	private Date date = new Date();
-	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	private String regDate = sdf.format(date);
-	private String[] DateSplit = regDate.split("-");
-	private String year = DateSplit[0];
-	private String month = DateSplit[1];
-	private String day = DateSplit[2];
 	
+	private String id,name;
 	
 
 	public void setPrimaryStage(Stage primaryStage) {
@@ -26,9 +22,16 @@ public class Opener {
 	//유저메인화면 띄우기
 	public void umOpen() {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("usermain.fxml"));
+		
 		try {
 			Parent umform = loader.load();
+			
+			//컨트롤러 실행
+			UMController umController = loader.getController();
+			umController.setumForm(umform);
+		
 			Scene scene = new Scene(umform);
+			
 			primaryStage.setTitle("유저 메인 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -151,14 +154,6 @@ public class Opener {
 				}
 		
 		}
-				public String getYear() {
-					return year;
-				}
-				public String getMonth() {
-					return month;
-				}
-				public String getDay() {
-					return day;
-				}
+			
 		
 }

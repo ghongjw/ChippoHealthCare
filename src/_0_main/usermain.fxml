@@ -16,23 +16,23 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="750.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="umBackButton" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" text="&lt;" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../_3_UserMain/logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </top>
-   <center>
-      <ScrollPane minViewportHeight="500.0" prefViewportHeight="500.0" BorderPane.alignment="CENTER">
-         <content>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="50.0">
+<ScrollPane minViewportHeight="500.0" prefViewportHeight="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
+   <content>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="750.0" style="-fx-background-color: white;">
+         <top>
+            <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="umBackButton" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" text="&lt;" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../_3_UserMain/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
@@ -139,7 +139,7 @@
                      <children>
                         <HBox alignment="CENTER" layoutX="224.0" layoutY="-4.0" prefHeight="36.0" prefWidth="303.0" spacing="20.0">
                            <children>
-                              <Button fx:id="umpreviousMonth" mnemonicParsing="false" text="&lt;" />
+                              <Button fx:id="umpreviousMonth" mnemonicParsing="false" onAction="#umpreviousMonthProc" text="&lt;" />
                               <Label fx:id="umYear" contentDisplay="CENTER" text="YEAR">
                                  <font>
                                     <Font size="18.0" />
@@ -160,7 +160,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="umNextMonth" mnemonicParsing="false" text="&gt;" />
+                              <Button fx:id="umNextMonth" mnemonicParsing="false" onAction="#umNextMonthProc" text="&gt;" />
                            </children>
                         </HBox>
                         <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="36.0" prefHeight="543.0" prefWidth="700.0">
@@ -713,7 +713,7 @@
                   </HBox>
                </children>
             </VBox>
-         </content>
-      </ScrollPane>
-   </center>
-</BorderPane>
+         </center>
+      </BorderPane>
+   </content>
+</ScrollPane>

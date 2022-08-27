@@ -9,11 +9,11 @@ public class UMDAO {
 	private Connection con;
 	private PreparedStatement ps;
 	private ResultSet rs;
-	
+	private UMDTO umDto;
 	public UMDAO() {
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String user="oracle";
-		String password="oracle";
+		String user="JOOWON";
+		String password="JOOWON";
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			con = DriverManager.getConnection(url, user, password);
@@ -22,16 +22,16 @@ public class UMDAO {
 		}
 	}
 	
-	public UMDTO lastday(String userId) {
-		UMDTO umDto = new UMDTO();
+	public UMDTO lastday(UMDTO umDto) {
+		this.umDto = umDto;
 		String sql="select expire_year,expire_month,expire_day from health_user where id = ?";
 		try {
 			
 			ps=con.prepareStatement(sql);
-			ps.setString(1, userId);
+			ps.setString(1, umDto.getId());
 			rs=ps.executeQuery();
 			if(rs.next()) {
-				umDto.setExpire_year(rs.getInt("expire_year"));
+				umDto.setExpire_year(rs.getInt("expire_year"));				
 				umDto.setExpire_month(rs.getInt("expire_month"));
 				umDto.setExpire_day(rs.getInt("expire_day"));
 				}
