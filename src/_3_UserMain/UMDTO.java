@@ -1,7 +1,26 @@
 package _3_UserMain;
 
 public class UMDTO {
-	private String id, name, lastday,workoutday,start_time,end_time,ptbooked;
+	private String id, name, workoutday,start_time,end_time,ptbooked;
+	private int expire_year,expire_month,expire_day;
+	public int getExpire_year() {
+		return expire_year;
+	}
+	public void setExpire_year(int expire_year) {
+		this.expire_year = expire_year;
+	}
+	public int getExpire_month() {
+		return expire_month;
+	}
+	public void setExpire_month(int expire_month) {
+		this.expire_month = expire_month;
+	}
+	public int getExpire_day() {
+		return expire_day;
+	}
+	public void setExpire_day(int expire_day) {
+		this.expire_day = expire_day;
+	}
 	private int ptnum;
 	public String getId() {
 		return id;
@@ -15,12 +34,8 @@ public class UMDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getLastday() {
-		return lastday;
-	}
-	public void setLastday(String lastday) {
-		this.lastday = lastday;
-	}
+	
+	
 	public String getWorkoutday() {
 		return workoutday;
 	}

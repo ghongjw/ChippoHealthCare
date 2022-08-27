@@ -40,6 +40,9 @@ public class UMController implements Initializable{
 	private Opener opener;
 	private String userId;
 	private String userName;
+	
+	
+
 	private int year,month,day;
 
 	@Override
@@ -47,28 +50,32 @@ public class UMController implements Initializable{
 		// TODO Auto-generated method stub
 
 	}
+	public void setOpener(Opener opener) {
+		this.opener = opener;
+	}
 	//서비스에서 아이디값 호출
 	public void setIdLabel() {
 		userId=umService.getId();
 		umIDLabel.setText(userId);
 	}
+	//서비스 에서 이름 호출 후 라벨에 표시
 	public void setNameLabel() {
 		userName=umService.getName();
 		umNameLabel.setText(userName);
 		umNameLabel2.setText(userName);
 	}
-
+	//서비스에서 헬스 이용 마지막 날 호출 후 라벨에 표시
 	public void umLastday() {
 		umPtLabel.setText(umService.getLastDay());
 	}
-
+	//서비스에서 헬스 피티이용수 호출 후 라벨에 표시
 	public void umPtLabel() {
 		umPtLabel.setText(umService.getPTCount());
 	}
 
 	public void umLogoutButtonProc() {
 		//로그아웃 하시겠습니까
-		//welcom화면으로 가기
+		//welcome화면으로 가기
 	}
 
 	public void setUmYearLabel() {
@@ -76,6 +83,7 @@ public class UMController implements Initializable{
 		umYear.setText(year);
 		this.year=Integer.parseInt(year);
 	}
+	//opener에서 그 날의 월을 가져온 후 라벨에 효시
 	public void setUmMonthLabel() {
 		String month = opener.getMonth();
 		umMonth.setText(month);
@@ -96,7 +104,20 @@ public class UMController implements Initializable{
 		}
 		else month++;
 	}
+	//버튼 클릭으로 회원정보 수정 페이지로 전환
 	public void umgoToUiButtonProc() {
-
+		opener.userInfoUpdateConfirmPwOpen();
+	}
+	//버튼 클릭으로 이용권 구매페이지로 전환
+	public void umGoTOPerchaseProc() {
+		opener.PcOpen();
+	}
+	//버튼 클릭으로 PT예약페이지로 전환
+	public void umGoTOBoProc() {
+		opener.boOpen();
+	}
+	//버튼 클릭으로 회원정보 수정 페이지로 전환
+	public void umGoToInbobyProc() {
+		opener.inbodySelectOpen();
 	}
 }

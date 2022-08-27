@@ -30,7 +30,17 @@ public class UMService {
 	}
 	//쿼리문으로 헬스이용마지막 날 가져오기
 	public String getLastDay() {
-		String lastday = umDao.lastday(userId);
+		UMDTO umDto = umDao.lastday(userId);
+		int expireYear = umDto.getExpire_year();
+		int expireMonth = umDto.getExpire_month();
+		int expireDay = umDto.getExpire_day();
+		
+		String eyear= Integer.toString(expireYear);
+		String emonth= Integer.toString(expireMonth);
+		String eday= Integer.toString(expireDay);
+		
+		String lastday = eyear+"년 " +emonth+"월 "+eday+"일";
+		
 		return lastday;
 	}
 	//이용권 버튼
