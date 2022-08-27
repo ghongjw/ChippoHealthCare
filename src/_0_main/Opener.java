@@ -25,10 +25,6 @@ public class Opener {
 		
 		try {
 			Parent umform = loader.load();
-			
-			//컨트롤러 실행
-			UMController umController = loader.getController();
-			umController.setumForm(umform);
 		
 			Scene scene = new Scene(umform);
 			

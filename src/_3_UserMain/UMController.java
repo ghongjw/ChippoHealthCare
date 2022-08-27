@@ -2,13 +2,13 @@ package _3_UserMain;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 import _0_main.Opener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -24,7 +24,7 @@ public class UMController implements Initializable{
 	@FXML private Button umLogoutButton;
 	@FXML private Button umpreviousMonth;
 	@FXML private Button umNextMonth;
-	@FXML private Label sDay01,sDay02,sDay03,sDay04,sDay05,sDay06,sDay07,sDay08,sDay09,sDay10;
+	@FXML private Label sDay1,sDay2,sDay3,sDay4,sDay5,sDay6,sDay7,sDay8,sDay9,sDay10;
 	@FXML private Label sDay11,sDay12,sDay13,sDay14,sDay15,sDay16,sDay17,sDay18,sDay19,sDay20;
 	@FXML private Label sDay21,sDay22,sDay23,sDay24,sDay25,sDay26,sDay27,sDay28,sDay29,sDay30;
 	@FXML private Label sDay31,sDay32,sDay33,sDay34,sDay35;
@@ -41,20 +41,17 @@ public class UMController implements Initializable{
 	private UMService umService;
 	//창 불러오기
 	private Opener opener;
-	private String userId="a";
-	private String userName="b";
-	private Parent umform;
+	private String userId="doremi";
+	private String userName="fasora";
+	ArrayList<Label> sdays = new ArrayList<Label>();
 	
-
 	private int year,month,day;
 	private String stryear,strmonth,strday;
 	
-	public void setumForm(Parent umform) {
-		this.umform=umform;
-	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		umService.(regForm);
+		umService=new UMService();
+		umService.setId(userId, userName);
 		// TODO Auto-generated method stub
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -70,48 +67,27 @@ public class UMController implements Initializable{
 		umMonth.setText(strmonth);
 		this.month=Integer.parseInt(strmonth);
 		
-		umIDLabel.setText(userId);
+		umIDLabel.setText(umService.getId());
 		
-		umNameLabel.setText(userName);
-		umNameLabel2.setText(userName);
+		umNameLabel.setText(umService.getName());
+		umNameLabel2.setText(umService.getName());
 		umService.getId();
 		
-		//umLastday.setText(umService.getLastDay());
-		//umPtLabel.setText(umService.getPTCount());
+		umLastday.setText(umService.getLastDay());
+		umPtLabel.setText(umService.getPTCount());
+		
+		addSDayLabel();
 	}
 	public void setOpener(Opener opener) {
 		this.opener = opener;
-	}
-	//서비스에서 아이디값 호출
-	public void setIdLabel() {
-		userId=umService.getId();
-		umIDLabel.setText(userId);
-	}
-	//서비스 에서 이름 호출 후 라벨에 표시
-	
-	//서비스에서 헬스 이용 마지막 날 호출 후 라벨에 표시
-	public void umLastday() {
-		umPtLabel.setText(umService.getLastDay());
-	}
-	//서비스에서 헬스 피티이용수 호출 후 라벨에 표시
-	public void umPtLabel() {
-		
 	}
 
 	public void umLogoutButtonProc() {
 		//로그아웃 하시겠습니까
 		//welcome화면으로 가기
 	}
-	public void setUmYearLabel() {
-		umYear.setText(stryear);
-		this.year=Integer.parseInt(stryear);
-	}
-	public void setUmMonthLabel() {
-		umMonth.setText(strmonth);
-		this.year=Integer.parseInt(strmonth);
-	}
-	//opener에서 그 날의 월을 가져온 후 라벨에 효시
-	
+
+	//달력  연월 과거이동
 	public void umpreviousMonthProc() {
 		if(month==1) {
 			month=12;
@@ -121,16 +97,22 @@ public class UMController implements Initializable{
 		umYear.setText(Integer.toString(year));
 		umMonth.setText(Integer.toString(month));
 	}
+	//달력  연월 미래 이동
 	public void umNextMonthProc() {
 		if(month==12) {
 			month=1;
 			year++;
-			
 		}
 		else month++;
 		umYear.setText(Integer.toString(year));
 		umMonth.setText(Integer.toString(month));
 	}
+	public void addSDayLabel() {
+		sdays.add(sDay1);sdays.add(sDay2);sdays.add(sDay3);sdays.add(sDay4);sdays.add(sDay5);
+	}
+	
+	
+	
 	//버튼 클릭으로 회원정보 수정 페이지로 전환
 	public void umgoToUiButtonProc() {
 		opener.userInfoUpdateConfirmPwOpen();

@@ -12,20 +12,16 @@ public class UMService {
 	UMDTO umDto;
 	public UMService() {
 		umDao = new UMDAO();
-		umDto = new UMDTO();
-
+		umDto=new UMDTO();
 	}
 
 	public void setId(String userId,String userName) {
 		this.userId=userId;
 		this.userName=userName;
-		//umController.setUmYearLabel();
-		//umController.setUmMonthLabel();
+		umDto.setId(userId);
 	}
-	
 	//라벨에 아이디값 전송
 	public String getId() {
-		System.out.println(userId);
 		return userId;
 	}
 	//라벨에 이름 값 전송
@@ -52,6 +48,5 @@ public class UMService {
 		
 		return lastday;
 	}
-	//이용권 버튼
 	
 }

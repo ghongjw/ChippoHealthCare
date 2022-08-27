@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<ScrollPane minViewportHeight="500.0" prefViewportHeight="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
+<ScrollPane minViewportHeight="500.0" prefViewportHeight="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
    <content>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="750.0" style="-fx-background-color: white;">
          <top>
@@ -191,7 +191,7 @@
                               <Label alignment="CENTER" text="토" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <VBox fx:id="dBox01" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay01" text="sDay">
+                                    <Label fx:id="sDay1" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -205,7 +205,7 @@
                               </VBox>
                               <VBox fx:id="dBox02" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay02" text="sDay">
+                                    <Label fx:id="sDay2" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -219,7 +219,7 @@
                               </VBox>
                               <VBox fx:id="dBox03" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay03" text="sDay">
+                                    <Label fx:id="sDay3" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -233,7 +233,7 @@
                               </VBox>
                               <VBox fx:id="dBox04" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay04" text="sDay">
+                                    <Label fx:id="sDay4" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -247,7 +247,7 @@
                               </VBox>
                               <VBox fx:id="dBox05" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay05" text="sDay">
+                                    <Label fx:id="sDay5" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -261,7 +261,7 @@
                               </VBox>
                               <VBox fx:id="dBox06" GridPane.columnIndex="5" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay06" text="sDay">
+                                    <Label fx:id="sDay6" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -275,7 +275,7 @@
                               </VBox>
                               <VBox fx:id="dBox07" GridPane.columnIndex="6" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay07" text="sDay">
+                                    <Label fx:id="sDay7" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -289,7 +289,7 @@
                               </VBox>
                               <VBox fx:id="dBox08" GridPane.rowIndex="2">
                                  <children>
-                                    <Label fx:id="sDay08" text="sDay">
+                                    <Label fx:id="sDay8" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -303,7 +303,7 @@
                               </VBox>
                               <VBox fx:id="dBox09" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <Label fx:id="sDay09" text="sDay">
+                                    <Label fx:id="sDay9" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -685,7 +685,7 @@
                   </AnchorPane>
                   <HBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0" spacing="100.0">
                      <children>
-                        <Button fx:id="umGoTOPerchase" mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="이용권 구매">
+                        <Button fx:id="umGoTOPerchase" mnemonicParsing="false" onAction="#umgoToUiButtonProc" prefHeight="70.0" prefWidth="150.0" text="이용권 구매">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
