@@ -3,6 +3,7 @@ package _3_UserMain;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import _0_main.Opener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,6 +14,8 @@ public class UMController implements Initializable{
 	@FXML private Label umNameLabel,umNameLabel2;
 	@FXML private Label umLastday;
 	@FXML private Label umPtLabel;
+	@FXML private Label umYear;
+	@FXML private Label umMonth;
 	@FXML private Button umgoToUiButton;
 	@FXML private Button umBackButton;
 	@FXML private Button umLogoutButton;
@@ -30,16 +33,19 @@ public class UMController implements Initializable{
 	@FXML private Button umGoTOBo;
 	@FXML private Button umGoToRc;
 	@FXML private Button umGoToInboby;
-	
+
 	//서비스불러오기
 	private UMService umService;
+	//창 불러오기
+	private Opener opener;
 	private String userId;
 	private String userName;
-	
+	private int year,month,day;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	//서비스에서 아이디값 호출
 	public void setIdLabel() {
@@ -51,11 +57,46 @@ public class UMController implements Initializable{
 		umNameLabel.setText(userName);
 		umNameLabel2.setText(userName);
 	}
+
 	public void umLastday() {
 		umPtLabel.setText(umService.getLastDay());
 	}
-	
+
 	public void umPtLabel() {
 		umPtLabel.setText(umService.getPTCount());
+	}
+
+	public void umLogoutButtonProc() {
+		//로그아웃 하시겠습니까
+		//welcom화면으로 가기
+	}
+
+	public void setUmYearLabel() {
+		String year = opener.getYear();
+		umYear.setText(year);
+		this.year=Integer.parseInt(year);
+	}
+	public void setUmMonthLabel() {
+		String month = opener.getMonth();
+		umMonth.setText(month);
+		this.month=Integer.parseInt(month);
+	}
+	public void umpreviousMonthProc() {
+		if(month==0) {
+			month=12;
+			year--;
+		}
+		else month--;
+
+	}
+	public void umNextMonthProc() {
+		if(month==13) {
+			month=1;
+			year++;
+		}
+		else month++;
+	}
+	public void umgoToUiButtonProc() {
+
 	}
 }

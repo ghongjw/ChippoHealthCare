@@ -4,12 +4,15 @@ public class UMService {
 	private UMDAO umDao;
 	private String userId;
 	private String userName;
+	private UMController umController;
 	//유저 메인 실행(이 메서ㅡ의 구현은 로그인 이밴트로
 	public UMService(String userId,String userName) {
 		umDao = new UMDAO();
 		this.userId=userId;
 		getId();//유저메인화면구현과 동시에  아이디표시
 		getName();
+		umController.setUmYearLabel();
+		umController.setUmMonthLabel();
 	}
 	
 	//라벨에 아이디값 전송
@@ -30,5 +33,6 @@ public class UMService {
 		String lastday = umDao.lastday(userId);
 		return lastday;
 	}
+	//이용권 버튼
 	
 }
