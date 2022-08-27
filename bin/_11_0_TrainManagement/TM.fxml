@@ -18,12 +18,12 @@
    <top>
       <AnchorPane maxHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="208.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="home" fitHeight="150.0" fitWidth="208.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Users/SON/Desktop/취뽀헬스장%20프로젝트/로고.png" />
+                  <Image url="@../../../로고.png" />
                </image>
             </ImageView>
-            <Button layoutX="47.0" layoutY="56.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="&lt;" />
+            <Button fx:id="back" layoutX="47.0" layoutY="56.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="&lt;" />
          </children>
       </AnchorPane>
    </top>
@@ -37,8 +37,8 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Button layoutX="605.0" layoutY="4.0" mnemonicParsing="false" text="등록" />
-                  <Button alignment="CENTER_RIGHT" layoutX="675.0" layoutY="4.0" mnemonicParsing="false" text="삭제" />
+                  <Button fx:id="reg" layoutX="605.0" layoutY="4.0" mnemonicParsing="false" text="등록" />
+                  <Button fx:id="delete" alignment="CENTER_RIGHT" layoutX="675.0" layoutY="4.0" mnemonicParsing="false" text="삭제" />
                </children>
             </AnchorPane>
          </top>
@@ -54,7 +54,7 @@
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <ListView prefHeight="200.0" prefWidth="200.0" />
+                              <ListView fx:id="point" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -64,7 +64,7 @@
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <ListView prefHeight="200.0" prefWidth="200.0" />
+                              <ListView fx:id="trainer" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                         <VBox prefHeight="217.0" prefWidth="219.0">
@@ -74,7 +74,7 @@
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <DatePicker />
+                              <DatePicker fx:id="date" />
                            </children>
                         </VBox>
                      </children>
@@ -91,56 +91,56 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="07:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time1" mnemonicParsing="false" text="07:00" />
+                              <Label fx:id="name1" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="09:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time2" mnemonicParsing="false" text="09:00" />
+                              <Label fx:id="name2" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="11:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time3" mnemonicParsing="false" text="11:00" />
+                              <Label fx:id="name3" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="13:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time4" mnemonicParsing="false" text="13:00" />
+                              <Label fx:id="name4" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="15:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time5" mnemonicParsing="false" text="15:00" />
+                              <Label fx:id="name5" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="17:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time6" mnemonicParsing="false" text="17:00" />
+                              <Label fx:id="name6" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="19:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time7" mnemonicParsing="false" text="19:00" />
+                              <Label fx:id="name7" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="21:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time8" mnemonicParsing="false" text="21:00" />
+                              <Label fx:id="name8" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="23:00" />
-                              <Label text="Label" />
+                              <CheckBox fx:id="time9" mnemonicParsing="false" text="23:00" />
+                              <Label fx:id="name9" text="Label" />
                            </children>
                         </HBox>
                      </children>
@@ -151,7 +151,7 @@
          <bottom>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" text="저장" />
+                  <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" text="저장" />
                </children>
             </HBox>
          </bottom>
