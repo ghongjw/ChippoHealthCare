@@ -57,4 +57,21 @@ public class UMDAO {
 		}return ptc;
 	}
 
+	public String ptbooked(String monyear) {
+		System.out.println(monyear);
+		String ptb="";
+		String sql="SELECT WORKOUTDAY FROM USERID_TIME WHERE WORKOUTDAY LIKE ? AND TRAINER IS NOT NULL";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1,'%' + monyear + '%');
+			rs=ps.executeQuery();
+			while(rs.next())
+				System.out.println(rs.getString("WORKOUTDAY"));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("PTCount 쿼리에 문제가 있습니다");
+		}return ptb;
+	}
+
 }

@@ -8,12 +8,14 @@ public class UMService {
 	private String userId;
 	private String userName;
 	private UMController umController;
+	private int year,month;
 	//유저 메인 실행(이 메서드의 구현은 로그인 이밴트로
 	UMDTO umDto;
 	public UMService() {
 		umDao = new UMDAO();
 		umDto=new UMDTO();
 	}
+	
 
 	public void setId(String userId,String userName) {
 		this.userId=userId;
@@ -47,6 +49,23 @@ public class UMService {
 		String lastday = eyear+"년 " +emonth+"월 "+eday+"일";
 		
 		return lastday;
+	}
+	private String ayear;
+	private String amonth;
+	private String aday;
+	public void bookedPtDate(String year,String month) {
+		//뭐리문에서 like로 부르려 한다
+		String monyear = year+"-"+month;
+		String a = umDao.ptbooked(monyear);
+		System.out.println("monyear:" + monyear);
+//		String[] aSplit = a.split("-");
+//		ayear = aSplit[0];
+//		amonth = aSplit[1];
+//		aday = aSplit[2];
+		
+	}
+	public String getaday() {
+		return aday;
 	}
 	
 }
