@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
+<ScrollPane minViewportWidth="750.0" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
    <content>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="750.0" style="-fx-background-color: white;">
          <top>
@@ -48,27 +47,31 @@
                         </VBox>
                         <VBox prefHeight="149.0" prefWidth="541.0" spacing="10.0">
                            <children>
-                              <HBox prefHeight="32.0" prefWidth="190.0">
+                              <HBox prefHeight="32.0" prefWidth="190.0" spacing="200.0">
                                  <children>
-                                    <Label text="ID : ">
-                                       <font>
-                                          <Font name="Arial" size="18.0" />
-                                       </font>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="ID : ">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="17.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label fx:id="umIDLabel" text="ID">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="17.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" text="로그아웃">
                                        <HBox.margin>
-                                          <Insets top="17.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label fx:id="umIDLabel" text="ID">
-                                       <font>
-                                          <Font name="Arial" size="18.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets top="17.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" text="로그아웃">
-                                       <HBox.margin>
-                                          <Insets left="400.0" />
+                                          <Insets />
                                        </HBox.margin>
                                     </Button>
                                  </children>
@@ -94,17 +97,7 @@
                                           <Font name="Arial" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label text="님의 취뽀헬스장 이용 기간은 ">
-                                       <font>
-                                          <Font name="Arial" size="18.0" />
-                                       </font>
-                                    </Label>
                                     <Label fx:id="umLastday" text="LASTDAY">
-                                       <font>
-                                          <Font name="Arial" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="까지 입니다.">
                                        <font>
                                           <Font name="Arial" size="18.0" />
                                        </font>
@@ -784,12 +777,12 @@
                   </AnchorPane>
                   <HBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0" spacing="100.0">
                      <children>
-                        <Button fx:id="umGoTOPerchase" mnemonicParsing="false" onAction="#umgoToUiButtonProc" prefHeight="70.0" prefWidth="150.0" text="이용권 구매">
+                        <Button fx:id="umGoTOPerchase" mnemonicParsing="false" onAction="#umGoTOPerchaseProc" prefHeight="70.0" prefWidth="150.0" text="이용권 구매">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="umGoTOBo" mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="PT 예약">
+                        <Button fx:id="umGoTOBo" mnemonicParsing="false" onAction="#umGoTOBoProc" prefHeight="70.0" prefWidth="150.0" text="PT 예약">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -798,12 +791,12 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0" spacing="100.0">
                      <children>
-                        <Button fx:id="umGoToRc" mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="운동기록">
+                        <Button fx:id="umGoToRc" mnemonicParsing="false" onAction="#umGoToRcProc" prefHeight="70.0" prefWidth="150.0" text="운동기록">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="umGoToInboby" mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="INBODY">
+                        <Button fx:id="umGoToInboby" mnemonicParsing="false" onAction="#umGoToInbobyProc" prefHeight="70.0" prefWidth="150.0" text="INBODY">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>

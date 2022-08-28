@@ -41,6 +41,7 @@ public class UMController implements Initializable{
 
 	//서비스불러오기
 	private UMService umService;
+	private UMDTO umDto;
 	//창 불러오기
 	private Opener opener;
 	private String userId="doremi";
@@ -53,7 +54,6 @@ public class UMController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		umService=new UMService();
 		umService.setId(userId, userName);
-		// TODO Auto-generated method stub
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String regDate = sdf.format(date);
@@ -62,6 +62,7 @@ public class UMController implements Initializable{
 		strmonth = DateSplit[1];
 		strday = DateSplit[2];
 
+		
 		this.year=Integer.parseInt(stryear);
 		umYear.setText(stryear);
 
@@ -81,16 +82,19 @@ public class UMController implements Initializable{
 		int m = Integer.parseInt(strmonth);
 		String strm =Integer.toString(m);
 		umService.bookedPtDate(stryear,strm);
+		
+		
 	}
-	
+
+	//oper참조값 불러오기
 	public void setOpener(Opener opener) {
 		this.opener = opener;
 	}
-
 	public void umLogoutButtonProc() {
 		//로그아웃 하시겠습니까
 		//welcome화면으로 가기
 	}
+	//PT예약일 보내주기
 	public void setbook() {
 		umYear.setText(Integer.toString(year));
 		umMonth.setText(Integer.toString(month));
@@ -125,10 +129,8 @@ public class UMController implements Initializable{
 	//요일
 	public int calMonth1stDayWeek() {
 		Calendar calendar = Calendar.getInstance();
-        Date currentTime = new Date();
         String YMD = year + "-" + month + "-01";
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String today = formatter.format(currentTime);
         try {
             calendar.setTime(formatter.parse(YMD));
         } catch (ParseException e) {
@@ -188,7 +190,6 @@ public class UMController implements Initializable{
 			System.out.println("j : "+sDays[j]);
 			sDays[j].setText(" ");
 			System.out.println("te"+sDays[j].getText());
-			
 		}
 		for (int i = 1; i <= dayMax; i++) {
 			sDays[j+i-2].setText(Integer.toString(i));
@@ -200,12 +201,10 @@ public class UMController implements Initializable{
 			indexBoPt=Ptmon.get(i)+dayWeek1;
 			ptReserves[indexBoPt-2].setText("피티 예약중");
 		}
-		
 	}
-	
-
 	//버튼 클릭으로 회원정보 수정 페이지로 전환
 	public void umgoToUiButtonProc() {
+		
 		opener.userInfoUpdateConfirmPwOpen();
 	}
 	//버튼 클릭으로 이용권 구매페이지로 전환
@@ -216,17 +215,14 @@ public class UMController implements Initializable{
 	public void umGoTOBoProc() {
 		opener.boOpen();
 	}
-	//버튼 클릭으로 인바디로 전환
-	public void umGoToInbobyProc() {
-		opener.inbodySelectOpen();
-	}
 	//운동기록전환
 	public void umGoToRcProc() {
 		opener.inbodySelectOpen();
 	}
-	public int getYear() {
-		// TODO Auto-generated method stub
-		return year;
+	//버튼 클릭으로 인바디로 전환
+	public void umGoToInbobyProc() {
+		opener.inbodySelectOpen();
 	}
-
+	
+	
 }

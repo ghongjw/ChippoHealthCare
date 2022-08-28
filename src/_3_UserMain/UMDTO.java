@@ -2,7 +2,25 @@ package _3_UserMain;
 
 public class UMDTO {
 	private String id, name, workoutday,start_time,end_time,ptbooked;
-	private int expire_year,expire_month,expire_day;
+	private int expire_year,expire_month,expire_day,today_year,today_month,today_day;
+	public int getToday_year() {
+		return today_year;
+	}
+	public void setToday_year(int today_year) {
+		this.today_year = today_year;
+	}
+	public int getToday_month() {
+		return today_month;
+	}
+	public void setToday_month(int today_month) {
+		this.today_month = today_month;
+	}
+	public int getToday_day() {
+		return today_day;
+	}
+	public void setToday_day(int today_day) {
+		this.today_day = today_day;
+	}
 	public int getExpire_year() {
 		return expire_year;
 	}

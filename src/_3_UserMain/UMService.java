@@ -9,16 +9,12 @@ public class UMService {
 	private UMDAO umDao;
 	private String userId;
 	private String userName;
-	private UMController umController;
-	private int year,month;
 	//유저 메인 실행(이 메서드의 구현은 로그인 이밴트로
 	UMDTO umDto;
 	public UMService() {
 		umDao = new UMDAO();
 		umDto=new UMDTO();
 	}
-	
-
 	public void setId(String userId,String userName) {
 		this.userId=userId;
 		this.userName=userName;
@@ -40,16 +36,23 @@ public class UMService {
 	//쿼리문으로 헬스이용마지막 날 가져오기
 	public String getLastDay() {
 		umDao.lastday(umDto);
+		String lastday;
 		int expireYear = umDto.getExpire_year();
 		int expireMonth = umDto.getExpire_month();
 		int expireDay = umDto.getExpire_day();
 		
+		
+		if(expireYear<umDto.getToday_year()
+				&&expireMonth<umDto.getToday_month()
+				&&expireDay<umDto.getToday_day()) {
+			lastday="이용권을 구매해 주세요";
+		}else {
 		String eyear= Integer.toString(expireYear);
 		String emonth= Integer.toString(expireMonth);
 		String eday= Integer.toString(expireDay);
 		
-		String lastday = eyear+"년 " +emonth+"월 "+eday+"일";
-		
+		lastday = "님의 남은 이용기간은"+ eyear+"년" +emonth+"월"+eday+"일"+"입니다.";
+		}
 		return lastday;
 	}
 	private String ayear;
@@ -77,5 +80,6 @@ public class UMService {
 	public String getaday() {
 		return aday;
 	}
+	
 	
 }

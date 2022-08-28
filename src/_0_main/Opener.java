@@ -1,10 +1,7 @@
 package _0_main;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import _3_UserMain.UMController;
-import _3_UserMain.UMService;
+import _4_perchase.PcController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,7 +12,7 @@ public class Opener {
 	
 	private String id,name;
 	
-
+	private Opener opener;
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
@@ -25,9 +22,12 @@ public class Opener {
 		
 		try {
 			Parent umform = loader.load();
-		
-			Scene scene = new Scene(umform);
 			
+			UMController umCon = loader.getController();
+			umCon.setOpener(opener);
+			
+			
+			Scene scene = new Scene(umform);
 			primaryStage.setTitle("유저 메인 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -40,10 +40,14 @@ public class Opener {
 	
 	//이용권 구매 화면띄우기
 		public void PcOpen() {
+			System.out.println("여기");
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
 			try {
 				Parent pcForm = loader.load();
-
+				
+				PcController pcCon = loader.getController();
+				pcCon.setOpener(opener);
+				
 				Scene scene = new Scene(pcForm);
 				primaryStage.setTitle("이용권 구매 화면");
 				primaryStage.setScene(scene);
@@ -56,7 +60,7 @@ public class Opener {
 	}
 		//PT예약페이지띄우기
 		public void boOpen() {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("book.fxml"));
 			try {
 				Parent boForm = loader.load();
 
@@ -72,7 +76,7 @@ public class Opener {
 	}
 		//운동 기록 페이지띄우기
 		public void rcOpen() {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("record.fxml"));
 			try {
 				Parent rcForm = loader.load();
 
@@ -88,7 +92,7 @@ public class Opener {
 	}
 		//INBODY 조회창 띄우기
 		public void inbodySelectOpen() {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("inbodySelect.fxml"));
 			try {
 				Parent isForm = loader.load();
 
@@ -104,7 +108,7 @@ public class Opener {
 	}
 		//INBODY 입력창 띄우기
 				public void inbodyInsertOpen() {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("InbodyRegister.fxml"));
 					try {
 						Parent irForm = loader.load();
 
@@ -120,7 +124,7 @@ public class Opener {
 			}
 				//회원정보 수정(패스워드 확인창)
 				public void userInfoUpdateConfirmPwOpen() {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoUpdate1.fxml"));
 					try {
 						Parent uicForm = loader.load();
 
@@ -136,7 +140,7 @@ public class Opener {
 			}
 				//회원정보 수정
 				public void userInfoUpdateOpen() {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoUpdate2.fxml"));
 				try {
 					Parent uiForm = loader.load();
 
@@ -148,8 +152,11 @@ public class Opener {
 					CommonService.msg("//회원정보 수정화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
 					e.printStackTrace();
 				}
-		
 		}
+				public void setOpener(Opener opener) {
+					this.opener=opener;
+				}
+	
 			
 		
 }
