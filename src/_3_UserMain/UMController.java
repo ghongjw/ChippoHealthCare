@@ -138,7 +138,6 @@ public class UMController implements Initializable{
         // 1(일) 2(월) 3(화) 4(수) 5(목) 6(금) 7(토)
         return dayNum;
 	}
-
 	public void buildPastCalendar(){
 		// (연, 월을 입력받으면 그 연, 월의 달력을 출력.)
 		// 1. 연, 월 결정 = 파라미터로 받아옴

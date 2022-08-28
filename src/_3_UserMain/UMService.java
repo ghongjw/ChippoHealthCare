@@ -57,7 +57,12 @@ public class UMService {
 	private String aday;
 	public ArrayList<Integer> bookedPtDate(String year,String month) {
 		//뭐리문에서 like로 부르려 한다
-		String monyear = year+"-"+month;
+		String monyear="";
+		if(month.length()==1) {
+		monyear = year+"-0"+month;
+		}else if(month.length()==2) {
+			monyear = year+"-"+month;
+		}
 		ArrayList<String> PTDay = umDao.ptbooked(monyear);
 		ArrayList<Integer> Ptmon = new ArrayList();
 		System.out.println("monyear:" + monyear);
