@@ -1,5 +1,7 @@
 package _3_UserMain;
 
+import java.util.ArrayList;
+
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 
@@ -53,16 +55,19 @@ public class UMService {
 	private String ayear;
 	private String amonth;
 	private String aday;
-	public void bookedPtDate(String year,String month) {
+	public ArrayList<Integer> bookedPtDate(String year,String month) {
 		//뭐리문에서 like로 부르려 한다
 		String monyear = year+"-"+month;
-		String a = umDao.ptbooked(monyear);
+		ArrayList<String> PTDay = umDao.ptbooked(monyear);
+		ArrayList<Integer> Ptmon = new ArrayList();
 		System.out.println("monyear:" + monyear);
-//		String[] aSplit = a.split("-");
-//		ayear = aSplit[0];
-//		amonth = aSplit[1];
-//		aday = aSplit[2];
-		
+		for(int i = 0; i<PTDay.size();i++) {
+			String tmp = PTDay.get(i);
+			String[] sp=tmp.split("-");
+			Ptmon.add(Integer.parseInt(sp[2]));
+			System.out.println("sp[2]"+sp[2]);
+		}
+		return Ptmon;
 	}
 	public String getaday() {
 		return aday;

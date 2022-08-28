@@ -31,7 +31,7 @@ public class UMController implements Initializable{
 	@FXML private Label sDay21,sDay22,sDay23,sDay24,sDay25,sDay26,sDay27,sDay28,sDay29,sDay30;
 	@FXML private Label sDay31,sDay32,sDay33,sDay34,sDay35,sDay36,sDay37,sDay38,sDay39,sDay40,sDay41,sDay42;
 	@FXML private Label ptReserve01,ptReserve02,ptReserve03,ptReserve04,ptReserve05,ptReserve06,ptReserve07,ptReserve08,ptReserve09,ptReserve10;
-	@FXML private Label ptReserve11,ptReserve12,ptReserve13,ptReserve14,ptReserve15,ptReserve16,ptReserve17,ptReserve8,ptReserve19,ptReserve20;
+	@FXML private Label ptReserve11,ptReserve12,ptReserve13,ptReserve14,ptReserve15,ptReserve16,ptReserve17,ptReserve18,ptReserve19,ptReserve20;
 	@FXML private Label ptReserve21,ptReserve22,ptReserve23,ptReserve24,ptReserve25,ptReserve26,ptReserve27,ptReserve28,ptReserve29,ptReserve30;
 	@FXML private Label ptReserve31,ptReserve32,ptReserve33,ptReserve34,ptReserve35,ptReserve36,ptReserve37,ptReserve38,ptReserve39,ptReserve40,ptReserve41,ptReserve42;
 	@FXML private Button umGoTOPerchase;
@@ -164,20 +164,25 @@ public class UMController implements Initializable{
 
 	public void printCalendar(int year, int month, int dayMax, int dayWeek1) {
 		// 월의 1일의 요일부터(dayWeek1) 1~최대일 출력.
-		Label[] ptReserves = new Label[] {ptReserve01,ptReserve02,ptReserve03,ptReserve04,ptReserve05,
+		Label[] ptReserves = new Label[] {
+				ptReserve01,ptReserve02,ptReserve03,ptReserve04,ptReserve05,
 				ptReserve06,ptReserve07,ptReserve08,ptReserve09,ptReserve10,
 				ptReserve11,ptReserve12,ptReserve13,ptReserve14,ptReserve15,
-				ptReserve16,ptReserve17,ptReserve8,ptReserve19,ptReserve20,
+				ptReserve16,ptReserve17,ptReserve18,ptReserve19,ptReserve20,
 				ptReserve21,ptReserve22,ptReserve23,ptReserve24,ptReserve25,
 				ptReserve26,ptReserve27,ptReserve28,ptReserve29,ptReserve30,
-				ptReserve31,ptReserve32,ptReserve33,ptReserve34,ptReserve35};
+				ptReserve31,ptReserve32,ptReserve33,ptReserve34,ptReserve35,
+				ptReserve36,ptReserve37,ptReserve38,ptReserve39,ptReserve40,
+				ptReserve41,ptReserve42};
 		Label[] sDays = new Label[] {
 				sDay1,sDay2,sDay3,sDay4,sDay5,sDay6,sDay7,sDay8,sDay9,sDay10,
 				sDay11,sDay12,sDay13,sDay14,sDay15,sDay16,sDay17,sDay18,sDay19,sDay20,
 				sDay21,sDay22,sDay23,sDay24,sDay25,sDay26,sDay27,sDay28,sDay29,sDay30,
-				sDay31,sDay32,sDay33,sDay34,sDay35,sDay36,sDay37,sDay38,sDay39,sDay40,sDay41,sDay42};
+				sDay31,sDay32,sDay33,sDay34,sDay35,sDay36,sDay37,sDay38,sDay39,sDay40,
+				sDay41,sDay42};
 		for (int i = 0; i < 42; i++) {
 			sDays[i].setText(" ");
+			ptReserves[i].setText(" ");
 		}
 		int j=0;
 		for (j = 1; j < dayWeek1; j++) {
@@ -189,9 +194,16 @@ public class UMController implements Initializable{
 		for (int i = 1; i <= dayMax; i++) {
 			sDays[j+i-2].setText(Integer.toString(i));
 		}
-		//int reserved=Integer.parseInt(umService.getaday())+dayWeek1;
-		//ptReserves[reserved].setText("PT예약중");
+		//예약된 PT 날자표시.
+		ArrayList<Integer> Ptmon = umService.bookedPtDate(Integer.toString(year),Integer.toString(month));
+		int indexBoPt;
+		for(int i=0;i<Ptmon.size();i++) {
+			indexBoPt=Ptmon.get(i)+dayWeek1;
+			ptReserves[indexBoPt-2].setText("피티 예약중");
+		}
+		
 	}
+	
 
 	//버튼 클릭으로 회원정보 수정 페이지로 전환
 	public void umgoToUiButtonProc() {
