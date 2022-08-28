@@ -10,11 +10,11 @@ public class RTController {
 	}
 
 	// 트레이너 등록 화면에서 사진등록 버튼 누르면 동작하는 메서드
-	public void regimageProc() {
+	public void regImageProc() {
 	}
 
 	// 트레이너 등록 화면에서 등록 버튼 누르면 동작하는 메서드
-	public void dateProc() {
+	public void regProc() {
 	}
 
 }
