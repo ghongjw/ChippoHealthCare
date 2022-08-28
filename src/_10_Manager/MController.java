@@ -1,22 +1,31 @@
 package _10_Manager;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import _0_main.Main;
 import _0_main.Opener;
+import javafx.fxml.Initializable;
 
-public class MController {
+public class MController implements Initializable {
 	private Main main;
 	private Opener opener;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	}
 
 	// 관리자 창에서 뒤로가기 버튼 누르면 뒤로 이동하는 메서드
 	public void backProc() {
 		// 관리자 메인에서 뒤로가기 누르면 로그아웃 할거냐는 창 띄우는거 추가하면 좋을거 같음
 		System.out.println("로그인화면 열기");
-//		main.start();
+//			main.start();
 	}
 
 	// 관리자 창에서 logo 누르면 동작하는 메서드
 	public void homeProc() {
-//		System.out.println("관리자화면(10) 열기");
+//			System.out.println("관리자화면(10) 열기");
 		opener.mmOpen();
 	}
 

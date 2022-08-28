@@ -6,6 +6,9 @@ import java.util.Date;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class Opener {
@@ -157,8 +160,8 @@ public class Opener {
 
 	}
 
-	// 관리자 창 띄우기
-	public void mmOpen() { // mm(ManagementMain)
+	// 10번 관리자 창 띄우기
+	public void mmOpen() { // ManagementMain
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("M.fxml"));
 		try {
 			Parent mmform = loader.load();
@@ -173,12 +176,71 @@ public class Opener {
 
 	}
 
-	// 트레이너관리 창 띄우기
-	public void tmOpen() {
+	// 11번 트레이너관리 창 띄우기
+	public void tmOpen() { // TrainerManagement
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("TM.fxml"));
 		try {
 			Parent tmform = loader.load();
+
 			Scene scene = new Scene(tmform);
+
+			// 지점 추가
+			ListView<String> pointList = (ListView<String>) tmform.lookup("#point");
+			pointList.getItems().addAll("영등포점", "창동점", "홍제점", "의정부점", "강남점", "송파점", "분당점", "성수점", "노량진점", "부산점");
+
+			// 트레이너 추가
+			// 지점을 선택하면 해당 트레이너들이 나와야함
+			// 제대로 접근했는지 모르겠음
+			if (pointList.getItems().equals("영등포점")) {
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("영등포점1", "영등포점", "영등포점3");
+			}
+
+			else if (pointList.getItems().equals("창동점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("창동점1", "창동점2", "창동점3");
+			}
+
+			else if (pointList.getItems().equals("홍제점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("홍제점1", "홍제점2", "홍제점3");
+			}
+
+			else if (pointList.getItems().equals("의정부점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("의정부점1", "의정부점2", "의정부점3");
+			}
+
+			else if (pointList.getItems().equals("강남점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("강남점1", "강남점2", "강남점3");
+			}
+
+			else if (pointList.getItems().equals("송파점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("송파점1", "송파점", "송파점3");
+			}
+
+			else if (pointList.getItems().equals("분당점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("분당점1", "분당점2", "분당점3");
+			}
+
+			else if (pointList.getItems().equals("성수점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("성수점1", "성수점2", "성수점3");
+			}
+
+			else if (pointList.getItems().equals("노량진점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("노량진점1", "노량진점2", "노량진점3");
+			}
+
+			else if (pointList.getItems().equals("부산점")) {// 제대로 접근했는지 모르겠음
+				ListView<String> trainer = (ListView<String>) tmform.lookup("#trainer");
+				pointList.getItems().addAll("부산점1", "부산점", "부산점3");
+			}
+
 			primaryStage.setTitle("트레이너관리 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -189,13 +251,73 @@ public class Opener {
 
 	}
 
-	// 회원검색 창 띄우기
-	public void msOpen() {
+	// 11-1 트레이너 등록 창 띄우기
+	public void rtOpen() { // RegTrainer
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("RT.fxml"));
+		try {
+			Parent rtform = loader.load();
+			Scene scene = new Scene(rtform);
+
+			ComboBox<String> pointCombo = (ComboBox<String>) rtform.lookup("#regPoint");
+			pointCombo.getItems().addAll("영등포점", "창동점", "홍제점", "의정부점", "강남점", "송파점", "분당점", "성수점", "노량진점", "부산점");
+
+			primaryStage.setTitle("트레이너 등록 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("회원검색 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
+	// 11-2 트레이너 삭제 창 띄우기
+	public void delOpen() { // delete
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("deleteTrainer.fxml"));
+		try {
+			Parent delform = loader.load();
+			Scene scene = new Scene(delform);
+			primaryStage.setTitle("트레이너 삭제 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("회원검색 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
+	// 12번 회원검색 창 띄우기
+	public void msOpen() { // MemberSearch
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("memberSearch.fxml"));
 		try {
 			Parent msform = loader.load();
 			Scene scene = new Scene(msform);
+
+			TableView<String> memberTable = (TableView<String>) msform.lookup("#memberList");
+			// 이름 검색했을때 해당 이름이 추가돼야하는데 DB랑 연관지어야함
+
 			primaryStage.setTitle("회원검색 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("회원검색 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
+	// 12-1 회원 정보 수정 창 띄우기
+	public void reviseOpen() { // delete
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("memberRevise.fxml"));
+		try {
+			Parent reviseform = loader.load();
+			Scene scene = new Scene(reviseform);
+
+			ComboBox<String> pointCombo = (ComboBox<String>) reviseform.lookup("#point");
+			pointCombo.getItems().addAll("영등포점", "창동점", "홍제점", "의정부점", "강남점", "송파점", "분당점", "성수점", "노량진점", "부산점");
+
+			primaryStage.setTitle("회원 정보 수정 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
