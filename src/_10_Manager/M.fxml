@@ -13,7 +13,7 @@
          <children>
             <ImageView fx:id="home" fitHeight="150.0" fitWidth="208.0" layoutX="285.0" onMouseClicked="#homeProc" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../로고.png" />
+                  <Image url="@../../../../../Users/SON/Desktop/취뽀헬스장%20프로젝트/SemiProject/src/로고.png" />
                </image>
             </ImageView>
             <Button fx:id="back" layoutX="47.0" layoutY="56.0" mnemonicParsing="false" onAction="#backProc" prefHeight="30.0" prefWidth="30.0" text="&lt;" />
