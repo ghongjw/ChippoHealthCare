@@ -1,6 +1,8 @@
 package _3_UserMain;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -9,6 +11,8 @@ public class UMService {
 	private UMDAO umDao;
 	private String userId;
 	private String userName;
+	private int todayYear,todayMonth,todayDay;
+	private String stryear,strmonth,strday;
 	//유저 메인 실행(이 메서드의 구현은 로그인 이밴트로
 	UMDTO umDto;
 	public UMService() {
@@ -36,22 +40,24 @@ public class UMService {
 	//쿼리문으로 헬스이용마지막 날 가져오기
 	public String getLastDay() {
 		umDao.lastday(umDto);
-		String lastday;
+		String lastday = null;
 		int expireYear = umDto.getExpire_year();
 		int expireMonth = umDto.getExpire_month();
 		int expireDay = umDto.getExpire_day();
-		
-		
-		if(expireYear<umDto.getToday_year()
-				&&expireMonth<umDto.getToday_month()
-				&&expireDay<umDto.getToday_day()) {
-			lastday="이용권을 구매해 주세요";
-		}else {
+
+		System.out.println("today"+expireYear+todayYear+expireMonth+todayMonth+expireDay+todayDay);
 		String eyear= Integer.toString(expireYear);
 		String emonth= Integer.toString(expireMonth);
 		String eday= Integer.toString(expireDay);
-		
-		lastday = "님의 남은 이용기간은"+ eyear+"년" +emonth+"월"+eday+"일"+"입니다.";
+
+		if(expireYear>todayYear)lastday = "님의 남은 이용기간은"+ eyear+"년" +emonth+"월"+eday+"일"+"입니다.";
+		else if(expireYear==todayYear) {
+			if(expireMonth>todayMonth)lastday = "님의 남은 이용기간은"+ eyear+"년" +emonth+"월"+eday+"일"+"입니다.";
+			else if(expireMonth==todayMonth) {
+				if(expireDay>=todayDay)lastday = "님의 남은 이용기간은"+ eyear+"년" +emonth+"월"+eday+"일"+"입니다.";
+				else lastday="님! 이용권을 구매해 주세요";
+			}
+			
 		}
 		return lastday;
 	}
@@ -62,7 +68,7 @@ public class UMService {
 		//뭐리문에서 like로 부르려 한다
 		String monyear="";
 		if(month.length()==1) {
-		monyear = year+"-0"+month;
+			monyear = year+"-0"+month;
 		}else if(month.length()==2) {
 			monyear = year+"-"+month;
 		}
@@ -80,6 +86,41 @@ public class UMService {
 	public String getaday() {
 		return aday;
 	}
-	
-	
+	public void today() {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String regDate = sdf.format(date);
+		String[] DateSplit = regDate.split("-");
+		stryear = DateSplit[0];
+		strmonth = DateSplit[1];
+		strday = DateSplit[2];
+
+		todayYear=Integer.parseInt(stryear);
+		todayMonth=Integer.parseInt(strmonth);
+		todayDay=Integer.parseInt(strday);
+	}
+	public int getTodayYear() {
+		return todayYear;
+	}
+
+	public int getTodayMonth() {
+		return todayMonth;
+	}
+
+	public int getTodayDay() {
+		return todayDay;
+	}
+	public String getStryear() {
+		return stryear;
+	}
+	public String getStrmonth() {
+		return strmonth;
+	}
+	public String getStrday() {
+		return strday;
+	}
+
+
+
+
 }

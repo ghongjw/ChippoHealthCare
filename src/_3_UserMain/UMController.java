@@ -48,27 +48,24 @@ public class UMController implements Initializable{
 	private String userName="fasora";
 	ArrayList<Label> sdays = new ArrayList<Label>();
 
-	private int year,month,day;
+	private int year,month,day,todayYear,todayMonth,todayDay;
 	private String stryear,strmonth,strday;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		umService=new UMService();
 		umService.setId(userId, userName);
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String regDate = sdf.format(date);
-		String[] DateSplit = regDate.split("-");
-		stryear = DateSplit[0];
-		strmonth = DateSplit[1];
-		strday = DateSplit[2];
+		umService.today();
 
+		this.year=umService.getTodayYear();
+		this.month=umService.getTodayMonth();
+		this.day=umService.getTodayDay();
+		this.stryear=umService.getStryear();
+		this.strmonth=umService.getStrmonth();
 		
-		this.year=Integer.parseInt(stryear);
-		umYear.setText(stryear);
+		umYear.setText(umService.getStryear());
 
-		this.month=Integer.parseInt(strmonth);
-		String a = Integer.toString(month);
-		umMonth.setText(a);
+		umMonth.setText(umService.getStrmonth());
 
 		umIDLabel.setText(umService.getId());
 
@@ -79,10 +76,8 @@ public class UMController implements Initializable{
 		umLastday.setText(umService.getLastDay());
 		umPtLabel.setText(umService.getPTCount());
 		buildPastCalendar();
-		int m = Integer.parseInt(strmonth);
-		String strm =Integer.toString(m);
-		umService.bookedPtDate(stryear,strm);
 		
+		umService.bookedPtDate(stryear,strmonth);
 		
 	}
 
@@ -217,7 +212,7 @@ public class UMController implements Initializable{
 	}
 	//운동기록전환
 	public void umGoToRcProc() {
-		opener.inbodySelectOpen();
+		opener.rcOpen();
 	}
 	//버튼 클릭으로 인바디로 전환
 	public void umGoToInbobyProc() {
