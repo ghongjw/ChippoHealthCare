@@ -199,8 +199,8 @@ public class UMController implements Initializable{
 	}
 	//버튼 클릭으로 회원정보 수정 페이지로 전환
 	public void umgoToUiButtonProc() {
-		
 		opener.userInfoUpdateConfirmPwOpen();
+		
 	}
 	//버튼 클릭으로 이용권 구매페이지로 전환
 	public void umGoTOPerchaseProc() {
@@ -217,6 +217,9 @@ public class UMController implements Initializable{
 	//버튼 클릭으로 인바디로 전환
 	public void umGoToInbobyProc() {
 		opener.inbodySelectOpen();
+	}
+	public String getuserId() {
+		return userId;
 	}
 	
 	

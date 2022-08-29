@@ -56,9 +56,8 @@ public class UMService {
 			else if(expireMonth==todayMonth) {
 				if(expireDay>=todayDay)lastday = "님의 남은 이용기간은"+ eyear+"년" +emonth+"월"+eday+"일"+"입니다.";
 				else lastday="님! 이용권을 구매해 주세요";
-			}
-			
-		}
+			}else lastday="님! 이용권을 구매해 주세요";
+		}else lastday="님! 이용권을 구매해 주세요";
 		return lastday;
 	}
 	private String ayear;

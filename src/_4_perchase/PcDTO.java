@@ -1,7 +1,15 @@
 package _4_perchase;
 
 public class PcDTO {
-int pcMonth,pcPTCount,expire_year,expire_month,expire_day,ptCount;
+int pcMonth,pcPTCount,expire_year,expire_month,expire_day,ptCount,addPtCount;
+
+public int getAddPtCount() {
+	return addPtCount;
+}
+
+public void setAddPtCount(int addPtCount) {
+	this.addPtCount = addPtCount;
+}
 
 public int getExpire_year() {
 	return expire_year;

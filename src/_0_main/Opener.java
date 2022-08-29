@@ -16,6 +16,8 @@ public class Opener {
 	private String id,name;
 
 	private Opener opener;
+	private PcController pcCon;
+	private PcConfirmController pcconfirmCon;
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
@@ -28,7 +30,7 @@ public class Opener {
 
 			UMController umCon = loader.getController();
 			umCon.setOpener(opener);
-
+			id=umCon.getuserId();
 			Scene scene = new Scene(umform);
 			primaryStage.setTitle("유저 메인 화면");
 			primaryStage.setScene(scene);
@@ -47,9 +49,10 @@ public class Opener {
 		try {
 			Parent pcForm = loader.load();
 
-			PcController pcCon = loader.getController();
+			pcCon = loader.getController();
 			pcCon.setOpener(opener);
-		
+			pcCon.setpcController(pcCon);
+			
 			Scene scene = new Scene(pcForm);
 //			ComboBox<String> ageBox = (ComboBox<String>)pcForm.lookup("#pcPerUse");
 //			ageBox.getItems().addAll("10대", "20대", "30대", "40대");
@@ -68,8 +71,14 @@ public class Opener {
 		Parent conPcForm;
 		try {
 			conPcForm = loader.load();
-			PcConfirmController pcconfirmCon = loader.getController();
+			pcconfirmCon = loader.getController();
 			pcconfirmCon.setpcConfirmForm(conPcForm);
+			pcconfirmCon.setPcController(pcCon);
+			pcconfirmCon.setpcConfirmController(pcconfirmCon);
+			pcconfirmCon.setOpener(opener);
+			
+			
+			
 			
 			Scene scene = new Scene(conPcForm);
 			Stage pcStage = new Stage();
@@ -181,6 +190,10 @@ public class Opener {
 	}
 	public void setOpener(Opener opener) {
 		this.opener=opener;
+	}
+	//회원 아이디 가져오기
+	public String getId() {
+		return id;
 	}
 
 
