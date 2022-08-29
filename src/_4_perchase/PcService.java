@@ -5,10 +5,9 @@ import java.util.Date;
 
 public class PcService {
 	private PcDTO pcDto = new PcDTO();
-	private PcService PcService;
+	PcDAO pcDao;
 	private PcController pcController;
-	private PcConfirmController pcConfirmController;
-	private int todayYear, todayMonth,todayDay,monthFare,MonthTotalFare,expireYear,expireMonth,expireDay,PtCount;
+	private int todayYear, todayMonth,todayDay,monthFare,expireYear,expireMonth,expireDay,PtCount;
 	private int totalFarecal;
 	
 	//헬스장 개월수에 따른 이용료
@@ -25,11 +24,6 @@ public class PcService {
 	
 		return pcUsePare;
 	}
-
-	public void setPTAndExpireDay() {
-
-	}
-
 	public void today() {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -44,7 +38,7 @@ public class PcService {
 		todayDay=Integer.parseInt(strday);
 	}
 	public void perchaced(String id,int monthFare, int ptFare) {
-		PcDAO pcDao = new PcDAO();
+		pcDao = new PcDAO();
 		today();
 		totalFarecal=pcController.getTotalFarecal();
 		pcDao.getLastDay(id,pcDto);
@@ -96,5 +90,8 @@ public class PcService {
 	}
 	public void setPcController(PcController pcController) {
 		this.pcController=pcController;
+	}
+	public void disconnection() {
+		pcDao.disconnection();
 	}
 }

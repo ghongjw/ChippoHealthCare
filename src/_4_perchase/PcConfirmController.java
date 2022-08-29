@@ -28,7 +28,6 @@ public class PcConfirmController implements Initializable{
 	String id;
 
 	public void initialize(URL location, ResourceBundle resources) {
-		
 	}
 	public void setOpener(Opener opener) {
 		this.opener=opener;
@@ -37,7 +36,6 @@ public class PcConfirmController implements Initializable{
 	public void setpcConfirmForm(Parent pcConfirmForm) {
 		this.pcConfirmForm=pcConfirmForm;
 	}
-
 	public void setPcController(PcController pcController) {
 		this.pcController=pcController;
 		monthFare=pcController.getMonthFare();
@@ -47,7 +45,6 @@ public class PcConfirmController implements Initializable{
 		System.out.println(pcService);
 		pcService.setPcController(pcController);
 		pchowmuch.setText(Integer.toString(totalFarecal)+"원을 결제하시겠습니까?");
-		
 	}
 
 	public void setpcController(PcController pcCon) {
@@ -64,6 +61,7 @@ public class PcConfirmController implements Initializable{
 		pcService.perchaced(id,monthFare,ptFare);
 		CommonService.msg("결제되었습니다.");
 		CommonService.windowsClose(pcConfirmForm);
+		pcService.disconnection();
 		opener.umOpen();
 	}
 	public void pscancelButtonProc() {

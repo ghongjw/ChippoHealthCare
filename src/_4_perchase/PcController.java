@@ -107,8 +107,6 @@ public class PcController implements Initializable{
 			CommonService.msg("이용권을 선택해 주세요");
 		}else {
 			opener.comfirmPc();
-
-		
 		}
 	}
 	public void pcCancleButtonProc() {

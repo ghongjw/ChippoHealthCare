@@ -11,12 +11,11 @@ public class PcDAO {
 	private Connection con;
 	private PreparedStatement ps;
 	private ResultSet rs;
-	private UMDTO umDto;
 	public PcDAO() {
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		String user="JOOWON";
 		String password="JOOWON";
-		
+
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			con = DriverManager.getConnection(url, user, password);
@@ -41,7 +40,7 @@ public class PcDAO {
 			e.printStackTrace();
 			System.out.println("PTCount A쿼리에 문제가 있습니다");
 		}return pcDto;
-		
+
 	}
 
 	public void setLastDay(String id, int expireYear, int expireMonth, int expireDay, int ptCount) {
@@ -57,8 +56,25 @@ public class PcDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("PTCount B 쿼리에 문제가 있습니다");
-		
+
+		}
 	}
-	
+
+	public void disconnection() {
+		try {
+			if(rs!=null) {
+				rs.close();
+			}
+			if(ps!=null) {
+				rs.close();
+			}
+			if(con!=null) {
+				rs.close();
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 	}
 }

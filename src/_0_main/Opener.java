@@ -5,6 +5,7 @@ import java.io.IOException;
 import _3_UserMain.UMController;
 import _4_perchase.PcConfirmController;
 import _4_perchase.PcController;
+import _5_book.BoController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -54,9 +55,7 @@ public class Opener {
 			pcCon.setpcController(pcCon);
 			
 			Scene scene = new Scene(pcForm);
-//			ComboBox<String> ageBox = (ComboBox<String>)pcForm.lookup("#pcPerUse");
-//			ageBox.getItems().addAll("10대", "20대", "30대", "40대");
-//			
+		
 			primaryStage.setTitle("이용권 구매 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -100,8 +99,12 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("book.fxml"));
 		try {
 			Parent boForm = loader.load();
-
+			BoController boController = loader.getController();
+			boController.setOpener(opener);
+			//boController.setboconForm(boForm);
 			Scene scene = new Scene(boForm);
+			
+			
 			primaryStage.setTitle("피티 예약 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
