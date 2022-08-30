@@ -182,9 +182,8 @@ public class UMController implements Initializable{
 		}
 		int j=0;
 		for (j = 1; j < dayWeek1; j++) {
-			System.out.println("j : "+sDays[j]);
+
 			sDays[j].setText(" ");
-			System.out.println("te"+sDays[j].getText());
 		}
 		for (int i = 1; i <= dayMax; i++) {
 			sDays[j+i-2].setText(Integer.toString(i));

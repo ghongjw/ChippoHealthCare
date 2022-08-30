@@ -78,7 +78,6 @@ public class UMService {
 			String tmp = PTDay.get(i);
 			String[] sp=tmp.split("-");
 			Ptmon.add(Integer.parseInt(sp[2]));
-			System.out.println("sp[2]"+sp[2]);
 		}
 		return Ptmon;
 	}
