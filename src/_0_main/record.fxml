@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -40,13 +41,41 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
                <children>
-                  <ComboBox prefWidth="300.0" promptText="날짜선택" />
+                  <DatePicker fx:id="rcDatePicker" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="운동시작!" />
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="운동 끝!" />
+                  <VBox alignment="CENTER" prefHeight="141.0" prefWidth="230.0" spacing="10.0">
+                     <children>
+                        <HBox prefHeight="38.0" prefWidth="174.0" spacing="5.0">
+                           <children>
+                              <ComboBox fx:id="SAmPm" prefWidth="150.0" />
+                              <ComboBox fx:id="Shour" prefWidth="150.0" />
+                              <Label text="시" />
+                              <ComboBox fx:id="Smin" prefWidth="150.0" />
+                              <Label text="분" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="Sworkoutbutton" mnemonicParsing="false" onAction="#SworkoutbuttonProc" prefHeight="70.0" prefWidth="150.0" text="운동시작!" />
+                        <Label fx:id="StartTimeLabel" text="Label" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="141.0" prefWidth="230.0" spacing="10.0">
+                     <children>
+                        <HBox prefHeight="38.0" prefWidth="174.0" spacing="5.0">
+                           <children>
+                              <ComboBox fx:id="EAmPm" prefWidth="150.0" />
+                              <ComboBox fx:id="Ehour" prefWidth="150.0" />
+                              <Label text="시" />
+                              <ComboBox fx:id="Emin" prefWidth="150.0" />
+                              <Label text="분" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="Eworkoutbutton" mnemonicParsing="false" onAction="#EworkoutbuttonProc" prefHeight="70.0" prefWidth="150.0" text="운동 끝!" />
+                        <Label fx:id="EndTimeLabel" text="Label" />
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <VBox prefHeight="276.0" prefWidth="750.0" spacing="20.0">
@@ -56,7 +85,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea maxWidth="400.0" minWidth="100.0" prefHeight="200.0" prefWidth="601.0" />
+                  <TextArea fx:id="recordArea" maxWidth="400.0" minWidth="100.0" prefHeight="200.0" prefWidth="601.0" />
                </children>
                <padding>
                   <Insets left="170.0" />
@@ -64,7 +93,7 @@
             </VBox>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="저장" />
+                  <Button fx:id="RcSaveButton" mnemonicParsing="false" onAction="#RcSaveButtonProc" prefHeight="70.0" prefWidth="150.0" text="저장" />
                </children>
             </HBox>
          </children>

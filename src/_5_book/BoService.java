@@ -45,5 +45,8 @@ public class BoService {
 			boDao.setworkoutdayDao(date,id);
 		}
 	}
+	public void discon() {
+		boDao.disconnection();
+	}
 
 }

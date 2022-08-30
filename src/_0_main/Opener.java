@@ -6,6 +6,7 @@ import _3_UserMain.UMController;
 import _4_perchase.PcConfirmController;
 import _4_perchase.PcController;
 import _5_book.BoController;
+import _6_Record.RcController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -122,7 +123,10 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("record.fxml"));
 		try {
 			Parent rcForm = loader.load();
-
+			RcController boController = loader.getController();
+			boController.setOpener(opener);
+			boController.getUserId(id);
+			boController.getUserName(name);
 			Scene scene = new Scene(rcForm);
 			primaryStage.setTitle("운동 기록 화면");
 			primaryStage.setScene(scene);

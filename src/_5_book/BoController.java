@@ -165,11 +165,13 @@ public class BoController implements Initializable {
 			}
 			CommonService.msg("등록되었습니다.");
 			opener.umOpen();
+			boService.discon();
 		}
 		
 	}
 	public void backButtonProc() {
 		System.out.println("select");
+		boService.discon();
 		opener.umOpen();
 	}
 	public void radioButtonSet(){

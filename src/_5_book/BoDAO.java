@@ -162,6 +162,23 @@ public class BoDAO {
 			e.printStackTrace();
 		}
 	}
+	public void disconnection() {
+		try {
+			if(rs!=null) {
+				rs.close();
+			}
+			if(ps!=null) {
+				rs.close();
+			}
+			if(con!=null) {
+				rs.close();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 		
 	
 }
