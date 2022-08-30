@@ -2,6 +2,39 @@ package _5_book;
 
 public class BoDTO {
 private String trainername,point,t1,t1User,t2,t2User,t3,t3User,t4,t4User,t5,t5User,t6,t6User,t7,t7User;
+public String getT8() {
+	return t8;
+}
+
+public void setT8(String t8) {
+	this.t8 = t8;
+}
+
+public String getT8User() {
+	return t8User;
+}
+
+public void setT8User(String t8User) {
+	this.t8User = t8User;
+}
+
+public String getT9() {
+	return t9;
+}
+
+public void setT9(String t9) {
+	this.t9 = t9;
+}
+
+public String getT9User() {
+	return t9User;
+}
+
+public void setT9User(String t9User) {
+	this.t9User = t9User;
+}
+
+private String t8,t8User,t9,t9User;
 
 public String getTrainername() {
 	return trainername;

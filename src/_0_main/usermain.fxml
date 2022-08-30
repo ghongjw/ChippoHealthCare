@@ -42,7 +42,7 @@
                                     <Image url="@../_3_UserMain/user.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="umgoToUiButton" mnemonicParsing="false" text="회원정보수정" />
+                              <Button fx:id="umgoToUiButton" mnemonicParsing="false" onAction="#umgoToUiButtonProc" text="회원정보수정" />
                            </children>
                         </VBox>
                         <VBox prefHeight="149.0" prefWidth="541.0" spacing="10.0">

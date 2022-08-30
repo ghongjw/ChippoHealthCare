@@ -32,6 +32,7 @@ public class Opener {
 			UMController umCon = loader.getController();
 			umCon.setOpener(opener);
 			id=umCon.getuserId();
+			name=umCon.getuserName();
 			Scene scene = new Scene(umform);
 			primaryStage.setTitle("유저 메인 화면");
 			primaryStage.setScene(scene);
@@ -101,6 +102,8 @@ public class Opener {
 			Parent boForm = loader.load();
 			BoController boController = loader.getController();
 			boController.setOpener(opener);
+			boController.getUserId(id);
+			boController.getUserName(name);
 			//boController.setboconForm(boForm);
 			Scene scene = new Scene(boForm);
 			
@@ -165,7 +168,6 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoUpdate1.fxml"));
 		try {
 			Parent uicForm = loader.load();
-
 			Scene scene = new Scene(uicForm);
 			primaryStage.setTitle("회원정보 비밀번호 확인 화면");
 			primaryStage.setScene(scene);
@@ -181,7 +183,6 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoUpdate2.fxml"));
 		try {
 			Parent uiForm = loader.load();
-
 			Scene scene = new Scene(uiForm);
 			primaryStage.setTitle("회원정보 수정 화면");
 			primaryStage.setScene(scene);

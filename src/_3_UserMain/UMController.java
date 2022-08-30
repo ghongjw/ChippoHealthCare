@@ -220,6 +220,11 @@ public class UMController implements Initializable{
 	public String getuserId() {
 		return userId;
 	}
+
+	public String getuserName() {
+		// TODO Auto-generated method stub
+		return userName;
+	}
 	
 	
 }
