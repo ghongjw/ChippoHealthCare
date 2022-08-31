@@ -3,10 +3,12 @@ package _0_main;
 import java.io.IOException;
 
 import _3_UserMain.UMController;
+import _3_UserMain.UMLogoutController;
 import _4_perchase.PcConfirmController;
 import _4_perchase.PcController;
 import _5_book.BoController;
 import _6_Record.RcController;
+import _9_UserPtUpdate.Upcontroller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +20,8 @@ public class Opener {
 	private String id,name;
 
 	private Opener opener;
+	private UMController umCon;
+	private UMLogoutController umLougoutCon;
 	private PcController pcCon;
 	private PcConfirmController pcconfirmCon;
 	public void setPrimaryStage(Stage primaryStage) {
@@ -30,7 +34,7 @@ public class Opener {
 		try {
 			Parent umform = loader.load();
 
-			UMController umCon = loader.getController();
+			umCon = loader.getController();
 			umCon.setOpener(opener);
 			id=umCon.getuserId();
 			name=umCon.getuserName();
@@ -43,6 +47,31 @@ public class Opener {
 			e.printStackTrace();
 		}
 
+	}
+	//로그아웃 확인 페이지
+	public void logoutPg() {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("logout.fxml"));
+		Parent logoutForm;
+		try {
+			logoutForm = loader.load();
+			umLougoutCon = loader.getController();
+			umLougoutCon.setumConfirmForm(logoutForm);
+			umLougoutCon.setUmController(umCon);
+			umLougoutCon.setumLougoutCon(umLougoutCon);
+			umLougoutCon.setOpener(opener);
+			umLougoutCon.setid(id);
+			
+			
+			Scene scene = new Scene(logoutForm);
+			Stage pcStage = new Stage();
+			
+			pcStage.setTitle("로그아웃 하시겠습니까?");
+			pcStage.setScene(scene);
+			pcStage.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	//이용권 구매 화면띄우기
@@ -79,8 +108,6 @@ public class Opener {
 			pcconfirmCon.setOpener(opener);
 			
 			
-			
-			
 			Scene scene = new Scene(conPcForm);
 			Stage pcStage = new Stage();
 			
@@ -88,13 +115,9 @@ public class Opener {
 			pcStage.setScene(scene);
 			pcStage.show();
 			
-			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	
 	}
 	//PT예약페이지띄우기
 	public void boOpen() {
@@ -125,8 +148,8 @@ public class Opener {
 			Parent rcForm = loader.load();
 			RcController boController = loader.getController();
 			boController.setOpener(opener);
-			boController.getUserId(id);
-			boController.getUserName(name);
+			boController.setId(id);
+			boController.setName(name);
 			Scene scene = new Scene(rcForm);
 			primaryStage.setTitle("운동 기록 화면");
 			primaryStage.setScene(scene);
@@ -143,11 +166,11 @@ public class Opener {
 			Parent isForm = loader.load();
 
 			Scene scene = new Scene(isForm);
-			primaryStage.setTitle("운동 기록 화면");
+			primaryStage.setTitle("인바디 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
-			CommonService.msg("운동 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			CommonService.msg("인바디 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
 			e.printStackTrace();
 		}
 	}
@@ -158,11 +181,11 @@ public class Opener {
 			Parent irForm = loader.load();
 
 			Scene scene = new Scene(irForm);
-			primaryStage.setTitle("운동 기록 화면");
+			primaryStage.setTitle("인바디 기록 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
-			CommonService.msg("운동 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			CommonService.msg("인바디 기록 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
 			e.printStackTrace();
 		}
 
@@ -196,6 +219,24 @@ public class Opener {
 			e.printStackTrace();
 		}
 	}
+	public void userPTUpdateOpen() {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("userPTUpdate.fxml"));
+		try {
+			Parent pUForm = loader.load();
+			Upcontroller upcontroller = loader.getController();
+			upcontroller.setOpener(opener);
+			upcontroller.getUserId(id);
+			upcontroller.getUserName(name);
+			Scene scene = new Scene(pUForm);
+			primaryStage.setTitle("PT 수정 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("//회원정보 수정화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+	}
+	
 	public void setOpener(Opener opener) {
 		this.opener=opener;
 	}

@@ -11,7 +11,6 @@
       <VBox alignment="CENTER" prefHeight="109.0" prefWidth="300.0" spacing="30.0">
          <children>
             <Label fx:id="pchowmuch" text="Label" />
-            <Label text="결제하시겠습니까?" />
          </children>
       </VBox>
       <HBox alignment="CENTER" layoutY="77.0" prefHeight="130.0" prefWidth="300.0" spacing="50.0">

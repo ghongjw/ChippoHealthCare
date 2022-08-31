@@ -27,10 +27,34 @@ public class RcDAO {
 		}
 	}
 	public void setRecordInsert(String id, String date, String startT, String endTime, String text) {
+		System.out.println("bbb");
+		String sql = "Insert into userid_time (id, workoutday, start_time, end_time, record_memo) values (?,?,?,?,?)";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, date);
+			ps.setString(3, startT);
+			ps.setString(4, endTime);
+			ps.setString(5, text);
+			ps.executeUpdate();
+			} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	public void setRecordUpdate(String id, String date, String startT, String endTime, String text) {
-		
+		String sql = "UPDATE USERID_TIME SET ID = ?, workoutday=?, start_time=?, end_time=?, record_memo=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, date);
+			ps.setString(3, startT);
+			ps.setString(4, endTime);
+			ps.setString(5, text);
+			ps.executeUpdate();
+			} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public String dateExiste(String id, String date) {

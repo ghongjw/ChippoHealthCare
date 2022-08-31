@@ -81,6 +81,9 @@ public class UMService {
 		}
 		return Ptmon;
 	}
+
+		
+	
 	public String getaday() {
 		return aday;
 	}
@@ -117,6 +120,15 @@ public class UMService {
 	public String getStrday() {
 		return strday;
 	}
+	public boolean setlogout(String id) {
+		boolean check=false;
+		if(umDao.userLogout(id)) {
+			check=true;
+		}
+			return check;
+		
+	}
+
 
 
 

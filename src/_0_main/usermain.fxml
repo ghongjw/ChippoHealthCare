@@ -69,7 +69,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" text="로그아웃">
+                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" onAction="#umLogoutButtonProc" prefHeight="40.0" prefWidth="119.0" text="로그아웃">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
@@ -183,7 +183,7 @@
                               <Label alignment="CENTER" text="목" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Label alignment="CENTER" text="금" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Label alignment="CENTER" text="토" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <VBox fx:id="dBox01" GridPane.rowIndex="1">
+                              <VBox fx:id="dBox01" onMouseReleased="#vboxclicked01" GridPane.rowIndex="1">
                                  <children>
                                     <Label fx:id="sDay1" text="sDay">
                                        <font>
@@ -197,7 +197,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox02" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <VBox fx:id="dBox02" onMouseReleased="#vboxclicked02" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
                                     <Label fx:id="sDay2" text="sDay">
                                        <font>
@@ -211,7 +211,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox03" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <VBox fx:id="dBox03" onMouseReleased="#vboxclicked03" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <children>
                                     <Label fx:id="sDay3" text="sDay">
                                        <font>
@@ -225,7 +225,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox04" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                              <VBox fx:id="dBox04" onMouseReleased="#vboxclicked04" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <children>
                                     <Label fx:id="sDay4" text="sDay">
                                        <font>
@@ -239,7 +239,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox05" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                              <VBox fx:id="dBox05" onMouseReleased="#vboxclicked05" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                  <children>
                                     <Label fx:id="sDay5" text="sDay">
                                        <font>
@@ -253,7 +253,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox06" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                              <VBox fx:id="dBox06" onMouseReleased="#vboxclicked06" GridPane.columnIndex="5" GridPane.rowIndex="1">
                                  <children>
                                     <Label fx:id="sDay6" text="sDay">
                                        <font>
@@ -267,7 +267,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox07" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                              <VBox fx:id="dBox07" onMouseReleased="#vboxclicked07" GridPane.columnIndex="6" GridPane.rowIndex="1">
                                  <children>
                                     <Label fx:id="sDay7" text="sDay">
                                        <font>
@@ -281,7 +281,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox08" GridPane.rowIndex="2">
+                              <VBox fx:id="dBox08" onMouseReleased="#vboxclicked08" GridPane.rowIndex="2">
                                  <children>
                                     <Label fx:id="sDay8" text="sDay">
                                        <font>
@@ -295,7 +295,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox09" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <VBox fx:id="dBox09" onMouseReleased="#vboxclicked09" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
                                     <Label fx:id="sDay9" text="sDay">
                                        <font>
@@ -309,7 +309,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox10" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                              <VBox fx:id="dBox10" onMouseReleased="#vboxclicked10" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                  <children>
                                     <Label fx:id="sDay10" text="sDay">
                                        <font>
@@ -323,7 +323,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox11" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                              <VBox fx:id="dBox11" onMouseReleased="#vboxclicked11" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                  <children>
                                     <Label fx:id="sDay11" text="sDay">
                                        <font>
@@ -337,7 +337,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox12" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                              <VBox fx:id="dBox12" onMouseReleased="#vboxclicked12" GridPane.columnIndex="4" GridPane.rowIndex="2">
                                  <children>
                                     <Label fx:id="sDay12" text="sDay">
                                        <font>
@@ -351,7 +351,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox13" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                              <VBox fx:id="dBox13" onMouseReleased="#vboxclicked13" GridPane.columnIndex="5" GridPane.rowIndex="2">
                                  <children>
                                     <Label fx:id="sDay13" text="sDay">
                                        <font>
@@ -365,7 +365,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox14" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                              <VBox fx:id="dBox14" onMouseReleased="#vboxclicked14" GridPane.columnIndex="6" GridPane.rowIndex="2">
                                  <children>
                                     <Label fx:id="sDay14" text="sDay">
                                        <font>
@@ -379,7 +379,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox15" GridPane.rowIndex="3">
+                              <VBox fx:id="dBox15" onMouseReleased="#vboxclicked15" GridPane.rowIndex="3">
                                  <children>
                                     <Label fx:id="sDay15" text="sDay">
                                        <font>
@@ -393,7 +393,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox16" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <VBox fx:id="dBox16" onMouseReleased="#vboxclicked16" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <children>
                                     <Label fx:id="sDay16" text="sDay">
                                        <font>
@@ -407,7 +407,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox17" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                              <VBox fx:id="dBox17" onMouseReleased="#vboxclicked17" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                  <children>
                                     <Label fx:id="sDay17" text="sDay">
                                        <font>
@@ -421,7 +421,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox18" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                              <VBox fx:id="dBox18" onMouseReleased="#vboxclicked18" GridPane.columnIndex="3" GridPane.rowIndex="3">
                                  <children>
                                     <Label fx:id="sDay18" text="sDay">
                                        <font>
@@ -435,7 +435,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox19" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                              <VBox fx:id="dBox19" onMouseReleased="#vboxclicked19" GridPane.columnIndex="4" GridPane.rowIndex="3">
                                  <children>
                                     <Label fx:id="sDay19" text="sDay">
                                        <font>
@@ -449,7 +449,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox20" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                              <VBox fx:id="dBox20" onMouseReleased="#vboxclicked20" GridPane.columnIndex="5" GridPane.rowIndex="3">
                                  <children>
                                     <Label fx:id="sDay20" text="sDay">
                                        <font>
@@ -463,7 +463,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox21" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                              <VBox fx:id="dBox21" onMouseReleased="#vboxclicked21" GridPane.columnIndex="6" GridPane.rowIndex="3">
                                  <children>
                                     <Label fx:id="sDay21" text="sDay">
                                        <font>
@@ -477,7 +477,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox22" GridPane.rowIndex="4">
+                              <VBox fx:id="dBox22" onMouseReleased="#vboxclicked22" GridPane.rowIndex="4">
                                  <children>
                                     <Label fx:id="sDay22" text="sDay">
                                        <font>
@@ -491,7 +491,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox23" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                              <VBox fx:id="dBox23" onMouseReleased="#vboxclicked23" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <children>
                                     <Label fx:id="sDay23" text="sDay">
                                        <font>
@@ -505,7 +505,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox24" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                              <VBox fx:id="dBox24" onMouseReleased="#vboxclicked24" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                  <children>
                                     <Label fx:id="sDay24" text="sDay">
                                        <font>
@@ -519,7 +519,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox25" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                              <VBox fx:id="dBox25" onMouseReleased="#vboxclicked25" GridPane.columnIndex="3" GridPane.rowIndex="4">
                                  <children>
                                     <Label fx:id="sDay25" text="sDay">
                                        <font>
@@ -533,7 +533,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox26" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                              <VBox fx:id="dBox26" onMouseReleased="#vboxclicked26" GridPane.columnIndex="4" GridPane.rowIndex="4">
                                  <children>
                                     <Label fx:id="sDay26" text="sDay">
                                        <font>
@@ -547,7 +547,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox27" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                              <VBox fx:id="dBox27" onMouseReleased="#vboxclicked27" GridPane.columnIndex="5" GridPane.rowIndex="4">
                                  <children>
                                     <Label fx:id="sDay27" text="sDay">
                                        <font>
@@ -561,7 +561,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox28" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                              <VBox fx:id="dBox28" onMouseReleased="#vboxclicked28" GridPane.columnIndex="6" GridPane.rowIndex="4">
                                  <children>
                                     <Label fx:id="sDay28" text="sDay">
                                        <font>
@@ -575,7 +575,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox29" GridPane.rowIndex="5">
+                              <VBox fx:id="dBox29" onMouseReleased="#vboxclicked29" GridPane.rowIndex="5">
                                  <children>
                                     <Label fx:id="sDay29" text="sDay">
                                        <font>
@@ -589,7 +589,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox30" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                              <VBox fx:id="dBox30" onMouseReleased="#vboxclicked30" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <children>
                                     <Label fx:id="sDay30" text="sDay">
                                        <font>
@@ -603,7 +603,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox31" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                              <VBox fx:id="dBox31" onMouseReleased="#vboxclicked31" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                  <children>
                                     <Label fx:id="sDay31" text="sDay">
                                        <font>
@@ -617,7 +617,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox32" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                              <VBox fx:id="dBox32" onMouseReleased="#vboxclicked32" GridPane.columnIndex="3" GridPane.rowIndex="5">
                                  <children>
                                     <Label fx:id="sDay32" text="sDay">
                                        <font>
@@ -631,7 +631,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox33" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                              <VBox fx:id="dBox33" onMouseReleased="#vboxclicked33" GridPane.columnIndex="4" GridPane.rowIndex="5">
                                  <children>
                                     <Label fx:id="sDay33" text="sDay">
                                        <font>
@@ -645,7 +645,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox34" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                              <VBox fx:id="dBox34" onMouseReleased="#vboxclicked34" GridPane.columnIndex="5" GridPane.rowIndex="5">
                                  <children>
                                     <Label fx:id="sDay34" text="sDay">
                                        <font>
@@ -659,7 +659,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox35" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                              <VBox fx:id="dBox35" onMouseReleased="#vboxclicked35" GridPane.columnIndex="6" GridPane.rowIndex="5">
                                  <children>
                                     <Label fx:id="sDay35" text="sDay">
                                        <font>
@@ -673,7 +673,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox36" GridPane.rowIndex="6">
+                              <VBox fx:id="dBox36" onMouseReleased="#vboxclicked36" GridPane.rowIndex="6">
                                  <children>
                                     <Label fx:id="sDay36" text="sDay">
                                        <font>
@@ -687,7 +687,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox37" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                              <VBox fx:id="dBox37" onMouseReleased="#vboxclicked37" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                  <children>
                                     <Label fx:id="sDay37" text="sDay">
                                        <font>
@@ -701,7 +701,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox38" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                              <VBox fx:id="dBox38" onMouseReleased="#vboxclicked38" GridPane.columnIndex="2" GridPane.rowIndex="6">
                                  <children>
                                     <Label fx:id="sDay38" text="sDay">
                                        <font>
@@ -715,7 +715,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox39" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                              <VBox fx:id="dBox39" onMouseReleased="#vboxclicked39" GridPane.columnIndex="3" GridPane.rowIndex="6">
                                  <children>
                                     <Label fx:id="sDay39" text="sDay">
                                        <font>
@@ -729,7 +729,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox40" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                              <VBox fx:id="dBox40" onMouseReleased="#vboxclicked40" GridPane.columnIndex="4" GridPane.rowIndex="6">
                                  <children>
                                     <Label fx:id="sDay40" text="sDay">
                                        <font>
@@ -743,7 +743,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox42" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                              <VBox fx:id="dBox42" onMouseReleased="#vboxclicked42" GridPane.columnIndex="6" GridPane.rowIndex="6">
                                  <children>
                                     <Label fx:id="sDay42" text="sDay">
                                        <font>
@@ -757,7 +757,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="dBox41" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                              <VBox fx:id="dBox41" onKeyReleased="#vboxclicked41" GridPane.columnIndex="5" GridPane.rowIndex="6">
                                  <children>
                                     <Label fx:id="sDay41" text="sDay">
                                        <font>

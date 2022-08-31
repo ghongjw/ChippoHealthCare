@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import _0_main.Opener;
@@ -13,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 public class UMController implements Initializable{
 	@FXML private Label umIDLabel;
@@ -38,9 +38,15 @@ public class UMController implements Initializable{
 	@FXML private Button umGoTOBo;
 	@FXML private Button umGoToRc;
 	@FXML private Button umGoToInboby;
+	@FXML private VBox dBox01,dBox02,dBox03,dBox04,dBox05,dBox06,dBox07,dBox08,dBox09,dBox10;
+	@FXML private VBox dBox11,dBox12,dBox13,dBox14,dBox15,dBox16,dBox17,dBox18,dBox19,dBox20;
+	@FXML private VBox dBox21,dBox22,dBox23,dBox24,dBox25,dBox26,dBox27,dBox28,dBox29,dBox30;
+	@FXML private VBox dBox31,dBox32,dBox33,dBox34,dBox35,dBox36,dBox37,dBox38,dBox39,dBox40;
+	@FXML private VBox dBox41,dBox42;
 
 	//서비스불러오기
 	private UMService umService;
+
 	private UMDTO umDto;
 	//창 불러오기
 	private Opener opener;
@@ -50,7 +56,9 @@ public class UMController implements Initializable{
 
 	private int year,month,day,todayYear,todayMonth,todayDay;
 	private String stryear,strmonth,strday;
-	
+
+	private String cYear,cMonth,cDay,clickdDate;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		umService=new UMService();
@@ -62,7 +70,7 @@ public class UMController implements Initializable{
 		this.day=umService.getTodayDay();
 		this.stryear=umService.getStryear();
 		this.strmonth=umService.getStrmonth();
-		
+
 		umYear.setText(umService.getStryear());
 
 		umMonth.setText(umService.getStrmonth());
@@ -76,9 +84,9 @@ public class UMController implements Initializable{
 		umLastday.setText(umService.getLastDay());
 		umPtLabel.setText(umService.getPTCount());
 		buildPastCalendar();
-		
+
 		umService.bookedPtDate(stryear,strmonth);
-		
+
 	}
 
 	//oper참조값 불러오기
@@ -86,8 +94,12 @@ public class UMController implements Initializable{
 		this.opener = opener;
 	}
 	public void umLogoutButtonProc() {
+		opener.logoutPg();
 		//로그아웃 하시겠습니까
 		//welcome화면으로 가기
+	}
+	public UMService getUmService() {
+		return umService;
 	}
 	//PT예약일 보내주기
 	public void setbook() {
@@ -124,16 +136,16 @@ public class UMController implements Initializable{
 	//요일
 	public int calMonth1stDayWeek() {
 		Calendar calendar = Calendar.getInstance();
-        String YMD = year + "-" + month + "-01";
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            calendar.setTime(formatter.parse(YMD));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        int dayNum = calendar.get(Calendar.DAY_OF_WEEK);
-        // 1(일) 2(월) 3(화) 4(수) 5(목) 6(금) 7(토)
-        return dayNum;
+		String YMD = year + "-" + month + "-01";
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			calendar.setTime(formatter.parse(YMD));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		int dayNum = calendar.get(Calendar.DAY_OF_WEEK);
+		// 1(일) 2(월) 3(화) 4(수) 5(목) 6(금) 7(토)
+		return dayNum;
 	}
 	public void buildPastCalendar(){
 		// (연, 월을 입력받으면 그 연, 월의 달력을 출력.)
@@ -199,7 +211,7 @@ public class UMController implements Initializable{
 	//버튼 클릭으로 회원정보 수정 페이지로 전환
 	public void umgoToUiButtonProc() {
 		opener.userInfoUpdateConfirmPwOpen();
-		
+
 	}
 	//버튼 클릭으로 이용권 구매페이지로 전환
 	public void umGoTOPerchaseProc() {
@@ -222,9 +234,153 @@ public class UMController implements Initializable{
 	}
 
 	public String getuserName() {
-		// TODO Auto-generated method stub
 		return userName;
 	}
+	//캘린더 클릭시 그에 맞는 날자의 
+	public void vboxclicked01() {
+		clickCalender(sDay1);
+	}
+	public void vboxclicked02() {
+		clickCalender(sDay2);
+	}
+	public void vboxclicked03() {
+		clickCalender(sDay3);
+	}
+	public void vboxclicked04() {
+		clickCalender(sDay4);
+	}
+	public void vboxclicked05() {
+		clickCalender(sDay5);
+	}
+	public void vboxclicked06() {
+		clickCalender(sDay6);
+	}
+	public void vboxclicked07() {
+		clickCalender(sDay7);
+	}
+	public void vboxclicked08() {
+		clickCalender(sDay8);
+	}
+	public void vboxclicked09() {
+		clickCalender(sDay9);
+	}
+	public void vboxclicked10() {
+		clickCalender(sDay10);
+	}
+	public void vboxclicked11() {
+		clickCalender(sDay11);
+	}
+	public void vboxclicked12() {
+		clickCalender(sDay12);
+	}
+	public void vboxclicked13() {
+		clickCalender(sDay13);
+	}
+	public void vboxclicked14() {
+		clickCalender(sDay14);
+	}
+	public void vboxclicked15() {
+		clickCalender(sDay15);
+	}
+	public void vboxclicked16() {
+		clickCalender(sDay16);
+	}
+	public void vboxclicked17() {
+		clickCalender(sDay17);
+	}
+	public void vboxclicked18() {
+		clickCalender(sDay18);
+	}
+	public void vboxclicked19() {
+		clickCalender(sDay19);
+	}
+	public void vboxclicked20() {
+		clickCalender(sDay20);
+	}
+	public void vboxclicked21() {
+		clickCalender(sDay21);
+	}
+	public void vboxclicked22() {
+		clickCalender(sDay22);
+	}
+	public void vboxclicked23() {
+		clickCalender(sDay23);
+	}
+	public void vboxclicked24() {
+		clickCalender(sDay24);
+	}
+	public void vboxclicked25() {
+		clickCalender(sDay25);
+	}
+	public void vboxclicked26() {
+		clickCalender(sDay26);
+	}
+	public void vboxclicked27() {
+		clickCalender(sDay27);
+	}
+	public void vboxclicked28() {
+		clickCalender(sDay28);
+	}
+	public void vboxclicked29() {
+		clickCalender(sDay29);
+	}
+	public void vboxclicked30() {
+		clickCalender(sDay30);
+	}
+	public void vboxclicked31() {
+		clickCalender(sDay31);
+	}
+	public void vboxclicked32() {
+		clickCalender(sDay32);
+	}
+	public void vboxclicked33() {
+		clickCalender(sDay33);
+	}
+	public void vboxclicked34() {
+		clickCalender(sDay34);
+	}
+	public void vboxclicked35() {
+		clickCalender(sDay35);
+	}
+	public void vboxclicked36() {
+		clickCalender(sDay36);
+	}
+	public void vboxclicked37() {
+		clickCalender(sDay37);
+	}
+	public void vboxclicked38() {
+		clickCalender(sDay38);
+	}
+	public void vboxclicked39() {
+		clickCalender(sDay39);
+	}
+	public void vboxclicked40() {
+		clickCalender(sDay40);
+	}
+	public void vboxclicked41() {
+		clickCalender(sDay41);
+	}
+	public void vboxclicked42() {
+		clickCalender(sDay42);
+	}
+	public void clickCalender(Label label) {
+		cYear=umYear.getText();
+		cMonth=umMonth.getText();
+		if(cMonth.length()==1) {
+			cMonth = "-0"+cMonth;
+		}
+		cDay=label.getText();
+
+		if(cDay.equals(" ")==false) {
+			opener.userPTUpdateOpen();
+		}
+		clickdDate = cYear+"-"+cMonth+"-"+cDay;
+	}
+	public String clikedDateMehod() {
+		return clickdDate;
+	}
+
 	
-	
+
+
 }

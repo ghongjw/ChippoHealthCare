@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,92 +15,117 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="24.0" layoutY="74.0" mnemonicParsing="false" text="&lt;" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </top>
-   <center>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="TOP_CENTER">
-         <children>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_6_Record.RcController">
+   <content>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0">
+         <top>
+            <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="운동기록">
-                     <font>
-                        <Font name="Arial Bold" size="36.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="backButton" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" onAction="#backButtonProc" text="&lt;" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
                </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+            </AnchorPane>
+         </top>
+         <center>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="TOP_CENTER">
                <children>
-                  <DatePicker fx:id="rcDatePicker" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="141.0" prefWidth="230.0" spacing="10.0">
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
                      <children>
-                        <HBox prefHeight="38.0" prefWidth="174.0" spacing="5.0">
-                           <children>
-                              <ComboBox fx:id="SAmPm" prefWidth="150.0" />
-                              <ComboBox fx:id="Shour" prefWidth="150.0" />
-                              <Label text="시" />
-                              <ComboBox fx:id="Smin" prefWidth="150.0" />
-                              <Label text="분" />
-                           </children>
-                        </HBox>
-                        <Button fx:id="Sworkoutbutton" mnemonicParsing="false" onAction="#SworkoutbuttonProc" prefHeight="70.0" prefWidth="150.0" text="운동시작!" />
-                        <Label fx:id="StartTimeLabel" text="Label" />
+                        <Label text="운동기록">
+                           <font>
+                              <Font name="Arial Bold" size="36.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="141.0" prefWidth="230.0" spacing="10.0">
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
                      <children>
-                        <HBox prefHeight="38.0" prefWidth="174.0" spacing="5.0">
-                           <children>
-                              <ComboBox fx:id="EAmPm" prefWidth="150.0" />
-                              <ComboBox fx:id="Ehour" prefWidth="150.0" />
-                              <Label text="시" />
-                              <ComboBox fx:id="Emin" prefWidth="150.0" />
-                              <Label text="분" />
-                           </children>
-                        </HBox>
-                        <Button fx:id="Eworkoutbutton" mnemonicParsing="false" onAction="#EworkoutbuttonProc" prefHeight="70.0" prefWidth="150.0" text="운동 끝!" />
-                        <Label fx:id="EndTimeLabel" text="Label" />
+                        <DatePicker fx:id="rcDatePicker" />
                      </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="181.0" prefWidth="750.0" spacing="50.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="141.0" prefWidth="315.0" spacing="10.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0" spacing="10.0">
+                                 <children>
+                                    <ComboBox fx:id="Shour" prefWidth="150.0" />
+                                    <Label prefHeight="0.0" prefWidth="100.0" text="시">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="Smin" prefWidth="150.0" />
+                                    <Label prefHeight="0.0" prefWidth="100.0" text="분">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="StartTimeLabel" text="운동시작!!">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="141.0" prefWidth="315.0" spacing="10.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0" spacing="10.0">
+                                 <children>
+                                    <ComboBox fx:id="Ehour" prefWidth="150.0" />
+                                    <Label prefHeight="0.0" prefWidth="100.0" text="시">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="Emin" prefWidth="150.0" />
+                                    <Label prefHeight="0.0" prefWidth="100.0" text="분">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="EndTimeLabel" text="운동 끝!">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="276.0" prefWidth="750.0" spacing="20.0">
+                     <children>
+                        <Label text="메모">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="recordArea" maxWidth="400.0" minWidth="100.0" prefHeight="200.0" prefWidth="601.0" />
+                     </children>
+                     <padding>
+                        <Insets left="170.0" />
+                     </padding>
                   </VBox>
+                  <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
+                     <children>
+                        <Button fx:id="RcSaveButton" mnemonicParsing="false" onAction="#RcSaveButtonProc" prefHeight="70.0" prefWidth="150.0" text="저장" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <VBox prefHeight="276.0" prefWidth="750.0" spacing="20.0">
-               <children>
-                  <Label text="메모">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <TextArea fx:id="recordArea" maxWidth="400.0" minWidth="100.0" prefHeight="200.0" prefWidth="601.0" />
-               </children>
-               <padding>
-                  <Insets left="170.0" />
-               </padding>
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
-               <children>
-                  <Button fx:id="RcSaveButton" mnemonicParsing="false" onAction="#RcSaveButtonProc" prefHeight="70.0" prefWidth="150.0" text="저장" />
-               </children>
-            </HBox>
-         </children>
-         <BorderPane.margin>
-            <Insets top="20.0" />
-         </BorderPane.margin>
-      </VBox>
-   </center>
-</BorderPane>
+         </center>
+      </BorderPane>
+   </content>
+</ScrollPane>

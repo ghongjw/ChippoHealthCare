@@ -131,8 +131,8 @@ public class BoDAO {
 			System.out.println("트레이너 시간 쿼리 문제발생");
 			e.printStackTrace();
 		}
+
 		
-				
 	}
 	public String workoutdayinsertDao(String date, String id) {
 		String tmp="";

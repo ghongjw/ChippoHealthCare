@@ -74,6 +74,21 @@ public class UMDAO {
 			System.out.println("PTCount 쿼리에 문제가 있습니다");
 		}return ptb;
 	}
+	//로그아웃 플래그
+	public boolean userLogout(String id) {
+		boolean check = true;
+		String sql="update health_user set login = n where id = ?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1,id);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			check = false;
+			e.printStackTrace();
+			System.out.println("로그아웃 쿼리에 문제가 있습니다");
+		}
+		return check;
+	}
 	public void disconnection() {
 		if(rs!=null) {
 			try {
@@ -89,5 +104,7 @@ public class UMDAO {
 			}
 		}
 	}
+
+	
 
 }
