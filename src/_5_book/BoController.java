@@ -28,7 +28,7 @@ public class BoController implements Initializable {
 	@FXML private Label selCheck;
 	@FXML private Button bookbutton;
 	@FXML private Button backButton;
-	
+
 
 	private Parent parent;
 	private Opener opener;
@@ -115,7 +115,6 @@ public class BoController implements Initializable {
 	public void findbuttonproc() {
 		radioButtonSet();
 		bookbutton.setVisible(true);
-		
 	}
 	public void bookButtonProc() {
 		if(boT1.isSelected()==false
@@ -129,48 +128,56 @@ public class BoController implements Initializable {
 				&&boT9.isSelected()==false) {
 			CommonService.msg("선택해주세요");
 		}else {
-			workoutdayinsertservice(date,id);
-			String time = "";
-			if(boT1.isSelected()) {
-				time = "T1";
-				boService.bookPtTime(trainername,name, time, date,id);
-			}else if(boT2.isSelected()) {
-				time = "T2";
-				boService.bookPtTime(trainername,name, time, date,id);
+			if(boService.selectPtcount(id)==0) {
+				CommonService.msg("이용권을 구매 해 주세요");
+			}else if(boService.isbookedCheck(id,date)==false){
+				CommonService.msg("이 날은 예약되어 있어요");
 			}
-			else if(boT3.isSelected()) {
-				time = "T3";
-				boService.bookPtTime(trainername,name, time, date,id);
+			else {
+				workoutdayinsertservice(date,id);
+				String time = "";
+				if(boT1.isSelected()) {
+					time = "T1";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}else if(boT2.isSelected()) {
+					time = "T2";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}
+				else if(boT3.isSelected()) {
+					time = "T3";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}
+				else if(boT4.isSelected()) {
+					time = "T4";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}
+				else if(boT5.isSelected()) {
+					time = "T5";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}
+				else if(boT6.isSelected()) {
+					time = "T6";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}else if(boT7.isSelected()) {
+					time = "T7";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}else if(boT8.isSelected()) {
+					time = "T8";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}else if(boT9.isSelected()) {
+					time = "T9";
+					boService.bookPtTime(trainername,name, time, date,id);
+				}
+				boService.usingPtCount(id);
+				CommonService.msg("등록되었습니다.");
+				opener.umOpen();
+				boService.discon();
 			}
-			else if(boT4.isSelected()) {
-				time = "T4";
-				boService.bookPtTime(trainername,name, time, date,id);
-			}
-			else if(boT5.isSelected()) {
-				time = "T5";
-				boService.bookPtTime(trainername,name, time, date,id);
-			}
-			else if(boT6.isSelected()) {
-				time = "T6";
-				boService.bookPtTime(trainername,name, time, date,id);
-			}else if(boT7.isSelected()) {
-				time = "T7";
-				boService.bookPtTime(trainername,name, time, date,id);
-			}else if(boT8.isSelected()) {
-				time = "T8";
-				boService.bookPtTime(trainername,name, time, date,id);
-			}else if(boT9.isSelected()) {
-				time = "T9";
-				boService.bookPtTime(trainername,name, time, date,id);
-			}
-			CommonService.msg("등록되었습니다.");
-			opener.umOpen();
-			boService.discon();
+
 		}
-		
+
 	}
 	public void backButtonProc() {
-		System.out.println("select");
 		boService.discon();
 		opener.umOpen();
 	}

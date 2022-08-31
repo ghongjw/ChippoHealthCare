@@ -104,23 +104,23 @@ public class BoDAO {
 		}
 		String sql2="";
 		if(time.equals("T1")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T1', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T1', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}else if(time.equals("T2")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T2', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T2', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}else if(time.equals("T3")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T3', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T3', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}else if(time.equals("T4")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T4', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T4', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}else if(time.equals("T5")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T5', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T5', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}else if(time.equals("T6")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T6', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T6', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}else if(time.equals("T7")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T7', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T7', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}else if(time.equals("T8")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T8', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T8', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}else if(time.equals("T9")) {
-			sql2 ="Update USERID_TIME SET PTBOOKED = 'T9', trainer = ? where id = ? and workoutday = ?";
+			sql2 ="Update USERID_TIME SET PTBOOKED = 'T9', trainer = ? where id = ? and BOOKPTDATE = ?";
 		}System.out.println(sql);
 		try {ps=con.prepareStatement(sql2);
 			ps.setString(1,trainername);
@@ -136,14 +136,14 @@ public class BoDAO {
 	}
 	public String workoutdayinsertDao(String date, String id) {
 		String tmp="";
-		String sql="select workoutday from userID_time where id = ? and workoutday = ?";
+		String sql="select BOOKPTDATE from userID_time where id = ? and BOOKPTDATE = ?";
 		try {
 			ps=con.prepareStatement(sql);
 			ps.setString(1,id);
 			ps.setString(2,date);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-			tmp = rs.getString("workoutday");
+			tmp = rs.getString("BOOKPTDATE");
 			}
 		} catch (SQLException e) {
 			System.out.println("트레이너 시간 쿼리 문제발생 날자 있는지 여부");
@@ -152,7 +152,7 @@ public class BoDAO {
 	}
 	public void setworkoutdayDao(String date, String id) {
 		
-		String sql="insert into userID_time (workoutday, id) values (?, ?)";
+		String sql="insert into userID_time (BOOKPTDATE, id) values (?, ?)";
 		try {ps=con.prepareStatement(sql);
 			ps.setString(1,date);
 			ps.setString(2,id);
@@ -161,6 +161,41 @@ public class BoDAO {
 			System.out.println("트레이너 시간 쿼리 문제발생 안서트");
 			e.printStackTrace();
 		}
+	}
+	public void usingPtCount(String id) {
+		String sql="select PTCOUNT from HEALTH_USER where id = ?";
+		String sql2="Update HEALTH_USER set PTCOUNT = ? where id = ?";
+		int count = 0;
+		try {ps=con.prepareStatement(sql);
+			ps.setString(1,id);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt("PTCOUNT");
+			}
+			count--;
+			ps=con.prepareStatement(sql2);
+			ps.setInt(1,count);
+			ps.setString(2,id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("트레이너 시간 쿼리 문제발생 안서트");
+			e.printStackTrace();
+		}
+	}
+	public int isPtCountExsist(String id) {
+		int count=0;
+		String sql="select PTCOUNT from HEALTH_USER where id = ?";
+		try {ps=con.prepareStatement(sql);
+		ps.setString(1,id);
+		rs = ps.executeQuery();
+		if(rs.next()) {
+			count = rs.getInt("PTCOUNT");
+		}
+	} catch (SQLException e) {
+		System.out.println("트레이너 시간 쿼리 문제발생 안서트");
+		e.printStackTrace();
+	}return count;
+		
 	}
 	public void disconnection() {
 		try {
@@ -179,6 +214,24 @@ public class BoDAO {
 		}
 
 	}
+	public int isbookedCheck(String id, String date) {
+		String sql="select count(PTBOOKED) from userID_time where id = ? and BOOKPTDATE = ?";
+		int ptchecked=0;
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1,id);
+			ps.setString(2,date);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				ptchecked=rs.getInt(1);
+				System.out.println("ptcheck :"+ptchecked);
+			}
+		} catch (SQLException e) {
+			System.out.println("트레이너 시간 쿼리 문제발생 날자 있는지 여부");
+			e.printStackTrace();
+		}return ptchecked;
+	}
+	
 		
 	
 }

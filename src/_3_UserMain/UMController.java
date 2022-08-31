@@ -53,23 +53,30 @@ public class UMController implements Initializable{
 	private String userId="doremi";
 	private String userName="fasora";
 	ArrayList<Label> sdays = new ArrayList<Label>();
+	Label todayLabel;
 
-	private int year,month,day,todayYear,todayMonth,todayDay;
+	private int year,month,day,todayYear,todayMonth,todayDay,emptydate;
 	private String stryear,strmonth,strday;
 
 	private String cYear,cMonth,cDay,clickdDate;
+	private Label[] sDays;
+	private VBox[] vboxs = new VBox[42];
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		umService=new UMService();
 		umService.setId(userId, userName);
 		umService.today();
+		todayLabel = new Label();
+		
 
 		this.year=umService.getTodayYear();
 		this.month=umService.getTodayMonth();
 		this.day=umService.getTodayDay();
 		this.stryear=umService.getStryear();
 		this.strmonth=umService.getStrmonth();
+		this.strday=umService.getStrday();
 
 		umYear.setText(umService.getStryear());
 
@@ -86,7 +93,7 @@ public class UMController implements Initializable{
 		buildPastCalendar();
 
 		umService.bookedPtDate(stryear,strmonth);
-
+		todayselct(emptydate);
 	}
 
 	//oper참조값 불러오기
@@ -101,6 +108,7 @@ public class UMController implements Initializable{
 	public UMService getUmService() {
 		return umService;
 	}
+	
 	//PT예약일 보내주기
 	public void setbook() {
 		umYear.setText(Integer.toString(year));
@@ -151,6 +159,7 @@ public class UMController implements Initializable{
 		// (연, 월을 입력받으면 그 연, 월의 달력을 출력.)
 		// 1. 연, 월 결정 = 파라미터로 받아옴
 		// 2. 월 가지고 최대일 결정 (2월이면 윤년 test, 윤년이면 최대일배열=dayDataLeapYear)
+		
 		int dayMax = 0;
 		int[] dayData = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		int[] dayDataLeapYear = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -182,7 +191,7 @@ public class UMController implements Initializable{
 				ptReserve31,ptReserve32,ptReserve33,ptReserve34,ptReserve35,
 				ptReserve36,ptReserve37,ptReserve38,ptReserve39,ptReserve40,
 				ptReserve41,ptReserve42};
-		Label[] sDays = new Label[] {
+		sDays = new Label[] {
 				sDay1,sDay2,sDay3,sDay4,sDay5,sDay6,sDay7,sDay8,sDay9,sDay10,
 				sDay11,sDay12,sDay13,sDay14,sDay15,sDay16,sDay17,sDay18,sDay19,sDay20,
 				sDay21,sDay22,sDay23,sDay24,sDay25,sDay26,sDay27,sDay28,sDay29,sDay30,
@@ -194,7 +203,6 @@ public class UMController implements Initializable{
 		}
 		int j=0;
 		for (j = 1; j < dayWeek1; j++) {
-
 			sDays[j].setText(" ");
 		}
 		for (int i = 1; i <= dayMax; i++) {
@@ -207,6 +215,8 @@ public class UMController implements Initializable{
 			indexBoPt=Ptmon.get(i)+dayWeek1;
 			ptReserves[indexBoPt-2].setText("피티 예약중");
 		}
+		emptydate=j;
+		setTodaylable();
 	}
 	//버튼 클릭으로 회원정보 수정 페이지로 전환
 	public void umgoToUiButtonProc() {
@@ -229,6 +239,7 @@ public class UMController implements Initializable{
 	public void umGoToInbobyProc() {
 		opener.inbodySelectOpen();
 	}
+
 	public String getuserId() {
 		return userId;
 	}
@@ -236,6 +247,52 @@ public class UMController implements Initializable{
 	public String getuserName() {
 		return userName;
 	}
+	public void clickCalender(Label label) {
+		cYear=umYear.getText();
+		cMonth=umMonth.getText();
+		if(cMonth.length()==1) {
+			cMonth = "-0"+cMonth;
+		}
+		cDay=label.getText();
+
+		if(cDay.equals(" ")==false) {
+			opener.userPTUpdateOpen();
+		}
+		clickdDate = cYear+"-"+cMonth+"-"+cDay;
+	}
+	public String clikedDateMehod() {
+		return clickdDate;
+	}
+	public void todayselct(int a) {
+		int tmp = day + a - 2;
+		VBox[] vboxs = {dBox01,dBox02,dBox03,dBox04,dBox05,dBox06,dBox07,dBox08,dBox09,dBox10,
+				dBox11,dBox12,dBox13,dBox14,dBox15,dBox16,dBox17,dBox18,dBox19,dBox20,
+				dBox21,dBox22,dBox23,dBox24,dBox25,dBox26,dBox27,dBox28,dBox29,dBox30,
+				dBox31,dBox32,dBox33,dBox34,dBox35,dBox36,dBox37,dBox38,dBox39,dBox40,
+				dBox41,dBox42
+		};
+		String tmpMonth= umMonth.getText();
+		if(tmpMonth.length()==1)
+			tmpMonth="0"+tmpMonth;
+		vboxs[tmp].getChildren().add(todayLabel);
+		
+		if(umYear.getText().equals(stryear)&&tmpMonth.equals(strmonth)) {
+			todayLabel.setText("TODAY!!");
+		}else if(tmpMonth.equals(strmonth)==false){
+		
+		}
+	}
+	public void setTodaylable() {
+		String tmpMonth= umMonth.getText();
+		if(tmpMonth.length()==1)
+			tmpMonth="0"+tmpMonth;
+		if(umYear.getText().equals(stryear)&&tmpMonth.equals(strmonth)) {
+			todayLabel.setText("TODAY!!");
+		}else if(tmpMonth.equals(strmonth)==false){
+			todayLabel.setText("");
+		}
+	}
+
 	//캘린더 클릭시 그에 맞는 날자의 
 	public void vboxclicked01() {
 		clickCalender(sDay1);
@@ -363,24 +420,5 @@ public class UMController implements Initializable{
 	public void vboxclicked42() {
 		clickCalender(sDay42);
 	}
-	public void clickCalender(Label label) {
-		cYear=umYear.getText();
-		cMonth=umMonth.getText();
-		if(cMonth.length()==1) {
-			cMonth = "-0"+cMonth;
-		}
-		cDay=label.getText();
-
-		if(cDay.equals(" ")==false) {
-			opener.userPTUpdateOpen();
-		}
-		clickdDate = cYear+"-"+cMonth+"-"+cDay;
-	}
-	public String clikedDateMehod() {
-		return clickdDate;
-	}
-
-	
-
 
 }

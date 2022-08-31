@@ -19,11 +19,12 @@ public class Opener {
 
 	private String id,name;
 
-	private Opener opener;
 	private UMController umCon;
 	private UMLogoutController umLougoutCon;
 	private PcController pcCon;
 	private PcConfirmController pcconfirmCon;
+	private Opener opener;
+	
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
@@ -35,7 +36,7 @@ public class Opener {
 			Parent umform = loader.load();
 
 			umCon = loader.getController();
-			umCon.setOpener(opener);
+			umCon.setOpener(this);
 			id=umCon.getuserId();
 			name=umCon.getuserName();
 			Scene scene = new Scene(umform);
@@ -58,7 +59,7 @@ public class Opener {
 			umLougoutCon.setumConfirmForm(logoutForm);
 			umLougoutCon.setUmController(umCon);
 			umLougoutCon.setumLougoutCon(umLougoutCon);
-			umLougoutCon.setOpener(opener);
+			umLougoutCon.setOpener(this);
 			umLougoutCon.setid(id);
 			
 			
@@ -82,9 +83,8 @@ public class Opener {
 			Parent pcForm = loader.load();
 
 			pcCon = loader.getController();
-			pcCon.setOpener(opener);
+			pcCon.setOpener(this);
 			pcCon.setpcController(pcCon);
-			
 			Scene scene = new Scene(pcForm);
 		
 			primaryStage.setTitle("이용권 구매 화면");
@@ -105,7 +105,7 @@ public class Opener {
 			pcconfirmCon.setpcConfirmForm(conPcForm);
 			pcconfirmCon.setPcController(pcCon);
 			pcconfirmCon.setpcConfirmController(pcconfirmCon);
-			pcconfirmCon.setOpener(opener);
+			pcconfirmCon.setOpener(this);
 			
 			
 			Scene scene = new Scene(conPcForm);
@@ -125,7 +125,7 @@ public class Opener {
 		try {
 			Parent boForm = loader.load();
 			BoController boController = loader.getController();
-			boController.setOpener(opener);
+			boController.setOpener(this);
 			boController.getUserId(id);
 			boController.getUserName(name);
 			//boController.setboconForm(boForm);
@@ -147,7 +147,7 @@ public class Opener {
 		try {
 			Parent rcForm = loader.load();
 			RcController boController = loader.getController();
-			boController.setOpener(opener);
+			boController.setOpener(this);
 			boController.setId(id);
 			boController.setName(name);
 			Scene scene = new Scene(rcForm);
@@ -224,7 +224,7 @@ public class Opener {
 		try {
 			Parent pUForm = loader.load();
 			Upcontroller upcontroller = loader.getController();
-			upcontroller.setOpener(opener);
+			upcontroller.setOpener(this);
 			upcontroller.getUserId(id);
 			upcontroller.getUserName(name);
 			Scene scene = new Scene(pUForm);
@@ -237,12 +237,12 @@ public class Opener {
 		}
 	}
 	
-	public void setOpener(Opener opener) {
-		this.opener=opener;
-	}
 	//회원 아이디 가져오기
 	public String getId() {
 		return id;
+	}
+	public void setOpener(Opener opener) {
+		this.opener = opener;
 	}
 
 

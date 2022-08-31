@@ -89,6 +89,7 @@ public class RcController implements Initializable{
 	//유저메인으로 돌아가기
 	public void backButtonProc() {
 		opener.umOpen();
+		rcService.discon();
 	}
 	
 	public void RcSaveButtonProc() {
@@ -121,10 +122,12 @@ public class RcController implements Initializable{
 				}else {
 					System.out.println("a");
 					rcService.setRsetRecordInsertecord(id,date,StartT,EndTime,recordArea.getText());
+					CommonService.msg("저장되었습니다");
 					}
 			}else {
 				System.out.println("b");
 				rcService.setRsetRecordInsertecord(id,date,StartT,EndTime,recordArea.getText());
+				CommonService.msg("저장되었습니다");
 			}
 		}
 

@@ -60,15 +60,14 @@ public class UMDAO {
 	}
 
 	public ArrayList<String> ptbooked(String monyear) {
-		System.out.println(monyear);
 		ArrayList<String> ptb= new ArrayList<String>();
-		String sql="SELECT WORKOUTDAY FROM USERID_TIME WHERE WORKOUTDAY LIKE ? AND TRAINER IS NOT NULL";
+		String sql="SELECT BOOKPTDATE FROM USERID_TIME WHERE BOOKPTDATE LIKE ? AND TRAINER IS NOT NULL";
 		try {
 			ps=con.prepareStatement(sql);
 			ps.setString(1,'%' + monyear + '%');
 			rs=ps.executeQuery();
 			while(rs.next())
-				ptb.add(rs.getString("WORKOUTDAY"));
+				ptb.add(rs.getString("BOOKPTDATE"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("PTCount 쿼리에 문제가 있습니다");
@@ -77,7 +76,7 @@ public class UMDAO {
 	//로그아웃 플래그
 	public boolean userLogout(String id) {
 		boolean check = true;
-		String sql="update health_user set login = n where id = ?";
+		String sql="update health_user set login = 'n' where id = ?";
 		try {
 			ps=con.prepareStatement(sql);
 			ps.setString(1,id);

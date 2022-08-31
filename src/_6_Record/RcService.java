@@ -12,5 +12,9 @@ public class RcService {
 		}
 		
 	}
+	public void discon() {
+		rcDao.disconnection();
+		
+	}
 
 }

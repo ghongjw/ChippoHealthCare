@@ -31,7 +31,6 @@ public class UMLogoutController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		umService=umCon.getUmService();
 	}
 
 	//oper참조값 불러오기
@@ -40,6 +39,7 @@ public class UMLogoutController implements Initializable{
 	}
 	public void gotoWelcompageButtonProc() {
 		if(umService.setlogout(id)) {
+			umService.disconnection();
 			System.exit(0);
 		}
 		else CommonService.windowsClose(logoutForm);
@@ -54,6 +54,11 @@ public class UMLogoutController implements Initializable{
 
 	public void setUmController(UMController umCon) {
 		this.umCon=umCon;
+		umService=umCon.getUmService();
+		
+	}
+	public void setUmService(UMService umService) {
+		this.umService=umService;
 	}
 
 	public void setumLougoutCon(UMLogoutController umLougoutCon) {

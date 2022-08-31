@@ -3,6 +3,7 @@ package _5_book;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import _0_main.CommonService;
 import javafx.scene.control.DatePicker;
 
 public class BoService {
@@ -13,7 +14,7 @@ public class BoService {
 	public ArrayList<String> getTrainerInfo(String branch) {
 		ArrayList<String> trainers = new ArrayList<String>();
 		trainers=boDao.getTrainerInfo(branch);
-		
+
 		return trainers;
 	}
 
@@ -30,14 +31,14 @@ public class BoService {
 		String[] times =
 			{boDto.getT1(),boDto.getT2(),boDto.getT3(),boDto.getT4(),boDto.getT5(),
 					boDto.getT6(),boDto.getT7(),boDto.getT8(),boDto.getT9()};
-					
+
 		return times;
 	}
 
 
 	public void bookPtTime(String trainername, String name, String time, String date, String id) {
 		boDao.setTrainerTimeTable(trainername,name,time,date,id);
-		
+
 	}
 	public void workoutdayinsert(String date,String id) {
 		String workoutTime = boDao.workoutdayinsertDao(date,id);
@@ -47,6 +48,23 @@ public class BoService {
 	}
 	public void discon() {
 		boDao.disconnection();
+	}
+	
+	public int selectPtcount(String id) {
+		int check=0;
+		check = boDao.isPtCountExsist(id);
+		return check;
+	}
+	public void usingPtCount(String id) {
+		boDao.usingPtCount(id);
+	}
+
+	public boolean isbookedCheck(String id, String date) {
+		boolean check = true;
+		if(boDao.isbookedCheck(id,date)!=0) {
+			check = false;
+		}
+		return check;
 	}
 
 }

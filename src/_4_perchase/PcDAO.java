@@ -73,7 +73,8 @@ public class PcDAO {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println("커넥션닫기에 문제가 있습니다.");
 		}
 
 	}

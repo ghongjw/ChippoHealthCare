@@ -42,7 +42,7 @@ public class PcConfirmController implements Initializable{
 		ptFare=pcController.getPtFare();
 		totalFarecal=pcController.getTotalFarecal();
 		pcService=pcController.getPcService();
-		System.out.println(pcService);
+		
 		pcService.setPcController(pcController);
 		pchowmuch.setText(Integer.toString(totalFarecal)+"원을 결제하시겠습니까?");
 	}
@@ -52,12 +52,10 @@ public class PcConfirmController implements Initializable{
 	}
 
 	public void setpcConfirmController(PcConfirmController pcconfirmCon) {
-
 		this.pcconfirmCon=pcconfirmCon;
 	}
 
 	public void psmademindButtonProc() {
-		//System.out.println("a id :"+id);
 		pcService.perchaced(id,monthFare,ptFare);
 		CommonService.msg("결제되었습니다.");
 		CommonService.windowsClose(pcConfirmForm);

@@ -81,9 +81,6 @@ public class UMService {
 		}
 		return Ptmon;
 	}
-
-		
-	
 	public String getaday() {
 		return aday;
 	}
@@ -126,6 +123,10 @@ public class UMService {
 			check=true;
 		}
 			return check;
+		
+	}
+	public void disconnection() {
+		umDao.disconnection();
 		
 	}
 
