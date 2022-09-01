@@ -113,7 +113,10 @@ public class TMcontroller implements Initializable {
 
 	// 트레이너 관리 화면에서 삭제 버튼 누르면 동작하는 메서드
 	public void delProc() {
-		opener.delOpen();
+		if (point == null || trainername == null) {
+			CommonService.msg("지점 및 트레이너를 선택해주세요.");
+		} else
+			opener.delOpen();
 	}
 
 	// 트레이너 관리 화면에서 저장 버튼 누르면 동작하는 메서드
@@ -135,7 +138,7 @@ public class TMcontroller implements Initializable {
 	// 트레이너 관리 화면에서 검색 버튼 누르면 동작하는 메서드
 	public void searchProc() {
 		if (point == null || trainername == null || date == null) {
-			CommonService.msg("입력정보를 확인 해주세요");
+			CommonService.msg("지점, 트레이너, 날짜를 모두 선택해주세요.");
 		} else {
 			// 검색 눌렀을 때 DB에 스케줄이 있으면 스케줄표를 가져옴
 			if (tmService.ScheduleEmpty(point, trainername, date, tmDto) == true) {
@@ -153,23 +156,26 @@ public class TMcontroller implements Initializable {
 	public void getSchedule() {
 		CheckBox[] checkBox = { time7, time9, time11, time13, time15, time17, time19, time21, time23 };
 		String[] YesNo = tmService.getYesNo(point, trainername, date, tmDto);
+		String[] PTmembers = tmService.getMatchMemeber(point, trainername, date, tmDto);
+		Label[] label = { name7, name9, name11, name13, name15, name17, name19, name21, name23 };
 
+		// PTmembers 확인용 출력
+		for (int i = 0; i < PTmembers.length; i++) {
+			System.out.println(PTmembers[i]);
+		}
+
+		// DB에서 스케줄표 y or n 여부 확인해서 체크박스 체크여부 구분
 		for (int i = 0; i < checkBox.length; i++) {
 			if (YesNo[i].equals("y")) {
 				// 체크박스 체크된 상태로 출력
 				checkBox[i].setSelected(true);
+				label[i].setText(PTmembers[i]);
 			} else if (YesNo[i].equals("n")) {
 				checkBox[i].setSelected(false);
-				// n이면 회원 이름 라벨에 넣어주는 메서드
-				Label[] label = { name7, name9, name11, name13, name15, name17, name19, name21, name23 };
-				String[] PTmembers = tmService.getMatchMemeber(point, trainername, date, tmDto);
 
+				// n이면 회원 이름 라벨에 넣어주는 메서드
 				for (int j = 0; j < label.length; j++) {
-					if (PTmembers[j].equals(" ")) {
-						label[j].setText(" ");
-					} else {
-						label[j].setText(PTmembers[j]);
-					}
+					label[j].setText(PTmembers[j]);
 				}
 
 			}
@@ -184,6 +190,10 @@ public class TMcontroller implements Initializable {
 	public String getName() {
 		return trainername;
 
+	}
+
+	public String getPoint() {
+		return point;
 	}
 
 }

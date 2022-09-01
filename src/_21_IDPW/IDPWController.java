@@ -12,23 +12,20 @@ public class IDPWController {
 	}
 	
 	public void BackProc() {
-		
+		opener.Login();
 	}
 	public void FindId0() {
-		System.out.println("test"+opener);
+		
 		opener.Findid0Open();
 	}
 	
 	public void FindPw0() {
+		
 		opener.Findpw0Open();
 	}
-
-	
 
 	public void setIdPw(Parent IdPw) {
 		this.IdPw = IdPw;
 		
 	}
-	
-	
 }

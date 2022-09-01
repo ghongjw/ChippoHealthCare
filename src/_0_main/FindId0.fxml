@@ -77,7 +77,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <TextField maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" text="인증번호 6자리 입력" />
+                  <TextField fx:id="confirmNum" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" text="인증번호 6자리 입력" />
                   <Button mnemonicParsing="false" onAction="#confirmNumCheck" text="다음" />
                </children>
                <VBox.margin>

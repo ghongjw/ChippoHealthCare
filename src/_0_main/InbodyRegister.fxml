@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_7_1_inbodyResister.InbodyRegController">
    <top>
       <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="24.0" layoutY="74.0" mnemonicParsing="false" text="&lt;" />
+            <Button fx:id="back" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" onAction="#backProc" text="&lt;" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo.png" />
@@ -40,7 +40,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
                <children>
-                  <ComboBox prefWidth="300.0" promptText="날짜선택" />
+                  <ComboBox fx:id="year" prefWidth="100.0" />
+                  <Label text="년" />
+                  <ComboBox fx:id="month" prefWidth="100.0" />
+                  <Label text="월" />
+                  <ComboBox fx:id="day" prefWidth="100.0" />
+                  <Label text="일" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="750.0" spacing="20.0">
@@ -53,7 +58,7 @@
                         <Insets left="210.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField />
+                  <TextField fx:id="age" />
                   <Label prefWidth="80.0" text="세">
                      <font>
                         <Font size="18.0" />
@@ -71,7 +76,7 @@
                         <Insets left="210.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField />
+                  <TextField fx:id="height" />
                   <Label prefWidth="80.0" text="cm">
                      <font>
                         <Font size="18.0" />
@@ -89,7 +94,7 @@
                         <Insets left="210.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField />
+                  <TextField fx:id="weight" />
                   <Label prefWidth="80.0" text="kg">
                      <font>
                         <Font size="18.0" />
@@ -107,7 +112,7 @@
                         <Insets left="210.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField />
+                  <TextField fx:id="musle" />
                   <Label prefWidth="80.0" text="kg">
                      <font>
                         <Font size="18.0" />
@@ -125,8 +130,8 @@
                         <Insets left="210.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField />
-                  <Label prefWidth="80.0" text="g">
+                  <TextField fx:id="fat" />
+                  <Label prefWidth="80.0" text="kg">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -143,7 +148,7 @@
                         <Insets left="210.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField />
+                  <TextField fx:id="fatper" />
                   <Label prefWidth="80.0" text="\%">
                      <font>
                         <Font size="18.0" />
@@ -161,12 +166,12 @@
                         <Insets left="210.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField />
+                  <TextField fx:id="bmi" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="등록" />
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#addProc" prefHeight="70.0" prefWidth="150.0" text="등록" />
                </children>
             </HBox>
          </children>

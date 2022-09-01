@@ -233,4 +233,33 @@ public class TMDAO {
 		}
 	}
 
+	// 트레이너 info table 삭제하는 쿼리
+	public void deleteInfo(String point, String trainername) {
+		String sql = "delete from trainer_info WHERE point = ? AND name = ?";
+
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, point);
+			ps.setString(2, trainername);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("트레이너 info table 삭제하는 쿼리문 실패");
+			e.printStackTrace();
+		}
+	}
+
+	// 트레이너 time table 삭제하는 쿼리
+	public void deleteTime(String point, String trainername) {
+		String sql = "delete from Numtrainer_time WHERE point = ? AND name = ?";
+
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, point);
+			ps.setString(2, trainername);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("트레이너 time table 삭제하는 쿼리문 실패");
+			e.printStackTrace();
+		}
+	}
 }

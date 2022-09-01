@@ -3,7 +3,7 @@ package _22_findId;
 public class FindIdDTO {
 		private String name;
 		private String moblie;
-		private int confirmNum;
+		private String confirmNum;
 		public String getName() {
 			return name;
 		}
@@ -18,12 +18,12 @@ public class FindIdDTO {
 			this.moblie = moblie;
 		}
 	
-		public int getconfirmNumLength() {
+		public String getconfirmNum() {
 			return confirmNum;
 	}
 	
-		public void setconfirmNumLength(int confirmNum) {
-			this.confirmNum = confirmNum;
+		public void setconfirmNum(String confirmtest) {
+			this.confirmNum = confirmtest;
 	}
 	
 }

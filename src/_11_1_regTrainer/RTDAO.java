@@ -24,8 +24,8 @@ public class RTDAO {
 		}
 	}
 
-	public void insert(RTDTO reg) {
-		//사진은 아직 DB에 안 넣음
+	public void insertTrainerInfo(RTDTO reg) {
+		// 사진은 아직 DB에 안 넣음
 		String sql = "INSERT INTO trainer_info VALUES(?,?,?,?,?,?)";
 		try {
 			ps = con.prepareStatement(sql);
@@ -39,6 +39,22 @@ public class RTDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+	}
+
+	public void insertTrainertime(String date, RTDTO reg) {
+		String sql = "INSERT INTO NUMTRAINER_TIME(name,point,to_date,t1,t2,t3,t4,t5,t6,t7,t8,t9,t1_user,t2_user,t3_user,t4_user,t5_user,t6_user,t7_user,t8_user,t9_user) VALUES(?,?,?, 'y','y','y',  'y','y','y',  'y','y','y', ' ',' ',' ',' ',' ',' ',' ',' ',' ')";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, reg.getName());
+			ps.setString(2, reg.getPoint());
+			ps.setString(3, date);
+
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void disconnection() {

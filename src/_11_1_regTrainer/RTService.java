@@ -1,14 +1,15 @@
 package _11_1_regTrainer;
 
+import java.util.ArrayList;
+
 import _0_main.CommonService;
-import _1_login.LoginDAO;
-import _1_login.LoginDTO;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class RTService {
+public class RTService extends _2weeks {
+
 	private RTDAO rtDao;
 
 	public RTService() {
@@ -44,7 +45,14 @@ public class RTService {
 //		}
 
 		// 회원 가입
-		rtDao.insert(rt);
+		rtDao.insertTrainerInfo(rt);
+
+		ArrayList weeks2 = (get2weeks()); // 2주 날짜들 담긴 리스트
+		// 14일의 스케줄표를 만들기 위한 for문
+		for (int i = 0; i < weeks2.size(); i++) {
+			String date = (String) weeks2.get(i);
+			rtDao.insertTrainertime(date, rt);
+		}
 
 		rtDao.disconnection();
 		CommonService.msg("등록 완료");

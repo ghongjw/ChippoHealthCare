@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_7_inbodySelect.InbodyController">
    <top>
       <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="24.0" layoutY="74.0" mnemonicParsing="false" text="&lt;" />
+            <Button fx:id="back" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" onAction="#back" text="&lt;" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo.png" />
@@ -35,7 +35,7 @@
                         <Font name="Arial Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="인바디 추가">
+                  <Button fx:id="inbodyadd" mnemonicParsing="false" onAction="#inbodyadd" prefHeight="40.0" prefWidth="100.0" text="인바디 추가">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -47,7 +47,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
                <children>
-                  <ComboBox prefWidth="300.0" promptText="날짜선택" />
+                  <ComboBox fx:id="datepick" prefWidth="300.0" promptText="날짜선택" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="750.0" spacing="30.0">
@@ -60,7 +60,7 @@
                         <Insets left="240.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefWidth="80.0" text="HEIGHT">
+                  <Label fx:id="height" prefWidth="80.0" text="HEIGHT">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
@@ -82,7 +82,7 @@
                         <Insets left="240.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefWidth="80.0" text="AGE">
+                  <Label fx:id="age" prefWidth="80.0" text="AGE">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
@@ -104,7 +104,7 @@
                         <Insets left="240.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefWidth="80.0" text="WEIGHT">
+                  <Label fx:id="weight" prefWidth="80.0" text="WEIGHT">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
@@ -126,7 +126,7 @@
                         <Insets left="240.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefWidth="80.0" text="MUSLE">
+                  <Label fx:id="musle" prefWidth="80.0" text="MUSLE">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
@@ -148,7 +148,7 @@
                         <Insets left="240.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefWidth="80.0" text="FAT">
+                  <Label fx:id="fat" prefWidth="80.0" text="FAT">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
@@ -170,7 +170,7 @@
                         <Insets left="240.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefWidth="80.0" text="FATPer">
+                  <Label fx:id="fatper" prefWidth="80.0" text="FATPer">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
@@ -192,13 +192,14 @@
                         <Insets left="240.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefWidth="80.0" text="BMI">
+                  <Label fx:id="bmi" prefWidth="80.0" text="BMI">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
+            <Button fx:id="button" mnemonicParsing="false" onAction="#button" text="Button" />
          </children>
          <BorderPane.margin>
             <Insets top="20.0" />

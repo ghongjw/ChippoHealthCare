@@ -21,7 +21,7 @@ import _4_perchase.PcConfirmController;
 import _4_perchase.PcController;
 import _5_book.BoController;
 import _6_Record.RcController;
-import _9_UserPtUpdate.Upcontroller;
+import _9_UserPTUpdate.UPController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -30,6 +30,7 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class Opener {
+
 	private Stage primaryStage;
 
 	private String id;
@@ -135,9 +136,9 @@ public class Opener {
 
 			Scene scene = new Scene(FindId0);
 			Stage Findid0Stage = new Stage();
-			Findid0Stage.setTitle("아이디 찾기");
-			Findid0Stage.setScene(scene);
-			Findid0Stage.show();
+			primaryStage.setTitle("아이디 찾기");
+			primaryStage.setScene(scene);
+			primaryStage.show();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -154,9 +155,9 @@ public class Opener {
 
 			Scene scene = new Scene(FindPw0);
 			Stage FindPw0Stage = new Stage();
-			FindPw0Stage.setTitle("비밀번호 찾기");
-			FindPw0Stage.setScene(scene);
-			FindPw0Stage.show();
+			primaryStage.setTitle("비밀번호 찾기");
+			primaryStage.setScene(scene);
+			primaryStage.show();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -173,9 +174,9 @@ public class Opener {
 			Scene scene = new Scene(FindId1);
 			Stage Findid1Stage = new Stage();
 
-			Findid1Stage.setTitle("아이디 찾기");
-			Findid1Stage.setScene(scene);
-			Findid1Stage.show();
+			primaryStage.setTitle("아이디 찾기");
+			primaryStage.setScene(scene);
+			primaryStage.show();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -192,9 +193,9 @@ public class Opener {
 			Scene scene = new Scene(Findpw1);
 			Stage Findpw1Stage = new Stage();
 
-			Findpw1Stage.setTitle("비밀번호 찾기");
-			Findpw1Stage.setScene(scene);
-			Findpw1Stage.show();
+			primaryStage.setTitle("비밀번호 찾기");
+			primaryStage.setScene(scene);
+			primaryStage.show();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -214,9 +215,9 @@ public class Opener {
 			Scene scene = new Scene(Agreement);
 			Stage agreeStage = new Stage();
 
-			agreeStage.setTitle("취뽀 회원 동의");
-			agreeStage.setScene(scene);
-			agreeStage.show();
+			primaryStage.setTitle("취뽀 회원 동의");
+			primaryStage.setScene(scene);
+			primaryStage.show();
 		} catch (Exception e) {
 			CommonService.msg("회원 가입 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
 			e.printStackTrace();
@@ -237,9 +238,9 @@ public class Opener {
 			Scene scene = new Scene(Register);
 			Stage regStage = new Stage();
 
-			regStage.setTitle("취뽀 회원 가입");
-			regStage.setScene(scene);
-			regStage.show();
+			primaryStage.setTitle("취뽀 회원 가입");
+			primaryStage.setScene(scene);
+			primaryStage.show();
 		} catch (Exception e) {
 			CommonService.msg("회원 가입 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
 			e.printStackTrace();
@@ -384,7 +385,7 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("inbodySelect.fxml"));
 		try {
 			Parent isForm = loader.load();
-
+			
 			Scene scene = new Scene(isForm);
 			primaryStage.setTitle("인바디 화면");
 			primaryStage.setScene(scene);
@@ -447,10 +448,10 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("userPTUpdate.fxml"));
 		try {
 			Parent pUForm = loader.load();
-			Upcontroller upcontroller = loader.getController();
-			upcontroller.setOpener(this);
-			upcontroller.getUserId(id);
-			upcontroller.getUserName(name);
+			UPController upcontroller = loader.getController();
+			upcontroller.setOpener(opener);
+			//upcontroller.getUserId(id);
+			//upcontroller.getUserName(name);
 			Scene scene = new Scene(pUForm);
 			primaryStage.setTitle("PT 수정 화면");
 			primaryStage.setScene(scene);

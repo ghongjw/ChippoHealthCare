@@ -1,6 +1,7 @@
 package _11_1_regTrainer;
 
 import java.io.BufferedInputStream;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -56,7 +57,7 @@ public class RTController implements Initializable {
 	public void homeProc() {
 		opener.mmOpen();
 	}
-	
+
 	// 구현은 됐고 이미지 경로(url)를 DB에 저장해줘야함
 	// 트레이너 등록 화면에서 사진등록 버튼 누르면 동작하는 메서드
 	public void regImageProc() {

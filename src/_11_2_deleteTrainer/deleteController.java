@@ -1,13 +1,9 @@
 package _11_2_deleteTrainer;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import _0_main.CommonService;
 import _0_main.Opener;
 import _11_0_TrainManagement.TMcontroller;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,6 +19,7 @@ public class deleteController {
 	private Opener opener;
 	private Parent delform;
 	private TMcontroller tmCon;
+	private deleteService delService = new deleteService();
 
 	public void setOpener(Opener opener) {
 		this.opener = opener;
@@ -40,7 +37,7 @@ public class deleteController {
 
 	// 삭제 창에서 '예' 버튼 누르면 동작하는 메서드
 	public void yesProc() {
-		
+		delService.delInfotime(tmCon.getPoint(), tmCon.getName());
 		CommonService.msg("삭제 왼료");
 		CommonService.windowsClose(delform);
 	}

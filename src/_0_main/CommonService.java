@@ -38,5 +38,9 @@ public class CommonService {
 		todayMonth=Integer.parseInt(strmonth);
 		todayDay=Integer.parseInt(strday);
 	}
+	public static String[] dateArr(String date) {
+		String[] dateArr = { date };
+		return dateArr;
+	}
 
 }

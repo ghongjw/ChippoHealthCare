@@ -50,7 +50,7 @@
                      </font>
                   </Label>
                   <Button fx:id="start" mnemonicParsing="false" onAction="#startButton" text="시작" />
-                  <Label text="WorkoutStart">
+                  <Label fx:id="workoutstart" text="WorkoutStart">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -65,7 +65,7 @@
                      </font>
                   </Label>
                   <Button fx:id="end" mnemonicParsing="false" onAction="#endButton" text="종료" />
-                  <Label text="WorkoutEnd">
+                  <Label fx:id="workoutend" text="WorkoutEnd">
                      <font>
                         <Font size="18.0" />
                      </font>

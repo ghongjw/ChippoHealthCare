@@ -23,6 +23,8 @@ public class MController implements Initializable {
 	// 관리자 창에서 뒤로가기 버튼 누르면 뒤로 이동하는 메서드
 	public void backProc() {
 		// 관리자 메인에서 뒤로가기 누르면 로그아웃 할거냐는 창 띄우는거 추가하면 좋을거 같음
+	
+		opener.welcomeOpen();
 		System.out.println("로그인화면 열기");
 //			main.start();
 	}
