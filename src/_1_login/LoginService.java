@@ -22,7 +22,6 @@ public class LoginService {
 
 	public void loginset(String inputId, String inputPw, Opener opener) {
 		this.opener = opener;
-		System.out.println("login" + inputId + inputPw);
 		boolean logincheck = loginDao.selectIdInfo(inputId, inputPw);
 		if (inputId.equals("") || inputPw.equals("")) {
 			CommonService.msg("아이디 혹은 패스워드를 입력 해 주세요");
@@ -36,7 +35,7 @@ public class LoginService {
 		else if (loginDto.getLogin().equals("y")) {
 			CommonService.msg("이미 로그인 된 계정입니다.");
 		} else if (logincheck) {
-			if (inputId.equals("admin") && inputPw.equals("password")) {
+			if (inputId.equals("000") && inputPw.equals("000")) {
 				opener.mmOpen();
 			} else {
 

@@ -108,12 +108,28 @@ public class TMcontroller implements Initializable {
 
 	// 트레이너 관리 화면에서 등록 버튼 누르면 동작하는 메서드
 	public void regProc() {
-		//opener.rtOpen();
+		opener.rtOpen();
 	}
 
 	// 트레이너 관리 화면에서 삭제 버튼 누르면 동작하는 메서드
 	public void delProc() {
-		//opener.delOpen();
+		opener.delOpen();
+	}
+
+	// 트레이너 관리 화면에서 저장 버튼 누르면 동작하는 메서드
+	public void saveProc() {
+		// 저장 눌렀을 때
+		// 체크박스 체크유무로 DB에 t1~9를 Y or N 바꿔줌
+		CheckBox[] checkBox = { time7, time9, time11, time13, time15, time17, time19, time21, time23 };
+		String[] time = { "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9" };
+		for (int i = 0; i < checkBox.length; i++) {
+			if (checkBox[i].isSelected() == true) {
+				tmDao.setYes(point, trainername, date, time[i]);
+			} else {
+				tmDao.setNo(point, trainername, date, time[i]);
+			}
+		}
+		CommonService.msg("저장 완료");
 	}
 
 	// 트레이너 관리 화면에서 검색 버튼 누르면 동작하는 메서드
@@ -129,26 +145,9 @@ public class TMcontroller implements Initializable {
 			// 선택한 날짜에 DB에 스케줄이 없으면 스케줄이 없다는 창 띄우고 생성하겠냐는 버튼(예,아니오)
 			else if (tmService.ScheduleEmpty(point, trainername, date, tmDto) == false) {
 				schedulebox.setVisible(false);
-				//opener.newScheduleOpen();
+				opener.newScheduleOpen();
 			}
 		}
-	}
-
-	// 트레이너 관리 화면에서 저장 버튼 누르면 동작하는 메서드
-	public void saveProc() {
-		// 저장 눌렀을 때
-		// 체크박스 체크유무로 DB에 t1~9를 Y or N 바꿔줌
-		CheckBox[] checkBox = { time7, time9, time11, time13, time15, time17, time19, time21, time23 };
-		String[] time = { "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9" };
-		for (int i = 0; i < checkBox.length; i++) {
-			if (checkBox[i].isSelected() == true) {
-				tmDao.setYes(point, trainername, date, time[i]);
-			} else {
-				tmDao.setNo(point, trainername, date, time[i]);
-			}
-			CommonService.msg("저장 완료");
-		}
-
 	}
 
 	public void getSchedule() {
@@ -160,14 +159,19 @@ public class TMcontroller implements Initializable {
 				// 체크박스 체크된 상태로 출력
 				checkBox[i].setSelected(true);
 			} else if (YesNo[i].equals("n")) {
+				checkBox[i].setSelected(false);
 				// n이면 회원 이름 라벨에 넣어주는 메서드
 				Label[] label = { name7, name9, name11, name13, name15, name17, name19, name21, name23 };
 				String[] PTmembers = tmService.getMatchMemeber(point, trainername, date, tmDto);
 
 				for (int j = 0; j < label.length; j++) {
-					label[i].setText(PTmembers[i]);
+					if (PTmembers[j].equals(" ")) {
+						label[j].setText(" ");
+					} else {
+						label[j].setText(PTmembers[j]);
+					}
 				}
-				checkBox[i].setSelected(false);
+
 			}
 		}
 	}
@@ -176,4 +180,10 @@ public class TMcontroller implements Initializable {
 		tmService.newScheduleInsert(point, trainername, date);
 		System.out.println("DB에 새로운 스케줄 row 생성됨");
 	}
+
+	public String getName() {
+		return trainername;
+
+	}
+
 }

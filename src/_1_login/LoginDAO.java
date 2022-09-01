@@ -14,8 +14,8 @@ public class LoginDAO {
 
 	public LoginDAO() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "JOOWON";
-		String password = "JOOWON";
+		String user = "oracle";
+		String password = "oracle";
 		loginDto = new LoginDTO();
 
 		try {
@@ -28,7 +28,7 @@ public class LoginDAO {
 
 	public boolean selectIdInfo(String inputId, String inputPw) {
 	System.out.println("userid"+inputId);
-		String sql = "select id, pw, name, login, expire_year, expire_month, expire_day,ptcount from health_user where id=? and pw=?";
+		String sql = "select id, pw, name, login, expire_year, expire_month, expire_day from health_user where id=? and pw=?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, inputId);
@@ -42,7 +42,6 @@ public class LoginDAO {
 				loginDto.setExpireYear(rs.getString("expire_year"));
 				loginDto.setExpireMonth(rs.getString("expire_month"));
 				loginDto.setExpireDay(rs.getString("expire_day"));
-				loginDto.setPtcount(rs.getString("ptcount"));
 				return true;
 			}
 		} catch (Exception e) {

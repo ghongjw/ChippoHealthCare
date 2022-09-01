@@ -18,8 +18,8 @@ public class TMDAO {
 
 	public TMDAO() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "JOOWON";
-		String password = "JOOWON";
+		String user = "oracle";
+		String password = "oracle";
 
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -30,7 +30,7 @@ public class TMDAO {
 	}
 
 	public void newScheduleInsert(String point, String trainername, String date) {
-		String sql = "INSERT INTO NUMTRAINER_TIME(name,point,to_date,t1,t2,t3,t4,t5,t6,t7,t8,t9) VALUES(?,?,?, 'y','y','y',  'y','y','y',  'y','y','y')";
+		String sql = "INSERT INTO NUMTRAINER_TIME(name,point,to_date,t1,t2,t3,t4,t5,t6,t7,t8,t9,t1_user,t2_user,t3_user,t4_user,t5_user,t6_user,t7_user,t8_user,t9_user) VALUES(?,?,?, 'y','y','y',  'y','y','y',  'y','y','y', ' ',' ',' ',' ',' ',' ',' ',' ',' ')";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, trainername);
@@ -167,6 +167,26 @@ public class TMDAO {
 			System.out.println("yes or no 쿼리문 실패");
 			e.printStackTrace();
 		}
+	}
+
+	public int count(String point, String trainername, String date, TMDTO tmDto) {
+		String sql = "select count(t1_user) from Numtrainer_time WHERE point = ? AND name = ? AND to_date = ?";
+		int count = 0;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, point);
+			ps.setString(2, trainername);
+			ps.setString(3, date);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+				System.out.println("count : " + count);
+			}
+		} catch (SQLException e) {
+			System.out.println("count 쿼리문 실패");
+			e.printStackTrace();
+		}
+		return count;
 	}
 
 	public void getMatchMember(String point, String trainername, String date, TMDTO tmDto) {

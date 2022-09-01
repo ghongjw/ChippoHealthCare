@@ -4,6 +4,11 @@ import java.io.IOException;
 
 import _0_welService.WelController;
 import _10_Manager.MController;
+import _11_0_TrainManagement.TMcontroller;
+import _11_1_regTrainer.RTController;
+import _11_2_deleteTrainer.deleteController;
+import _11_3_newSchedule.newScheduleController;
+import _12_0_memberSearch.MSController;
 import _1_login.LoginController;
 import _201_agreement.AgreementController;
 import _21_IDPW.IDPWController;
@@ -20,6 +25,8 @@ import _9_UserPtUpdate.Upcontroller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class Opener {
@@ -33,12 +40,24 @@ public class Opener {
 	private String expireDay;
 	private String ptcount;
 
-	
+
 	private UMController umCon;
 	private UMLogoutController umLougoutCon;
 	private PcController pcCon;
 	private PcConfirmController pcconfirmCon;
 	private Opener opener;
+
+	private TMcontroller tmCon;
+
+	public void setTmCon(TMcontroller tmCon) {
+		this.tmCon = tmCon;
+	}
+
+	public TMcontroller getTmCon() {
+		return tmCon;
+	}
+
+
 
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
@@ -191,7 +210,7 @@ public class Opener {
 			AgreementController agreeCon = loader.getController();
 			agreeCon.setRegister(Agreement);
 			agreeCon.setOpener(opener);
-			
+
 			Scene scene = new Scene(Agreement);
 			Stage agreeStage = new Stage();
 
@@ -442,11 +461,13 @@ public class Opener {
 		}
 	}
 
+	// 10번 관리자 창 띄우기
 	public void mmOpen() { // ManagementMain
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("M.fxml"));
 		try {
 			Parent mmform = loader.load();
 			MController mCon = loader.getController();
+			System.out.println(opener);
 			mCon.setOpener(opener);
 
 			Scene scene = new Scene(mmform);
@@ -459,6 +480,138 @@ public class Opener {
 		}
 
 	}
+
+	// 11번 트레이너관리 창 띄우기
+	public void tmOpen() { // TrainerManagement
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("TM.fxml"));
+		try {
+			Parent tmform = loader.load();
+			TMcontroller TMCon = loader.getController();
+			TMCon.setOpener(opener);
+			this.setTmCon(TMCon);
+
+			Scene scene = new Scene(tmform);
+
+			primaryStage.setTitle("트레이너관리 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("트레이너관리 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
+	// 11-1 트레이너 등록 창 띄우기
+	public void rtOpen() { // RegTrainer
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("RT.fxml"));
+		try {
+			Parent rtform = loader.load();
+			RTController RTCon = loader.getController();
+			RTCon.setOpener(opener);
+
+			Scene scene = new Scene(rtform);
+
+			ComboBox<String> pointCombo = (ComboBox<String>) rtform.lookup("#regPoint");
+			pointCombo.getItems().addAll("영등포점", "창동점", "홍제점", "의정부점", "강남점", "송파점", "분당점", "성수점", "노량진점", "부산점");
+
+			primaryStage.setTitle("트레이너 등록 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("드레이너 등록 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
+	// 11-2 트레이너 삭제 창 띄우기
+	public void delOpen() { // delete
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("deleteTrainer.fxml"));
+		try {
+			Parent delform = loader.load();
+			deleteController delCon = loader.getController();
+			delCon.setdelform(delform);
+			delCon.setOpener(opener);
+
+			Scene scene = new Scene(delform);
+			Stage delStage = new Stage();
+
+			delStage.setTitle("트레이너 삭제 화면");
+			delStage.setScene(scene);
+			delStage.show();
+		} catch (Exception e) {
+			CommonService.msg("트레이너 삭제 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
+	// 11-3 트레이너 스케줄 만들겠냐는 창 띄우기
+	public void newScheduleOpen() { // newSchedule
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("newScheduleSelect.fxml"));
+		try {
+			Parent newScheduleform = loader.load();
+			newScheduleController newScheduleCon = loader.getController();
+			newScheduleCon.setnewScheduleform(newScheduleform);
+			newScheduleCon.setOpener(opener);
+
+			Scene scene = new Scene(newScheduleform);
+			Stage newScheduleStage = new Stage();
+
+			newScheduleStage.setTitle("스케줄 생성 화면");
+			newScheduleStage.setScene(scene);
+			newScheduleStage.show();
+		} catch (Exception e) {
+			CommonService.msg("스케줄 생성 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
+	// 12번 회원검색 창 띄우기
+	public void msOpen() { // MemberSearch
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("memberSearch.fxml"));
+		try {
+			Parent msform = loader.load();
+			MSController MSCon = loader.getController();
+			MSCon.setOpener(opener);
+
+			Scene scene = new Scene(msform);
+
+			TableView<String> memberTable = (TableView<String>) msform.lookup("#memberList");
+			// 이름 검색했을때 해당 이름이 추가돼야하는데 DB랑 연관지어야함
+
+			primaryStage.setTitle("회원검색 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("회원 검색 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
+	// 12-1 회원 정보 수정 창 띄우기
+	public void reviseOpen() { // revise
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("memberRevise.fxml"));
+		try {
+			Parent reviseform = loader.load();
+			Scene scene = new Scene(reviseform);
+
+			ComboBox<String> pointCombo = (ComboBox<String>) reviseform.lookup("#point");
+			pointCombo.getItems().addAll("영등포점", "창동점", "홍제점", "의정부점", "강남점", "송파점", "분당점", "성수점", "노량진점", "부산점");
+
+			primaryStage.setTitle("회원 정보 수정 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("회원 정보 수정 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
 
 	// 회원 아이디 가져오기
 	public String getId() {

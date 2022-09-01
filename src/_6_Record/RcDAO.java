@@ -15,8 +15,8 @@ public class RcDAO {
 	private RcDTO bcDto=new RcDTO();;
 	public RcDAO() {
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String user="JOOWON";
-		String password="JOOWON";
+		String user="oracle";
+		String password="oracle";
 		//BoDTO boDto = new BoDTO();
 
 		try {

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,16 +16,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_11_1_regTrainer.RTController">
    <top>
       <AnchorPane maxHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="208.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="home" fitHeight="150.0" fitWidth="208.0" layoutX="285.0" onMouseClicked="#homeProc" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Users/SON/Desktop/취뽀헬스장%20프로젝트/로고.png" />
+                  <Image url="@../로고.png" />
                </image>
             </ImageView>
-            <Button layoutX="47.0" layoutY="56.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="&lt;" />
+            <Button fx:id="back" layoutX="47.0" layoutY="56.0" mnemonicParsing="false" onAction="#backProc" prefHeight="30.0" prefWidth="30.0" text="&lt;" />
          </children>
       </AnchorPane>
    </top>
@@ -39,45 +40,44 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Users/SON/Desktop/취뽀헬스장%20프로젝트/로고.png" />
-               </image>
-            </ImageView>
-            <Button mnemonicParsing="false" text="사진 등록" />
+            <ImageView fx:id="uploadImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="regImage" mnemonicParsing="false" onAction="#regImageProc" text="사진 등록" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
                   <Label text="등록할 지점" />
-                  <ComboBox prefWidth="150.0" />
+                  <ComboBox fx:id="regPoint" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
                   <Label text="이름" />
-                  <TextField />
+                  <TextField fx:id="name" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
                   <Label text="나이" />
-                  <TextField />
+                  <TextField fx:id="age" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="성별" />
-                  <RadioButton mnemonicParsing="false" text="남">
+                  <RadioButton fx:id="man" mnemonicParsing="false" text="남">
                      <padding>
                         <Insets left="50.0" right="15.0" />
                      </padding>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="여" />
+                  <RadioButton fx:id="woman" mnemonicParsing="false" text="여" toggleGroup="$gender" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
                   <Label text="수상 경력" />
-                  <TextArea prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="spec" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </HBox>
          </children>
@@ -86,7 +86,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="등록" />
+            <Button fx:id="reg" mnemonicParsing="false" onAction="#regProc" text="등록" />
          </children>
       </HBox>
    </bottom>

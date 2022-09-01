@@ -13,8 +13,8 @@ public class RegDAO {
 
 	public RegDAO() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "JOOWON";
-		String password = "JOOWON";
+		String user = "oracle";
+		String password = "oracle";
 
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");

@@ -37,6 +37,12 @@ public class TMService {
 		String[] PTmembers = { tmDto.getT1_user(), tmDto.getT2_user(), tmDto.getT3_user(), tmDto.getT4_user(),
 				tmDto.getT5_user(), tmDto.getT6_user(), tmDto.getT7_user(), tmDto.getT8_user(), tmDto.getT9_user() };
 
+		// PTmembers에 뭐 담겼는지
+		for (int i = 0; i < PTmembers.length; i++) {
+			System.out.println(PTmembers[i]);
+		}
+		System.out.println();
+
 		return PTmembers;
 	}
 
