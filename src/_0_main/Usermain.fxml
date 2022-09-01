@@ -12,799 +12,814 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane minViewportWidth="750.0" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
+<ScrollPane maxHeight="900.0" maxWidth="750.0" minViewportWidth="750.0" prefHeight="900.0" prefWidth="750.0" styleClass="umform" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
    <content>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="750.0" style="-fx-background-color: white;">
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="750.0" styleClass="umform">
          <top>
-            <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" stylesheets="@../application/test.css" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #293241;" styleClass="HBox-upper" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="umBackButton" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" text="&lt;" />
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../_3_UserMain/logo.png" />
-                     </image>
-                  </ImageView>
+                  <Button fx:id="umBackButton" maxHeight="72.0" maxWidth="70.0" minHeight="50.0" minWidth="55.0" mnemonicParsing="false" onAction="#backButtonProc" prefHeight="72.0" prefWidth="70.0" style="-fx-background-color: #98c1d9;" styleClass="Button" text="&lt;">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin></Button>
+                  <StackPane alignment="BOTTOM_LEFT" prefHeight="150.0" prefWidth="750.0">
+                     <children>
+                        <ImageView fitHeight="141.0" fitWidth="437.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@mab.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets left="70.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                        <Label alignment="BOTTOM_LEFT" styleClass="g-label" text="취뽀Health Center">
+                           <StackPane.margin>
+                              <Insets left="210.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
                </children>
-            </AnchorPane>
+            </HBox>
          </top>
          <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <HBox BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                  <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                            <children>
-                              <ImageView fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../_3_UserMain/user.png" />
-                                 </image>
-                              </ImageView>
-                              <Button fx:id="umgoToUiButton" mnemonicParsing="false" onAction="#umgoToUiButtonProc" text="회원정보수정" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="149.0" prefWidth="541.0" spacing="10.0">
-                           <children>
-                              <HBox prefHeight="32.0" prefWidth="190.0" spacing="200.0">
+                              <VBox prefHeight="149.0" prefWidth="541.0" spacing="10.0">
                                  <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <HBox prefHeight="32.0" prefWidth="190.0" spacing="200.0">
                                        <children>
-                                          <Label text="ID : ">
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="ID : ">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="17.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="umIDLabel" text="ID">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="17.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="27.0" prefHeight="27.0" prefWidth="441.0">
+                                       <children>
+                                          <Label text="이름 : ">
                                              <font>
-                                                <Font name="Arial" size="18.0" />
+                                                <Font size="18.0" />
                                              </font>
-                                             <HBox.margin>
-                                                <Insets top="17.0" />
-                                             </HBox.margin>
                                           </Label>
-                                          <Label fx:id="umIDLabel" text="ID">
+                                          <Label fx:id="umNameLabel" text="NAME">
                                              <font>
-                                                <Font name="Arial" size="18.0" />
+                                                <Font size="18.0" />
                                              </font>
-                                             <HBox.margin>
-                                                <Insets top="17.0" />
-                                             </HBox.margin>
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" onAction="#umLogoutButtonProc" prefHeight="40.0" prefWidth="119.0" stylesheets="@Application.css" text="로그아웃">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </Button>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0">
+                                       <children>
+                                          <Label fx:id="umNameLabel2" text="NAME">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="umLastday" text="LASTDAY">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0">
+                                       <children>
+                                          <Label text="이용가능 PT 이용권은 ">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="umPtLabel" text="PT_NUM">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="장 입니다.">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="86.0" />
                                  </children>
-                              </HBox>
-                              <HBox minHeight="35.0" prefHeight="35.0" prefWidth="541.0">
+                                 <padding>
+                                    <Insets left="100.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="155.0" prefWidth="158.0" spacing="30.0">
                                  <children>
-                                    <Label text="이름 : ">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="umNameLabel" text="NAME">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
+                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" onAction="#umLogoutButtonProc" prefHeight="40.0" prefWidth="119.0" styleClass="Button" text="로그아웃" />
+                                    <Button fx:id="umgoToUiButton" mnemonicParsing="false" onAction="#umgoToUiButtonProc" styleClass="Button" text="회원정보수정" />
                                  </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0">
-                                 <children>
-                                    <Label fx:id="umNameLabel2" text="NAME">
-                                       <font>
-                                          <Font name="Arial" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="umLastday" text="LASTDAY">
-                                       <font>
-                                          <Font name="Arial" size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0">
-                                 <children>
-                                    <Label text="이용가능 PT 이용권은 ">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="umPtLabel" text="PT_NUM">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="장 입니다.">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="86.0" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <AnchorPane prefHeight="600.0" prefWidth="200.0">
-                     <children>
-                        <HBox alignment="CENTER" layoutX="224.0" layoutY="-4.0" prefHeight="36.0" prefWidth="303.0" spacing="20.0">
-                           <children>
-                              <Button fx:id="umpreviousMonth" mnemonicParsing="false" onAction="#umpreviousMonthProc" text="&lt;" />
-                              <Label fx:id="umYear" contentDisplay="CENTER" text="YEAR">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label contentDisplay="CENTER" text="년">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="umMonth" contentDisplay="CENTER" text="Mon">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label contentDisplay="CENTER" text="월">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="umNextMonth" mnemonicParsing="false" onAction="#umNextMonthProc" text="&gt;" />
+                              </VBox>
                            </children>
                         </HBox>
-                        <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="36.0" prefHeight="543.0" prefWidth="700.0">
-                          <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints maxHeight="40.66668701171875" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="131.0" minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+                        <AnchorPane prefHeight="482.0" prefWidth="720.0">
                            <children>
-                              <Label alignment="CENTER" text="일" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Label alignment="CENTER" text="월" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Label alignment="CENTER" text="화" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Label alignment="CENTER" text="수" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Label alignment="CENTER" text="목" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Label alignment="CENTER" text="금" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Label alignment="CENTER" text="토" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <VBox fx:id="dBox01" onMouseReleased="#vboxclicked01" GridPane.rowIndex="1">
+                              <HBox alignment="CENTER" layoutX="153.0" layoutY="-6.0" prefHeight="36.0" prefWidth="459.0" spacing="20.0">
                                  <children>
-                                    <Label fx:id="sDay1" text="sDay">
+                                    <Button fx:id="umpreviousMonth" maxHeight="40.0" minHeight="30.0" mnemonicParsing="false" onAction="#umpreviousMonthProc" prefHeight="30.0" styleClass="Button" text="&lt;" />
+                                    <Label fx:id="umYear" contentDisplay="CENTER" text="YEAR">
                                        <font>
-                                          <Font name="Arial" size="14.0" />
+                                          <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve01" text="ptReserve">
+                                    <Label contentDisplay="CENTER" text="년">
                                        <font>
-                                          <Font name="Arial" size="14.0" />
+                                          <Font size="18.0" />
                                        </font>
                                     </Label>
+                                    <Label fx:id="umMonth" contentDisplay="CENTER" text="Mon">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label contentDisplay="CENTER" text="월">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="umNextMonth" maxHeight="40.0" minHeight="30.0" mnemonicParsing="false" onAction="#umNextMonthProc" prefHeight="30.0" styleClass="Button" text="&gt;" />
                                  </children>
-                              </VBox>
-                              <VBox fx:id="dBox02" onMouseReleased="#vboxclicked02" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              </HBox>
+                              <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="36.0" prefHeight="437.0" prefWidth="700.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints maxHeight="40.66668701171875" minHeight="5.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="131.0" minHeight="20.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
                                  <children>
-                                    <Label fx:id="sDay2" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve02" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
+                                    <Label alignment="CENTER" styleClass="label-Son" text="일" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                    <Label alignment="CENTER" text="월" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                    <Label alignment="CENTER" text="화" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                    <Label alignment="CENTER" text="수" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                    <Label alignment="CENTER" text="목" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                    <Label alignment="CENTER" text="금" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                    <Label alignment="CENTER" styleClass="label-Sat" text="토" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                    <VBox fx:id="dBox01" onMouseReleased="#vboxclicked01" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="sDay1" styleClass="label-Son" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve01" styleClass="label-Son" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox02" onMouseReleased="#vboxclicked02" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="sDay2" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve02" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox03" onMouseReleased="#vboxclicked03" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="sDay3" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve03" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox04" onMouseReleased="#vboxclicked04" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="sDay4" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve04" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox05" onMouseReleased="#vboxclicked05" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="sDay5" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve05" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox06" onMouseReleased="#vboxclicked06" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="sDay6" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve06" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox07" onMouseReleased="#vboxclicked07" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="sDay7" styleClass="label-Sat" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve07" styleClass="label-Sat" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox08" onMouseReleased="#vboxclicked08" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="sDay8" styleClass="label-Son" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve08" styleClass="label-Son" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox09" onMouseReleased="#vboxclicked09" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="sDay9" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve09" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox10" onMouseReleased="#vboxclicked10" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="sDay10" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve10" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox11" onMouseReleased="#vboxclicked11" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="sDay11" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve11" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox12" onMouseReleased="#vboxclicked12" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="sDay12" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve12" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox13" onMouseReleased="#vboxclicked13" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="sDay13" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve13" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox14" onMouseReleased="#vboxclicked14" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="sDay14" styleClass="label-Sat" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve14" styleClass="label-Sat" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox15" onMouseReleased="#vboxclicked15" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="sDay15" styleClass="label-Son" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve15" styleClass="label-Son" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox16" onMouseReleased="#vboxclicked16" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="sDay16" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve16" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox17" onMouseReleased="#vboxclicked17" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="sDay17" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve17" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox18" onMouseReleased="#vboxclicked18" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="sDay18" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve18" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox19" onMouseReleased="#vboxclicked19" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="sDay19" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve19" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox20" onMouseReleased="#vboxclicked20" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="sDay20" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve20" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox21" onMouseReleased="#vboxclicked21" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="sDay21" styleClass="label-Sat" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve21" styleClass="label-Sat" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox22" onMouseReleased="#vboxclicked22" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label fx:id="sDay22" styleClass="label-Son" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve22" styleClass="label-Son" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox23" onMouseReleased="#vboxclicked23" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label fx:id="sDay23" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve23" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox24" onMouseReleased="#vboxclicked24" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label fx:id="sDay24" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve24" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox25" onMouseReleased="#vboxclicked25" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label fx:id="sDay25" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve25" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox26" onMouseReleased="#vboxclicked26" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label fx:id="sDay26" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve26" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox27" onMouseReleased="#vboxclicked27" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label fx:id="sDay27" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve27" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox28" onMouseReleased="#vboxclicked28" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label fx:id="sDay28" styleClass="label-Sat" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve28" styleClass="label-Sat" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox29" onMouseReleased="#vboxclicked29" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label fx:id="sDay29" styleClass="label-Son" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve29" styleClass="label-Son" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox30" onMouseReleased="#vboxclicked30" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label fx:id="sDay30" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve30" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox31" onMouseReleased="#vboxclicked31" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label fx:id="sDay31" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve31" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox32" onMouseReleased="#vboxclicked32" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label fx:id="sDay32" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve32" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox33" onMouseReleased="#vboxclicked33" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label fx:id="sDay33" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve33" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox34" onMouseReleased="#vboxclicked34" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label fx:id="sDay34" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve34" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox35" onMouseReleased="#vboxclicked35" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label fx:id="sDay35" styleClass="label-Sat" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve35" styleClass="label-Sat" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox36" onMouseReleased="#vboxclicked36" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label fx:id="sDay36" styleClass="label-Son" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve36" styleClass="label-Son" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox37" onMouseReleased="#vboxclicked37" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label fx:id="sDay37" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve37" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox38" onMouseReleased="#vboxclicked38" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label fx:id="sDay38" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve38" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox39" onMouseReleased="#vboxclicked39" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label fx:id="sDay39" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve39" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox40" onMouseReleased="#vboxclicked40" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label fx:id="sDay40" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve40" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox42" onMouseReleased="#vboxclicked42" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label fx:id="sDay42" styleClass="label-Sat" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve42" styleClass="label-Sat" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="dBox41" onKeyReleased="#vboxclicked41" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label fx:id="sDay41" text="sDay">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ptReserve41" text="ptReserve">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
                                  </children>
-                              </VBox>
-                              <VBox fx:id="dBox03" onMouseReleased="#vboxclicked03" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                 <children>
-                                    <Label fx:id="sDay3" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve03" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox04" onMouseReleased="#vboxclicked04" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                                 <children>
-                                    <Label fx:id="sDay4" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve04" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox05" onMouseReleased="#vboxclicked05" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                                 <children>
-                                    <Label fx:id="sDay5" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve05" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox06" onMouseReleased="#vboxclicked06" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                                 <children>
-                                    <Label fx:id="sDay6" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve06" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox07" onMouseReleased="#vboxclicked07" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                                 <children>
-                                    <Label fx:id="sDay7" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve07" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox08" onMouseReleased="#vboxclicked08" GridPane.rowIndex="2">
-                                 <children>
-                                    <Label fx:id="sDay8" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve08" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox09" onMouseReleased="#vboxclicked09" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <children>
-                                    <Label fx:id="sDay9" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve09" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox10" onMouseReleased="#vboxclicked10" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                                 <children>
-                                    <Label fx:id="sDay10" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve10" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox11" onMouseReleased="#vboxclicked11" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                 <children>
-                                    <Label fx:id="sDay11" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve11" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox12" onMouseReleased="#vboxclicked12" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                                 <children>
-                                    <Label fx:id="sDay12" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve12" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox13" onMouseReleased="#vboxclicked13" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                 <children>
-                                    <Label fx:id="sDay13" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve13" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox14" onMouseReleased="#vboxclicked14" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                                 <children>
-                                    <Label fx:id="sDay14" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve14" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox15" onMouseReleased="#vboxclicked15" GridPane.rowIndex="3">
-                                 <children>
-                                    <Label fx:id="sDay15" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve15" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox16" onMouseReleased="#vboxclicked16" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                 <children>
-                                    <Label fx:id="sDay16" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve16" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox17" onMouseReleased="#vboxclicked17" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                                 <children>
-                                    <Label fx:id="sDay17" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve17" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox18" onMouseReleased="#vboxclicked18" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                                 <children>
-                                    <Label fx:id="sDay18" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve18" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox19" onMouseReleased="#vboxclicked19" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                                 <children>
-                                    <Label fx:id="sDay19" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve19" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox20" onMouseReleased="#vboxclicked20" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                                 <children>
-                                    <Label fx:id="sDay20" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve20" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox21" onMouseReleased="#vboxclicked21" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                                 <children>
-                                    <Label fx:id="sDay21" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve21" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox22" onMouseReleased="#vboxclicked22" GridPane.rowIndex="4">
-                                 <children>
-                                    <Label fx:id="sDay22" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve22" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox23" onMouseReleased="#vboxclicked23" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                 <children>
-                                    <Label fx:id="sDay23" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve23" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox24" onMouseReleased="#vboxclicked24" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                                 <children>
-                                    <Label fx:id="sDay24" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve24" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox25" onMouseReleased="#vboxclicked25" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                                 <children>
-                                    <Label fx:id="sDay25" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve25" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox26" onMouseReleased="#vboxclicked26" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                                 <children>
-                                    <Label fx:id="sDay26" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve26" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox27" onMouseReleased="#vboxclicked27" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                                 <children>
-                                    <Label fx:id="sDay27" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve27" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox28" onMouseReleased="#vboxclicked28" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                                 <children>
-                                    <Label fx:id="sDay28" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve28" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox29" onMouseReleased="#vboxclicked29" GridPane.rowIndex="5">
-                                 <children>
-                                    <Label fx:id="sDay29" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve29" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox30" onMouseReleased="#vboxclicked30" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                 <children>
-                                    <Label fx:id="sDay30" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve30" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox31" onMouseReleased="#vboxclicked31" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                                 <children>
-                                    <Label fx:id="sDay31" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve31" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox32" onMouseReleased="#vboxclicked32" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                                 <children>
-                                    <Label fx:id="sDay32" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve32" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox33" onMouseReleased="#vboxclicked33" GridPane.columnIndex="4" GridPane.rowIndex="5">
-                                 <children>
-                                    <Label fx:id="sDay33" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve33" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox34" onMouseReleased="#vboxclicked34" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                                 <children>
-                                    <Label fx:id="sDay34" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve34" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox35" onMouseReleased="#vboxclicked35" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                                 <children>
-                                    <Label fx:id="sDay35" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve35" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox36" onMouseReleased="#vboxclicked36" GridPane.rowIndex="6">
-                                 <children>
-                                    <Label fx:id="sDay36" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve36" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox37" onMouseReleased="#vboxclicked37" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                                 <children>
-                                    <Label fx:id="sDay37" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve37" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox38" onMouseReleased="#vboxclicked38" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                                 <children>
-                                    <Label fx:id="sDay38" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve38" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox39" onMouseReleased="#vboxclicked39" GridPane.columnIndex="3" GridPane.rowIndex="6">
-                                 <children>
-                                    <Label fx:id="sDay39" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve39" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox40" onMouseReleased="#vboxclicked40" GridPane.columnIndex="4" GridPane.rowIndex="6">
-                                 <children>
-                                    <Label fx:id="sDay40" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve40" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox42" onMouseReleased="#vboxclicked42" GridPane.columnIndex="6" GridPane.rowIndex="6">
-                                 <children>
-                                    <Label fx:id="sDay42" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve42" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="dBox41" onKeyReleased="#vboxclicked41" GridPane.columnIndex="5" GridPane.rowIndex="6">
-                                 <children>
-                                    <Label fx:id="sDay41" text="sDay">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="ptReserve41" text="ptReserve">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
+                              </GridPane>
                            </children>
-                        </GridPane>
+                        </AnchorPane>
+                        <HBox alignment="CENTER" prefHeight="120.0" prefWidth="720.0" spacing="100.0">
+                           <children>
+                              <Button fx:id="umGoTOPerchase" mnemonicParsing="false" onAction="#umGoTOPerchaseProc" prefHeight="70.0" prefWidth="150.0" styleClass="Button" text="이용권 구매">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="umGoTOBo" mnemonicParsing="false" onAction="#umGoTOBoProc" prefHeight="70.0" prefWidth="150.0" styleClass="Button" text="PT 예약">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="113.0" prefWidth="720.0" spacing="100.0">
+                           <children>
+                              <Button fx:id="umGoToRc" mnemonicParsing="false" onAction="#umGoToRcProc" prefHeight="70.0" prefWidth="150.0" styleClass="Button" text="운동기록">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="umGoToInboby" mnemonicParsing="false" onAction="#umGoToInbobyProc" prefHeight="70.0" prefWidth="150.0" styleClass="Button" text="INBODY">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
-                  </AnchorPane>
-                  <HBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0" spacing="100.0">
-                     <children>
-                        <Button fx:id="umGoTOPerchase" mnemonicParsing="false" onAction="#umGoTOPerchaseProc" prefHeight="70.0" prefWidth="150.0" text="이용권 구매">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="umGoTOBo" mnemonicParsing="false" onAction="#umGoTOBoProc" prefHeight="70.0" prefWidth="150.0" text="PT 예약">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0" spacing="100.0">
-                     <children>
-                        <Button fx:id="umGoToRc" mnemonicParsing="false" onAction="#umGoToRcProc" prefHeight="70.0" prefWidth="150.0" text="운동기록">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="umGoToInboby" mnemonicParsing="false" onAction="#umGoToInbobyProc" prefHeight="70.0" prefWidth="150.0" text="INBODY">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
                </children>
-            </VBox>
+            </HBox>
          </center>
       </BorderPane>
    </content>

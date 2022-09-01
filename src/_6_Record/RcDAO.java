@@ -80,7 +80,7 @@ public class RcDAO {
 			if(ps!=null) {
 				rs.close();
 			}
-			if(con!=null) {
+			if(rs!=null) {
 				rs.close();
 			}
 

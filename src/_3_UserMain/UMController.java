@@ -115,6 +115,10 @@ public class UMController implements Initializable{
 		//로그아웃 하시겠습니까
 		//welcome화면으로 가기
 	}
+	public void backButtonProc() {
+		opener.logoutPg();
+	}
+	
 	public UMService getUmService() {
 		return umService;
 	}

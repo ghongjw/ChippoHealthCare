@@ -82,6 +82,7 @@ public class Opener {
 			WelCon.setOpener(opener);
 
 			Scene scene = new Scene(Welcome);
+			
 			primaryStage.setTitle("Welcome");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -101,6 +102,8 @@ public class Opener {
 			logincon.setOpener(opener);
 
 			Scene scene = new Scene(Login);
+			String css = this.getClass().getResource("test.css").toExternalForm();
+			scene.getStylesheets().add(css);
 			primaryStage.setTitle("로그인 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -263,8 +266,7 @@ public class Opener {
 			umCon.setOpener(opener);
 			umCon.setOpenerinfo(opener, id, name);
 			Scene scene = new Scene(umform);
-			String css = this.getClass().getResource("application/test.css").toExternalForm();
-			scene.getStylesheets().add(css);
+			
 
 			primaryStage.setTitle("유저 메인 화면");
 			primaryStage.setScene(scene);

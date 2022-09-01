@@ -41,6 +41,7 @@ public class UMLogoutController implements Initializable{
 		if(umService.setlogout(id)) {
 			umService.disconnection();
 			opener.welcomeOpen();
+			CommonService.windowsClose(logoutForm);
 		}
 		else CommonService.windowsClose(logoutForm);
 	}
