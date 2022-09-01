@@ -1,5 +1,34 @@
 package _21_IDPW;
 
-public class IDPWController {
+import _0_main.Opener;
+import javafx.scene.Parent;
 
+public class IDPWController {
+	private Parent IdPw;
+	private Opener opener;
+	
+	public void setOpener(Opener opener) {
+		this.opener = opener;
+	}
+	
+	public void BackProc() {
+		
+	}
+	public void FindId0() {
+		System.out.println("test"+opener);
+		opener.Findid0Open();
+	}
+	
+	public void FindPw0() {
+		opener.Findpw0Open();
+	}
+
+	
+
+	public void setIdPw(Parent IdPw) {
+		this.IdPw = IdPw;
+		
+	}
+	
+	
 }

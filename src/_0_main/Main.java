@@ -16,9 +16,7 @@ public class Main extends Application{
 		Opener opener = new Opener();
 		opener.setOpener(opener);
 		opener.setPrimaryStage(primaryStage);
-		opener.umOpen();
-		
-	
+		opener.welcomeOpen();
 		
 		primaryStage.show();
 

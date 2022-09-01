@@ -50,8 +50,9 @@ public class UMController implements Initializable{
 	private UMDTO umDto;
 	//창 불러오기
 	private Opener opener;
-	private String userId="doremi";
-	private String userName="fasora";
+	private String userId;
+	private String userName;
+	
 	ArrayList<Label> sdays = new ArrayList<Label>();
 	Label todayLabel;
 
@@ -62,15 +63,30 @@ public class UMController implements Initializable{
 	private Label[] sDays;
 	private VBox[] vboxs = new VBox[42];
 	
+	public void setOpenerinfo(Opener opener,String id,String name) {
+		this.setOpener(opener);
+		umIDLabel.setText(id);
+		umNameLabel.setText(name);
+		umNameLabel2.setText(name);
 
+		this.opener = opener;
+		this.userId =id;
+		this.userName =name;
+		this.setNodes();
+		System.out.println(this.opener);
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		//setOpener();
 		umService=new UMService();
+		
+	}
+	public void setNodes() {
 		umService.setId(userId, userName);
 		umService.today();
 		todayLabel = new Label();
 		
-
 		this.year=umService.getTodayYear();
 		this.month=umService.getTodayMonth();
 		this.day=umService.getTodayDay();
@@ -79,13 +95,9 @@ public class UMController implements Initializable{
 		this.strday=umService.getStrday();
 
 		umYear.setText(umService.getStryear());
-
 		umMonth.setText(umService.getStrmonth());
 
-		umIDLabel.setText(umService.getId());
-
-		umNameLabel.setText(umService.getName());
-		umNameLabel2.setText(umService.getName());
+		
 		umService.getId();
 
 		umLastday.setText(umService.getLastDay());
@@ -97,9 +109,7 @@ public class UMController implements Initializable{
 	}
 
 	//oper참조값 불러오기
-	public void setOpener(Opener opener) {
-		this.opener = opener;
-	}
+	
 	public void umLogoutButtonProc() {
 		opener.logoutPg();
 		//로그아웃 하시겠습니까
@@ -226,6 +236,7 @@ public class UMController implements Initializable{
 	//버튼 클릭으로 이용권 구매페이지로 전환
 	public void umGoTOPerchaseProc() {
 		opener.PcOpen();
+		System.out.println(opener);
 	}
 	//버튼 클릭으로 PT예약페이지로 전환
 	public void umGoTOBoProc() {
@@ -291,6 +302,10 @@ public class UMController implements Initializable{
 		}else if(tmpMonth.equals(strmonth)==false){
 			todayLabel.setText("");
 		}
+	}
+	public Opener setOpener(Opener opener) {
+		this.opener=opener;
+		return opener;
 	}
 
 	//캘린더 클릭시 그에 맞는 날자의 

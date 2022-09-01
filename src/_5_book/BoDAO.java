@@ -17,7 +17,7 @@ public class BoDAO {
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		String user="JOOWON";
 		String password="JOOWON";
-		//BoDTO boDto = new BoDTO();
+		BoDTO boDto = new BoDTO();
 
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -206,7 +206,7 @@ public class BoDAO {
 				rs.close();
 			}
 			if(con!=null) {
-				rs.close();
+				con.close();
 			}
 
 		} catch (Exception e) {

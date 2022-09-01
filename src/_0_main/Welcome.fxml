@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="900.0" maxWidth="750.0" minHeight="900.0" minWidth="750.0" onKeyReleased="#nextPage" onMousePressed="#nextPage" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_0_welService.WelController">
+   <children>
+      <ImageView fitHeight="231.0" fitWidth="172.0" layoutX="375.0" layoutY="518.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/user/Desktop/img/화면%20캡처%202022-08-30%20110100.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="498.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/user/Desktop/img/화면%20캡처%202022-08-30%20110450.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/user/Desktop/img/화면%20캡처%202022-08-30%20110517.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="447.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/user/Desktop/img/화면%20캡처%202022-08-30%20110406.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="252.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/user/Desktop/img/화면%20캡처%202022-08-30%20110419.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="51.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/user/Desktop/img/화면%20캡처%202022-08-30%20110432.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="134.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/user/Desktop/img/화면%20캡처%202022-08-30%20110503.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="179.0" fitWidth="172.0" layoutX="514.0" layoutY="621.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/user/Desktop/img/화면%20캡처%202022-08-30%20111223.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

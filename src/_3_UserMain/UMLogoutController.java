@@ -40,7 +40,7 @@ public class UMLogoutController implements Initializable{
 	public void gotoWelcompageButtonProc() {
 		if(umService.setlogout(id)) {
 			umService.disconnection();
-			System.exit(0);
+			opener.welcomeOpen();
 		}
 		else CommonService.windowsClose(logoutForm);
 	}
