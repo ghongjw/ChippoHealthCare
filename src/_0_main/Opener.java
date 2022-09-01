@@ -263,6 +263,8 @@ public class Opener {
 			umCon.setOpener(opener);
 			umCon.setOpenerinfo(opener, id, name);
 			Scene scene = new Scene(umform);
+			String css = this.getClass().getResource("application/test.css").toExternalForm();
+			scene.getStylesheets().add(css);
 
 			primaryStage.setTitle("유저 메인 화면");
 			primaryStage.setScene(scene);

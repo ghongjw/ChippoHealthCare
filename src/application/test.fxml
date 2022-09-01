@@ -15,13 +15,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane minViewportWidth="750.0" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
+<ScrollPane minViewportWidth="1300.0" prefHeight="1300.0" prefWidth="750.0" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMController">
    <content>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="750.0" style="-fx-background-color: white;">
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="750.0" styleClass="umform" stylesheets="@test.css">
          <top>
-            <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" stylesheets="@../application/test.css" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" stylesheets="@test.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="umBackButton" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" text="&lt;" />
+                  <Button fx:id="umBackButton" layoutX="24.0" layoutY="43.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" text="&lt;" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../_3_UserMain/logo.png" />
@@ -35,16 +35,7 @@
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <ImageView fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../_3_UserMain/user.png" />
-                                 </image>
-                              </ImageView>
-                              <Button fx:id="umgoToUiButton" mnemonicParsing="false" onAction="#umgoToUiButtonProc" text="회원정보수정" />
-                           </children>
-                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
                         <VBox prefHeight="149.0" prefWidth="541.0" spacing="10.0">
                            <children>
                               <HBox prefHeight="32.0" prefWidth="190.0" spacing="200.0">
@@ -69,25 +60,34 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" onAction="#umLogoutButtonProc" prefHeight="40.0" prefWidth="119.0" stylesheets="@Application.css" text="로그아웃">
+                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" onAction="#umLogoutButtonProc" prefHeight="40.0" prefWidth="119.0" styleClass="Button" text="로그아웃">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
                                     </Button>
                                  </children>
                               </HBox>
-                              <HBox minHeight="35.0" prefHeight="35.0" prefWidth="541.0">
+                              <HBox minHeight="35.0" prefHeight="35.0" prefWidth="541.0" spacing="300.0">
                                  <children>
-                                    <Label text="이름 : ">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="umNameLabel" text="NAME">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
+                                    <HBox>
+                                       <children>
+                                          <Label text="이름 : ">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="umNameLabel" text="NAME">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="umgoToUiButton" mnemonicParsing="false" onAction="#umgoToUiButtonProc" styleClass="Button" text="회원정보수정">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Button>
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0">
@@ -130,9 +130,9 @@
                   </HBox>
                   <AnchorPane prefHeight="600.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER" layoutX="224.0" layoutY="-4.0" prefHeight="36.0" prefWidth="303.0" spacing="20.0">
+                        <HBox alignment="CENTER" layoutX="157.0" prefHeight="36.0" prefWidth="436.0" spacing="20.0">
                            <children>
-                              <Button fx:id="umpreviousMonth" mnemonicParsing="false" onAction="#umpreviousMonthProc" text="&lt;" />
+                              <Button fx:id="umpreviousMonth" mnemonicParsing="false" onAction="#umpreviousMonthProc" styleClass="Button" text="&lt;" />
                               <Label fx:id="umYear" contentDisplay="CENTER" text="YEAR">
                                  <font>
                                     <Font size="18.0" />
@@ -153,10 +153,10 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="umNextMonth" mnemonicParsing="false" onAction="#umNextMonthProc" text="&gt;" />
+                              <Button fx:id="umNextMonth" mnemonicParsing="false" onAction="#umNextMonthProc" styleClass="Button" text="&gt;" />
                            </children>
                         </HBox>
-                        <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="36.0" prefHeight="543.0" prefWidth="700.0">
+                        <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="36.0" prefHeight="543.0" prefWidth="700.0" styleClass="GridPane">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -176,21 +176,21 @@
                               <RowConstraints minHeight="20.0" prefHeight="60.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label alignment="CENTER" text="일" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Label alignment="CENTER" styleClass="label-Son" text="일" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Label alignment="CENTER" text="월" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Label alignment="CENTER" text="화" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Label alignment="CENTER" text="수" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Label alignment="CENTER" text="목" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Label alignment="CENTER" text="금" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Label alignment="CENTER" text="토" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Label alignment="CENTER" styleClass="label-Sat" text="토" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <VBox fx:id="dBox01" onMouseReleased="#vboxclicked01" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay1" text="sDay">
+                                    <Label fx:id="sDay1" styleClass="label-Son" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve01" text="ptReserve">
+                                    <Label fx:id="ptReserve01" styleClass="label-Son" stylesheets="@test.css" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -269,12 +269,12 @@
                               </VBox>
                               <VBox fx:id="dBox07" onMouseReleased="#vboxclicked07" GridPane.columnIndex="6" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="sDay7" text="sDay">
+                                    <Label fx:id="sDay7" styleClass="label-Sat" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve07" text="ptReserve">
+                                    <Label fx:id="ptReserve07" styleClass="label-Sat" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -283,12 +283,12 @@
                               </VBox>
                               <VBox fx:id="dBox08" onMouseReleased="#vboxclicked08" GridPane.rowIndex="2">
                                  <children>
-                                    <Label fx:id="sDay8" text="sDay">
+                                    <Label fx:id="sDay8" styleClass="label-Son" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve08" text="ptReserve">
+                                    <Label fx:id="ptReserve08" styleClass="label-Son" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -367,12 +367,12 @@
                               </VBox>
                               <VBox fx:id="dBox14" onMouseReleased="#vboxclicked14" GridPane.columnIndex="6" GridPane.rowIndex="2">
                                  <children>
-                                    <Label fx:id="sDay14" text="sDay">
+                                    <Label fx:id="sDay14" styleClass="label-Sat" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve14" text="ptReserve">
+                                    <Label fx:id="ptReserve14" styleClass="label-Sat" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -381,12 +381,12 @@
                               </VBox>
                               <VBox fx:id="dBox15" onMouseReleased="#vboxclicked15" GridPane.rowIndex="3">
                                  <children>
-                                    <Label fx:id="sDay15" text="sDay">
+                                    <Label fx:id="sDay15" styleClass="label-Son" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve15" text="ptReserve">
+                                    <Label fx:id="ptReserve15" styleClass="label-Son" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -465,12 +465,12 @@
                               </VBox>
                               <VBox fx:id="dBox21" onMouseReleased="#vboxclicked21" GridPane.columnIndex="6" GridPane.rowIndex="3">
                                  <children>
-                                    <Label fx:id="sDay21" text="sDay">
+                                    <Label fx:id="sDay21" styleClass="label-Sat" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve21" text="ptReserve">
+                                    <Label fx:id="ptReserve21" styleClass="label-Sat" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -479,12 +479,12 @@
                               </VBox>
                               <VBox fx:id="dBox22" onMouseReleased="#vboxclicked22" GridPane.rowIndex="4">
                                  <children>
-                                    <Label fx:id="sDay22" text="sDay">
+                                    <Label fx:id="sDay22" styleClass="label-Son" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve22" text="ptReserve">
+                                    <Label fx:id="ptReserve22" styleClass="label-Son" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -563,12 +563,12 @@
                               </VBox>
                               <VBox fx:id="dBox28" onMouseReleased="#vboxclicked28" GridPane.columnIndex="6" GridPane.rowIndex="4">
                                  <children>
-                                    <Label fx:id="sDay28" text="sDay">
+                                    <Label fx:id="sDay28" styleClass="label-Sat" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve28" text="ptReserve">
+                                    <Label fx:id="ptReserve28" styleClass="label-Sat" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -577,12 +577,12 @@
                               </VBox>
                               <VBox fx:id="dBox29" onMouseReleased="#vboxclicked29" GridPane.rowIndex="5">
                                  <children>
-                                    <Label fx:id="sDay29" text="sDay">
+                                    <Label fx:id="sDay29" styleClass="label-Son" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve29" text="ptReserve">
+                                    <Label fx:id="ptReserve29" styleClass="label-Son" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -661,12 +661,12 @@
                               </VBox>
                               <VBox fx:id="dBox35" onMouseReleased="#vboxclicked35" GridPane.columnIndex="6" GridPane.rowIndex="5">
                                  <children>
-                                    <Label fx:id="sDay35" text="sDay">
+                                    <Label fx:id="sDay35" styleClass="label-Sat" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve35" text="ptReserve">
+                                    <Label fx:id="ptReserve35" styleClass="label-Sat" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -675,12 +675,12 @@
                               </VBox>
                               <VBox fx:id="dBox36" onMouseReleased="#vboxclicked36" GridPane.rowIndex="6">
                                  <children>
-                                    <Label fx:id="sDay36" text="sDay">
+                                    <Label fx:id="sDay36" styleClass="label-Son" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve36" text="ptReserve">
+                                    <Label fx:id="ptReserve36" styleClass="label-Son" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -745,12 +745,12 @@
                               </VBox>
                               <VBox fx:id="dBox42" onMouseReleased="#vboxclicked42" GridPane.columnIndex="6" GridPane.rowIndex="6">
                                  <children>
-                                    <Label fx:id="sDay42" text="sDay">
+                                    <Label fx:id="sDay42" styleClass="label-Sat" text="sDay">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ptReserve42" text="ptReserve">
+                                    <Label fx:id="ptReserve42" styleClass="label-Sat" text="ptReserve">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
