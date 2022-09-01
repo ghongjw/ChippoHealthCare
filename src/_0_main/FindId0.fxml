@@ -16,7 +16,7 @@
    <top>
       <AnchorPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="20.0" layoutY="20.0" maxHeight="60.0" maxWidth="120.0" minHeight="60.0" minWidth="120.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="&lt;Back">
+            <Button layoutX="20.0" layoutY="20.0" maxHeight="60.0" maxWidth="120.0" minHeight="60.0" minWidth="120.0" mnemonicParsing="false" onAction="#backbuttonproc" prefHeight="60.0" prefWidth="120.0" text="&lt;Back">
                <font>
                   <Font size="18.0" />
                </font></Button>

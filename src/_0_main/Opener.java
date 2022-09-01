@@ -12,6 +12,8 @@ import _12_0_memberSearch.MSController;
 import _1_login.LoginController;
 import _201_agreement.AgreementController;
 import _21_IDPW.IDPWController;
+import _22_findId.FindIDService;
+import _22_findId.FindId01Controller;
 import _22_findId.FindIdController;
 import _23_findpw.FindPwController;
 import _2_register.RegController;
@@ -46,6 +48,7 @@ public class Opener {
 	private UMLogoutController umLougoutCon;
 	private PcController pcCon;
 	private PcConfirmController pcconfirmCon;
+	private FindIDService findIdService;
 	private Opener opener;
 
 	private TMcontroller tmCon;
@@ -133,6 +136,7 @@ public class Opener {
 			FindIdController fiCon = loader.getController();
 
 			fiCon.setOpener(opener);
+			findIdService = fiCon.getFindIdService();
 
 			Scene scene = new Scene(FindId0);
 			Stage Findid0Stage = new Stage();
@@ -152,6 +156,7 @@ public class Opener {
 			FindPwController fpCon = loader.getController();
 
 			fpCon.setOpener(opener);
+			
 
 			Scene scene = new Scene(FindPw0);
 			Stage FindPw0Stage = new Stage();
@@ -169,10 +174,10 @@ public class Opener {
 		try {
 			Parent FindId1 = loader.load();
 
-			FindIdController fiCon = loader.getController();
-			fiCon.setOpener(opener);
+			FindId01Controller fi1Con = loader.getController();
+			fi1Con.setOpener(opener);
+			fi1Con.setfiService(findIdService);
 			Scene scene = new Scene(FindId1);
-			Stage Findid1Stage = new Stage();
 
 			primaryStage.setTitle("아이디 찾기");
 			primaryStage.setScene(scene);

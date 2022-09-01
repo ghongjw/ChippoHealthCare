@@ -16,7 +16,7 @@
    <top>
       <AnchorPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="20.0" layoutY="20.0" maxHeight="60.0" maxWidth="120.0" minHeight="60.0" minWidth="120.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="&lt;Back">
+            <Button layoutX="20.0" layoutY="20.0" maxHeight="60.0" maxWidth="120.0" minHeight="60.0" minWidth="120.0" mnemonicParsing="false" onAction="#backButtonProc" prefHeight="60.0" prefWidth="120.0" text="&lt;Back">
                <font>
                   <Font size="18.0" />
                </font></Button>
@@ -53,13 +53,13 @@
                      <HBox.margin>
                         <Insets left="200.0" />
                      </HBox.margin></Label>
-                  <TextField fx:id="name" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" />
+                  <TextField fx:id="nameField" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox prefHeight="45.0" prefWidth="550.0" spacing="20.0">
                <children>
                   <Label text="아이디" />
-                  <TextField fx:id="id" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
+                  <TextField fx:id="idFiled" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -72,7 +72,7 @@
             <HBox prefHeight="45.0" prefWidth="550.0" spacing="20.0">
                <children>
                   <Label text="휴대전화" />
-                  <TextField fx:id="moble" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" />
+                  <TextField fx:id="mobileFiled" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" />
                   <Button mnemonicParsing="false" onAction="#confirmNum" text="인증번호 받기" />
                </children>
                <VBox.margin>
@@ -81,7 +81,7 @@
             </HBox>
             <HBox prefHeight="66.0" prefWidth="750.0" spacing="20.0">
                <children>
-                  <TextField fx:id="confirmNum" text="인증번호 6자리 입력">
+                  <TextField fx:id="confirmNumField" text="인증번호 5자리 입력">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></TextField>

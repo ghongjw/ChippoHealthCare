@@ -70,5 +70,12 @@ public class FindIdController implements Initializable {
 	public void setOpener(Opener opener) {
 		this.opener = opener;
 	}
+	public void backbuttonproc() {
+		opener.Login();
+	}
+	public FindIDService getFindIdService() {
+		return findIdService;
+	}
+
 
 }

@@ -9,17 +9,18 @@ public class FindIDService {
 	FindIdDAO findIdDao;
 	Opener opener;
 	String confirmtest;
+	private String findId;
 
 	public boolean getid(String name, String moblie,Opener opener) {
 		String tmp = "입력 정보가 없습니다";
 		findIdDao = new FindIdDAO();
-		
+		this.findId = findIdDao.getIDformname(name,moblie);
 		if(findIdDao.getIDformname(name, moblie).equals("")) {
 			CommonService.msg("입력정보를 확인해 주세요");
 		}else 
 		{int ran = 0;
 		Random r= new Random();
-		for(int i = 0;i<7;i++) {
+		for(int i = 0;i<5;i++) {
 			ran = ran*10;
 			int random = r.nextInt(10)+1;
 			ran = ran+random;
@@ -30,5 +31,8 @@ public class FindIDService {
 	}
 	public String getConfirmtest() {
 		return confirmtest;
+	}
+	public String getId() {
+		return findId;
 	}
 }
