@@ -73,3 +73,18 @@
     -fx-text-fill: linear-gradient(white, #d0d0d0);
     
 }
+.checkBox{
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    
+}
+.table-view{
+    -fx-background-color: transparent;
+    -fx-border-color: #ccc;
+    -fx-border-width: 2 0 0 0;
+  }
+  .table-view .column-header{
+    -fx-background-color: #293241;
+    -fx-pref-height: 40px;
+    -fx-border-color: #bfbfbf;
+    -fx-border-width: 0 0 1 0;
+  }

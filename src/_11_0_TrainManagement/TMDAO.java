@@ -38,6 +38,7 @@ public class TMDAO {
 			ps.setString(3, date);
 			ps.executeUpdate();
 		} catch (Exception e) {
+			System.out.println("새로운 스케줄 생성하는 쿼리문 실패");
 			e.printStackTrace();
 		}
 	}
@@ -54,6 +55,7 @@ public class TMDAO {
 				System.out.println();
 			}
 		} catch (Exception e) {
+			System.out.println("트레이너 이름들 리스트에 담는 쿼리문 실패");
 			e.printStackTrace();
 		}
 		return trainers;
@@ -169,6 +171,7 @@ public class TMDAO {
 		}
 	}
 
+	// 지워도 되는지 나중에 확인 후 지워도 됨 count메서드 사용 안한걸로 기억함(son)
 	public int count(String point, String trainername, String date, TMDTO tmDto) {
 		String sql = "select count(t1_user) from Numtrainer_time WHERE point = ? AND name = ? AND to_date = ?";
 		int count = 0;

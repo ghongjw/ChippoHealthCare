@@ -41,6 +41,7 @@ public class RTController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		RTService = new RTService();
+		regPoint.getItems().addAll("영등포점", "창동점", "홍제점", "의정부점", "강남점", "송파점", "분당점", "성수점", "노량진점", "부산점");
 	}
 
 	public void setOpener(Opener opener) {

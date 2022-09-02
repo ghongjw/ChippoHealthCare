@@ -5,18 +5,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMLogoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" styleClass="umform" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3_UserMain.UMLogoutController">
    <children>
       <VBox alignment="CENTER" prefHeight="109.0" prefWidth="300.0" spacing="30.0">
          <children>
-            <Label text="로그아웃 하시겠습니까?" />
+            <Label text="로그아웃 하시겠습니까?">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
          </children>
       </VBox>
       <HBox alignment="CENTER" layoutY="77.0" prefHeight="130.0" prefWidth="300.0" spacing="50.0">
          <children>
-            <Button fx:id="logoutbutton" mnemonicParsing="false" onAction="#gotoWelcompageButtonProc" prefHeight="50.0" prefWidth="70.0" text="yes" />
-            <Button fx:id="logoutcanclecancelButton" mnemonicParsing="false" onAction="#pscancelButtonProc" prefHeight="50.0" prefWidth="70.0" text="no" />
+            <Button fx:id="logoutbutton" mnemonicParsing="false" onAction="#gotoWelcompageButtonProc" prefHeight="50.0" prefWidth="70.0" styleClass="button-d" text="yes" />
+            <Button fx:id="logoutcanclecancelButton" mnemonicParsing="false" onAction="#pscancelButtonProc" prefHeight="50.0" prefWidth="70.0" styleClass="button-cancle" text="no" />
          </children>
       </HBox>
    </children>

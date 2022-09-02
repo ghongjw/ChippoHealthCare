@@ -25,17 +25,12 @@ public class LoginService {
 		boolean logincheck = loginDao.selectIdInfo(inputId, inputPw);
 		if (inputId.equals("") || inputPw.equals("")) {
 			CommonService.msg("아이디 혹은 패스워드를 입력 해 주세요");
-		}
-
-		else if (!logincheck) {
+		} else if (!logincheck) {
 			CommonService.msg("입력정보가 없습니다.");
-
-		}
-
-		else if (loginDto.getLogin().equals("y")) {
+		} else if (loginDto.getLogin().equals("y")) {
 			CommonService.msg("이미 로그인 된 계정입니다.");
 		} else if (logincheck) {
-			if (inputId.equals("000") && inputPw.equals("000")) {
+			if (inputId.equals("0") && inputPw.equals("0")) {
 				opener.mmOpen();
 			} else {
 

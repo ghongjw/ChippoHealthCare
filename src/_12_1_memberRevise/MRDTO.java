@@ -2,10 +2,68 @@ package _12_1_memberRevise;
 
 public class MRDTO {
 	private String name;
+	private String gender;
 	private String age;
 	private String phone;
+	private String branch;
 	private String purpose;
 	private String days;
+	private int pt;
+
+	private String[] expiryDate;
+	private int expire_year;
+	private int expire_month;
+	private int expire_day;
+
+	private String oldName;
+
+	public String[] getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(String[] expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public int getExpire_year() {
+		return expire_year;
+	}
+
+	public void setExpire_year(int expire_year) {
+		this.expire_year = expire_year;
+	}
+
+	public int getExpire_month() {
+		return expire_month;
+	}
+
+	public void setExpire_month(int expire_month) {
+		this.expire_month = expire_month;
+	}
+
+	public int getExpire_day() {
+		return expire_day;
+	}
+
+	public void setExpire_day(int expire_day) {
+		this.expire_day = expire_day;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
 
 	public String getName() {
 		return name;
@@ -47,13 +105,20 @@ public class MRDTO {
 		this.days = days;
 	}
 
-	public String getPt() {
+	public int getPt() {
 		return pt;
 	}
 
-	public void setPt(String pt) {
+	public void setPt(int pt) {
 		this.pt = pt;
 	}
 
-	private String pt;
+	public String getOldName() {
+		return oldName;
+	}
+
+	public void setOldName(String oldName) {
+		this.oldName = oldName;
+	}
+
 }

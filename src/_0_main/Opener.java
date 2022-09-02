@@ -519,12 +519,11 @@ public class Opener {
 		try {
 			Parent rtform = loader.load();
 			RTController RTCon = loader.getController();
-			RTCon.setOpener(opener);
-
-			Scene scene = new Scene(rtform);
-
+			
 			ComboBox<String> pointCombo = (ComboBox<String>) rtform.lookup("#regPoint");
 			pointCombo.getItems().addAll("영등포점", "창동점", "홍제점", "의정부점", "강남점", "송파점", "분당점", "성수점", "노량진점", "부산점");
+			RTCon.setOpener(opener);
+			Scene scene = new Scene(rtform);
 
 			primaryStage.setTitle("트레이너 등록 화면");
 			primaryStage.setScene(scene);

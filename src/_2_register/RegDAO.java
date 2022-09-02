@@ -35,7 +35,7 @@ public class RegDAO {
 			ps.setString(5, reg.getMobile());
 			ps.setString(6, reg.getAddress());
 			ps.setString(7, reg.getBranch());
-			ps.setInt(8, reg.getPtcount());
+			ps.setString(8, reg.getPtcount());
 			ps.setString(9, "n");
 			ps.setInt(10, reg.getExpireyear());
 			ps.setInt(11, reg.getExpiremonth());
