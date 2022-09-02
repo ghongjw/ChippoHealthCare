@@ -91,7 +91,7 @@ public class UMController implements Initializable {
 	private int year, month, day, todayYear, todayMonth, todayDay, emptydate;
 	private String stryear, strmonth, strday;
 
-	private String cYear, cMonth, cDay, clickdDate;
+	private String cYear, cMonth, cDay, clickedDate;
 	private Label[] sDays;
 	private VBox[] vboxs = new VBox[42];
 
@@ -285,6 +285,9 @@ public class UMController implements Initializable {
 
 	// 운동기록전환
 	public void umGoToRcProc() {
+		clickedDate = stryear+"-"+strmonth+"-"+strday;
+		opener.setclickedDate(clickedDate);
+		System.out.println(clickedDate);
 		opener.rcOpen();
 	}
 
@@ -309,15 +312,15 @@ public class UMController implements Initializable {
 		}
 		cDay = label.getText();
 
+		if(cDay.length()==1) {
+			clickedDate = cYear + "-" + cMonth + "-0" + cDay;
+		}else clickedDate = cYear + "-" + cMonth + "-" + cDay;
+		opener.setclickedDate(clickedDate);
 		if (cDay.equals(" ") == false) {
-			opener.userPTUpdateOpen();
+			opener.rcOpen();
 		}
-		clickdDate = cYear + "-" + cMonth + "-" + cDay;
 	}
 
-	public String clikedDateMehod() {
-		return clickdDate;
-	}
 
 	public void todayselct(int a) {
 		int tmp = day + a - 2;

@@ -20,7 +20,7 @@ public class Main extends Application {
 		opener.setPrimaryStage(primaryStage);
 		opener.welcomeOpen();
 
-		primaryStage.setOnCloseRequest(event -> CommonService.terminate(event));
+		//primaryStage.setOnCloseRequest(event -> CommonService.terminate(event));
 
 		primaryStage.show();
 

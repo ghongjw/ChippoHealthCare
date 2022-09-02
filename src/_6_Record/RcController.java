@@ -28,6 +28,7 @@ public class RcController implements Initializable{
 	private String EndTime;
 	private RcService rcService;
 	private String sHour,sMin,eHour,eMin;
+	private String clikedDate;
 
 	@FXML private Button backButton;
 	@FXML private Button RcSaveButton;
@@ -151,6 +152,17 @@ public class RcController implements Initializable{
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public void setClickedDate(String clikedDate) {
+		this.clikedDate=clikedDate;
+		String[] tmp = clikedDate.split("-");
+		System.out.println(clikedDate);
+		int cYear= Integer.parseInt(tmp[0]);
+		int cMon= Integer.parseInt(tmp[1]);
+		int cDay= Integer.parseInt(tmp[2]);
+		
+		rcDatePicker.setValue(LocalDate.of(cYear,cMon,cDay));
 	}
 
 

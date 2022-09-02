@@ -47,12 +47,15 @@ public class Opener {
 
 	private UMController umCon;
 	private UMLogoutController umLougoutCon;
+
+
 	private PcController pcCon;
 	private PcConfirmController pcconfirmCon;
 	private FindIDService findIdService;
 	private Opener opener;
 
 	private TMcontroller tmCon;
+	private String clickedDate;
 
 	public void setTmCon(TMcontroller tmCon) {
 		this.tmCon = tmCon;
@@ -285,7 +288,6 @@ public class Opener {
 			umLougoutCon = loader.getController();
 			umLougoutCon.setumConfirmForm(logoutForm);
 			umLougoutCon.setUmController(umCon);
-			umLougoutCon.setumLougoutCon(umLougoutCon);
 			umLougoutCon.setOpener(this);
 			umLougoutCon.setid(id);
 
@@ -377,6 +379,7 @@ public class Opener {
 			boController.setOpener(this);
 			boController.setId(id);
 			boController.setName(name);
+			boController.setClickedDate(clickedDate);
 			Scene scene = new Scene(rcForm);
 			primaryStage.setTitle("운동 기록 화면");
 			primaryStage.setScene(scene);
@@ -451,23 +454,6 @@ public class Opener {
 		}
 	}
 
-	public void userPTUpdateOpen() {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("userPTUpdate.fxml"));
-		try {
-			Parent pUForm = loader.load();
-			UPController upcontroller = loader.getController();
-			upcontroller.setOpener(opener);
-			// upcontroller.getUserId(id);
-			// upcontroller.getUserName(name);
-			Scene scene = new Scene(pUForm);
-			primaryStage.setTitle("PT 수정 화면");
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch (Exception e) {
-			CommonService.msg("//회원정보 수정화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
-			e.printStackTrace();
-		}
-	}
 
 	// 10번 관리자 창 띄우기
 	public void mmOpen() { // ManagementMain
@@ -662,5 +648,12 @@ public class Opener {
 
 	public void setPtcount(String ptcount) {
 		this.ptcount = ptcount;
+	}
+	public void setclickedDate(String clickedDate) {
+		//작동
+		this.clickedDate=clickedDate;
+	}
+	public String getClickedDate() {
+		return clickedDate;
 	}
 }

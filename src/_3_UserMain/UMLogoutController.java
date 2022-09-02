@@ -34,7 +34,7 @@ public class UMLogoutController implements Initializable {
 	private Opener opener;
 	private Parent logoutForm;
 	private UMController umCon;
-	private UMLogoutController umLougoutCon;
+	private UMLogoutController UmLougoutCon;
 	private String id;
 
 	@Override
@@ -47,6 +47,14 @@ public class UMLogoutController implements Initializable {
 	}
 
 	public void gotoWelcompageButtonProc() {
+		if (umService.setlogout(id)) {
+			umService.disconnection();
+			opener.welcomeOpen();
+			CommonService.windowsClose(logoutForm);
+		} else
+			CommonService.windowsClose(logoutForm);
+	}
+	public void ex() {
 		if (umService.setlogout(id)) {
 			umService.disconnection();
 			opener.welcomeOpen();
@@ -73,13 +81,15 @@ public class UMLogoutController implements Initializable {
 		this.umService = umService;
 	}
 
-	public void setumLougoutCon(UMLogoutController umLougoutCon) {
-		this.umLougoutCon = umLougoutCon;
-	}
 
 	public void setid(String id) {
 		this.id = id;
 	}
+	public void setUmcon(UMLogoutController UmLougoutCon){
+		this.UmLougoutCon=UmLougoutCon;
+	}
+
+	
 
 
 }
