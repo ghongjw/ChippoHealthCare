@@ -47,8 +47,6 @@ public class Opener {
 
 	private UMController umCon;
 	private UMLogoutController umLougoutCon;
-
-
 	private PcController pcCon;
 	private PcConfirmController pcconfirmCon;
 	private FindIDService findIdService;
@@ -268,6 +266,8 @@ public class Opener {
 			umCon.setOpener(opener);
 			umCon.setOpenerinfo(opener, id, name);
 			Scene scene = new Scene(umform);
+			
+			CommonService.setId(id);
 
 			primaryStage.setTitle("유저 메인 화면");
 			primaryStage.setScene(scene);
@@ -288,6 +288,7 @@ public class Opener {
 			umLougoutCon = loader.getController();
 			umLougoutCon.setumConfirmForm(logoutForm);
 			umLougoutCon.setUmController(umCon);
+			umLougoutCon.setumLougoutCon(umLougoutCon);
 			umLougoutCon.setOpener(this);
 			umLougoutCon.setid(id);
 

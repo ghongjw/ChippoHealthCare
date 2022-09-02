@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import _0_main.CommonService;
+import _0_main.Main;
 import _0_main.Opener;
 import _4_perchase.PcConfirmController;
 import _4_perchase.PcController;
@@ -34,8 +35,14 @@ public class UMLogoutController implements Initializable {
 	private Opener opener;
 	private Parent logoutForm;
 	private UMController umCon;
-	private UMLogoutController UmLougoutCon;
-	private String id;
+	private UMLogoutController umLougoutCon;
+	private static String id;
+
+	public static String getId() {
+		// 여긴 없음
+//		System.out.println("getId 메서드 : " + id);
+		return id;
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -46,15 +53,15 @@ public class UMLogoutController implements Initializable {
 		this.opener = opener;
 	}
 
-	public void gotoWelcompageButtonProc() {
+	public void windowcloseLogout() {
 		if (umService.setlogout(id)) {
 			umService.disconnection();
-			opener.welcomeOpen();
-			CommonService.windowsClose(logoutForm);
-		} else
-			CommonService.windowsClose(logoutForm);
+		}
 	}
-	public void ex() {
+
+	public void gotoWelcompageButtonProc() {
+		// 여긴 있음
+//		System.out.println("로그아웃쪽 : " + id);
 		if (umService.setlogout(id)) {
 			umService.disconnection();
 			opener.welcomeOpen();
@@ -81,15 +88,17 @@ public class UMLogoutController implements Initializable {
 		this.umService = umService;
 	}
 
+	public void setumLougoutCon(UMLogoutController umLougoutCon) {
+		this.umLougoutCon = umLougoutCon;
+	}
+
+	public UMLogoutController getUmLougoutCon() {
+		return umLougoutCon;
+	}
 
 	public void setid(String id) {
 		this.id = id;
+		System.out.println("오프너에서 set해준 setId : " + id);
 	}
-	public void setUmcon(UMLogoutController UmLougoutCon){
-		this.UmLougoutCon=UmLougoutCon;
-	}
-
-	
-
 
 }

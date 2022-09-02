@@ -1,12 +1,9 @@
 package _0_main;
 
-import _3_UserMain.UMLogoutController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
-	private UMLogoutController umlcon;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -20,7 +17,7 @@ public class Main extends Application {
 		opener.setPrimaryStage(primaryStage);
 		opener.welcomeOpen();
 
-		//primaryStage.setOnCloseRequest(event -> CommonService.terminate(event));
+		primaryStage.setOnCloseRequest(event -> CommonService.terminate(event));
 
 		primaryStage.show();
 
