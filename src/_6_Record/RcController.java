@@ -92,7 +92,6 @@ public class RcController implements Initializable{
 		opener.umOpen();
 		rcService.discon();
 	}
-	
 	public void RcSaveButtonProc() {
 		int sh=0;
 		int eh=0;
@@ -163,6 +162,9 @@ public class RcController implements Initializable{
 		int cDay= Integer.parseInt(tmp[2]);
 		
 		rcDatePicker.setValue(LocalDate.of(cYear,cMon,cDay));
+	}
+	public void setlabelandtext() {
+		rcService.setRsetRecord(id,clikedDate);
 	}
 
 
