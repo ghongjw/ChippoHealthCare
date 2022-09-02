@@ -77,7 +77,7 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <Button maxHeight="50.0" maxWidth="140.0" minHeight="30.0" minWidth="120.0" mnemonicParsing="false" onAction="#loginProc" prefHeight="50.0" prefWidth="140.0" styleClass="Button" text="로그인 하기" />
+                  <Button maxHeight="50.0" maxWidth="140.0" minHeight="30.0" minWidth="120.0" mnemonicParsing="false" onAction="#loginProc" prefHeight="50.0" prefWidth="140.0" styleClass="Button" text="로그인" />
                   <Button maxHeight="50.0" maxWidth="140.0" minHeight="30.0" minWidth="120.0" mnemonicParsing="false" onAction="#regProc" prefHeight="50.0" prefWidth="140.0" styleClass="Button" text="회원가입" />
                   <Button maxHeight="50.0" minHeight="30.0" mnemonicParsing="false" onAction="#idpwFind" prefHeight="50.0" styleClass="Button" text="아이디/비밀번호 찾기" />
                </children>

@@ -6,28 +6,39 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_201_agreement.AgreementController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" styleClass="umform" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_201_agreement.AgreementController">
    <top>
-      <AnchorPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #293241;" styleClass="HBox-upper" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#agreCancelProc" prefHeight="60.0" prefWidth="120.0" text="&lt;Back">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
+            <Button maxHeight="72.0" maxWidth="70.0" minHeight="50.0" minWidth="55.0" mnemonicParsing="false" onAction="#backButtonProc" prefHeight="72.0" prefWidth="70.0" style="-fx-background-color: #98c1d9;" styleClass="Button" text="&lt;">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Users/user/Desktop/img/로고%20(1).png" />
-               </image>
-            </ImageView>
+            <StackPane alignment="BOTTOM_LEFT" prefHeight="150.0" prefWidth="750.0">
+               <children>
+                  <ImageView fitHeight="141.0" fitWidth="437.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@mab.png" />
+                     </image>
+                     <StackPane.margin>
+                        <Insets left="70.0" />
+                     </StackPane.margin>
+                  </ImageView>
+                  <Label alignment="BOTTOM_LEFT" styleClass="g-label" text="취뽀Health Center">
+                     <StackPane.margin>
+                        <Insets left="210.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
          </children>
-      </AnchorPane>
+      </HBox>
    </top>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
@@ -40,7 +51,7 @@
             <TextArea prefHeight="53.0" prefWidth="750.0" text="취뽀에서 제공하는 이벤트/혜택 등 다양한 정보를 휴대전화(문자), 이메일로 받아보실 수 있습니다. 일부 서비스(별도 회원 체계로 운영하거나 취뽀 가입 이후 추가 가입하여 이용하는 서비스 등)의 경우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다." />
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                <children>
-                  <Button maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" mnemonicParsing="false" onAction="#agreProc" prefHeight="24.0" prefWidth="120.0" text="확인" />
+                  <Button maxHeight="46.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" mnemonicParsing="false" onAction="#agreProc" prefHeight="46.0" prefWidth="120.0" styleClass="Button" text="확인" />
                </children>
                <VBox.margin>
                   <Insets left="300.0" />

@@ -6,210 +6,229 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_2_register.RegController">
-   <top>
-      <AnchorPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Users/user/Desktop/img/로고%20(1).png" />
-               </image>
-            </ImageView>
-            <Button fx:id="back" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#regBackProc" prefHeight="60.0" prefWidth="120.0" text="&lt;Back">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-   </top>
-   <center>
-      <VBox fx:id="TextFieldrandomNum" prefHeight="559.0" prefWidth="750.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label prefHeight="41.0" prefWidth="43.0" text="아이디">
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="31.0" prefWidth="750.0" spacing="50.0">
+
+<ScrollPane styleClass="umform" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_2_register.RegController">
+   <content>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" styleClass="umform">
+         <top>
+            <HBox alignment="CENTER_LEFT" styleClass="HBox-upper" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="idtextField" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
+                  <Button maxHeight="7.0" maxWidth="55.0" minHeight="70.0" minWidth="55.0" mnemonicParsing="false" onAction="#regBackProc" prefHeight="70.0" prefWidth="55.0" styleClass="Button" text="&lt;">
                      <HBox.margin>
-                        <Insets left="200.0" />
+                        <Insets left="20.0" />
                      </HBox.margin>
-                  </TextField>
-                  <Button fx:id="idcheck" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#idOverlapProc" prefHeight="24.0" text="중복확인" />
+                  </Button>
+                  <StackPane alignment="BOTTOM_LEFT" prefHeight="150.0" prefWidth="750.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@mab.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets left="70.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                        <Label styleClass="g-label" text="취뽀 Health Center">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" left="210.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
                </children>
             </HBox>
-            <Label prefHeight="45.0" prefWidth="256.0" text="비밀번호">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-               <padding>
-                  <Insets left="200.0" />
-               </padding>
-            </Label>
-            <PasswordField fx:id="TextFieldpw" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-            </PasswordField>
-            <Label prefHeight="45.0" prefWidth="302.0" text="비밀번호 재확인">
-               <padding>
-                  <Insets left="200.0" />
-               </padding>
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="TextFieldconfirm" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-            </PasswordField>
-            <Label prefHeight="45.0" prefWidth="28.0" text="이름">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-            </Label>
-            <TextField fx:id="TextFieldname" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-            </TextField>
-            <HBox prefHeight="45.0" prefWidth="550.0" spacing="50.0">
+         </top>
+         <center>
+            <VBox fx:id="TextFieldrandomNum" prefHeight="559.0" prefWidth="750.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="성별 ">
+                  <Label prefHeight="41.0" prefWidth="43.0" text="아이디">
+                     <VBox.margin>
+                        <Insets left="200.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="31.0" prefWidth="750.0" spacing="50.0">
+                     <children>
+                        <TextField fx:id="idtextField" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="idcheck" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#idOverlapProc" prefHeight="24.0" styleClass="button-d" text="중복확인" />
+                     </children>
+                  </HBox>
+                  <Label prefHeight="45.0" prefWidth="256.0" text="비밀번호">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
+                     <padding>
+                        <Insets left="200.0" />
+                     </padding>
                   </Label>
-                  <RadioButton fx:id="womanRadio" mnemonicParsing="false" text="여자">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="gender" />
-                     </toggleGroup></RadioButton>
-                  <RadioButton fx:id="manRadio" mnemonicParsing="false" text="남자" toggleGroup="$gender" />
-               </children>
-               <VBox.margin>
-                  <Insets left="200.0" top="25.0" />
-               </VBox.margin>
-            </HBox>
-            <Label text="주소">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-            </Label>
-            <TextField fx:id="TextFieldaddress" maxHeight="24.0" maxWidth="250.0" minHeight="24.0" minWidth="250.0" prefHeight="24.0" prefWidth="250.0">
-               <VBox.margin>
-                  <Insets left="200.0" top="15.0" />
-               </VBox.margin>
-            </TextField>
-            <Label prefHeight="45.0" prefWidth="42.0" text="이메일">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-            </Label>
-            <HBox prefHeight="45.0" prefWidth="750.0" spacing="10.0">
-               <children>
-                  <TextField fx:id="TextFieldemail" maxHeight="24.0" maxWidth="314.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="314.0">
-                     <HBox.margin>
+                  <PasswordField fx:id="TextFieldpw" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
+                     <VBox.margin>
                         <Insets left="200.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <Label prefHeight="45.0" prefWidth="56.0" text="휴대전화">
-               <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-            </Label>
-            <HBox prefHeight="45.0" prefWidth="750.0" spacing="50.0">
-               <children>
-                  <TextField fx:id="TextFieldmobile" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" text="전화번호 입력">
-                     <HBox.margin>
+                     </VBox.margin>
+                  </PasswordField>
+                  <Label prefHeight="45.0" prefWidth="302.0" text="비밀번호 재확인">
+                     <padding>
                         <Insets left="200.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <Button fx:id="confirmNumberButton" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#certificationNumProc" prefHeight="24.0" text="인증번호 받기" />
-               </children>
-            </HBox>
-            <HBox prefHeight="45.0" prefWidth="750.0" spacing="50.0">
-               <children>
-                  <TextField fx:id="randomNum" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" text="인증번호 6자리">
-                     <HBox.margin>
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="TextFieldconfirm" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
+                     <VBox.margin>
                         <Insets left="200.0" />
-                     </HBox.margin>
+                     </VBox.margin>
+                  </PasswordField>
+                  <Label prefHeight="45.0" prefWidth="28.0" text="이름">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="200.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="TextFieldname" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets left="200.0" />
+                     </VBox.margin>
                   </TextField>
-                  <Button fx:id="numcheckButton" mnemonicParsing="false" onAction="#numCheckProc" text="인증확인" />
+                  <HBox prefHeight="45.0" prefWidth="550.0" spacing="50.0">
+                     <children>
+                        <Label text="성별 ">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton fx:id="womanRadio" mnemonicParsing="false" styleClass="radioButton" text="여자">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="manRadio" mnemonicParsing="false" styleClass="radioButton" text="남자" toggleGroup="$gender" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" top="25.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label text="주소">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="200.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="TextFieldaddress" maxHeight="24.0" maxWidth="250.0" minHeight="24.0" minWidth="250.0" prefHeight="24.0" prefWidth="250.0">
+                     <VBox.margin>
+                        <Insets left="200.0" top="15.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label prefHeight="45.0" prefWidth="42.0" text="이메일">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="200.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="45.0" prefWidth="750.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="TextFieldemail" maxHeight="24.0" maxWidth="314.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="314.0">
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Label prefHeight="45.0" prefWidth="56.0" text="휴대전화">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="200.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="45.0" prefWidth="750.0" spacing="50.0">
+                     <children>
+                        <TextField fx:id="TextFieldmobile" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" text="전화번호 입력">
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="confirmNumberButton" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#certificationNumProc" prefHeight="24.0" styleClass="button-d" text="인증번호 받기" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="45.0" prefWidth="750.0" spacing="50.0">
+                     <children>
+                        <TextField fx:id="randomNum" maxHeight="24.0" maxWidth="150.0" minHeight="24.0" minWidth="150.0" prefHeight="24.0" prefWidth="150.0" text="인증번호 6자리">
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="numcheckButton" mnemonicParsing="false" onAction="#numCheckProc" styleClass="button-d" text="인증확인" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="51.0" prefWidth="750.0">
+                     <children>
+                        <Label prefHeight="0.0" prefWidth="120.0" text="주로 이용하는 지점">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="200.0" top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="70.0" prefWidth="750.0">
+                     <children>
+                        <ComboBox fx:id="branchCombo" maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" prefHeight="24.0" prefWidth="120.0" promptText="직접선택">
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <HBox prefHeight="51.0" prefWidth="750.0">
+            </VBox>
+         </center>
+         <bottom>
+            <HBox prefHeight="89.0" prefWidth="750.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="0.0" prefWidth="120.0" text="주로 이용하는 지점">
+                  <Button fx:id="regButton" maxHeight="49.0" maxWidth="120.0" minHeight="0.0" minWidth="120.0" mnemonicParsing="false" onAction="#regProc" prefHeight="49.0" prefWidth="120.0" styleClass="Button" text="가입하기">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="200.0" top="20.0" />
+                        <Insets left="300.0" />
                      </HBox.margin>
-                  </Label>
+                  </Button>
                </children>
             </HBox>
-            <HBox prefHeight="70.0" prefWidth="750.0">
-               <children>
-                  <ComboBox fx:id="branchCombo" maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" prefHeight="24.0" prefWidth="120.0" promptText="직접선택">
-                     <HBox.margin>
-                        <Insets left="200.0" />
-                     </HBox.margin>
-                  </ComboBox>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </center>
-   <bottom>
-      <HBox prefHeight="89.0" prefWidth="750.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="regButton" maxHeight="24.0" maxWidth="120.0" minHeight="0.0" minWidth="120.0" mnemonicParsing="false" onAction="#regProc" prefHeight="0.0" prefWidth="120.0" text="가입하기">
-               <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="300.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-   </bottom>
-</BorderPane>
+         </bottom>
+      </BorderPane>
+   </content>
+</ScrollPane>

@@ -7,24 +7,36 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_7_1_inbodyResister.InbodyRegController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" styleClass="umform" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_7_1_inbodyResister.InbodyRegController">
    <top>
-      <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+      <HBox styleClass="HBox-upper" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="back" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" onAction="#backProc" text="&lt;" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
+            <Button fx:id="back" maxHeight="70.0" maxWidth="55.0" minHeight="70.0" minWidth="55.0" mnemonicParsing="false" onAction="#backproc" prefHeight="70.0" prefWidth="55.0" styleClass="Button" text="&lt;" />
+            <StackPane prefHeight="150.0" prefWidth="745.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_LEFT">
+                     <image>
+                        <Image url="@mab.png" />
+                     </image>
+                     <StackPane.margin>
+                        <Insets left="70.0" />
+                     </StackPane.margin>
+                  </ImageView>
+                  <Label alignment="BOTTOM_LEFT" styleClass="g-label" text="취뽀 Health Center" StackPane.alignment="BOTTOM_LEFT">
+                     <StackPane.margin>
+                        <Insets bottom="10.0" left="210.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
          </children>
-      </AnchorPane>
+      </HBox>
    </top>
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="TOP_CENTER">
@@ -171,7 +183,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
                <children>
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#addProc" prefHeight="70.0" prefWidth="150.0" text="등록" />
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#addProc" prefHeight="70.0" prefWidth="150.0" styleClass="Button" text="등록" />
                </children>
             </HBox>
          </children>

@@ -5,31 +5,47 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_22_findId.FindId01Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_22_findId.FindId01Controller">
    <top>
-      <AnchorPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Users/user/Desktop/로고.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#backbuttonproc" prefHeight="60.0" prefWidth="120.0" text="&lt;Back">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </Button>
+            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #293241;" styleClass="HBox-upper">
+               <children>
+                  <Button maxHeight="72.0" maxWidth="70.0" minHeight="50.0" minWidth="55.0" mnemonicParsing="false" onAction="#backbuttonproc" prefHeight="72.0" prefWidth="70.0" style="-fx-background-color: #98c1d9;" styleClass="Button" text="&lt;">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <StackPane alignment="BOTTOM_LEFT" prefHeight="150.0" prefWidth="750.0">
+                     <children>
+                        <ImageView fitHeight="141.0" fitWidth="437.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@mab.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets left="70.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                        <Label alignment="BOTTOM_LEFT" styleClass="g-label" text="취뽀Health Center">
+                           <StackPane.margin>
+                              <Insets left="210.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
          </children>
-      </AnchorPane>
+      </HBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="umform" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="79.0" prefWidth="750.0">
                <children>
@@ -42,6 +58,9 @@
                         <Font size="14.0" />
                      </font></Label>
                </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -52,13 +71,13 @@
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="45.0" prefWidth="550.0" spacing="50.0">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="750.0" spacing="50.0">
                <children>
-                  <Button maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" mnemonicParsing="false" onAction="#loginButtonproc" prefHeight="24.0" prefWidth="120.0" text="로그인 하기" />
-                  <Button maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" mnemonicParsing="false" onAction="#findPwButtonProc" prefHeight="24.0" prefWidth="120.0" text="비밀번호 찾기" />
+                  <Button maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" mnemonicParsing="false" onAction="#loginButtonproc" prefHeight="24.0" prefWidth="120.0" styleClass="button-d" text="로그인 하기" />
+                  <Button maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" mnemonicParsing="false" onAction="#findPwButtonProc" prefHeight="24.0" prefWidth="120.0" styleClass="button-d" text="비밀번호 찾기" />
                </children>
                <VBox.margin>
-                  <Insets left="200.0" />
+                  <Insets />
                </VBox.margin>
             </HBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
@@ -72,6 +91,9 @@
                         <Font name="Arial Bold" size="14.0" />
                      </font></Label>
                </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </VBox>
          </children>
       </VBox>

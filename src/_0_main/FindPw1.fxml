@@ -6,30 +6,15 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_23_findpw.FindPwController">
-   <top>
-      <AnchorPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="20.0" layoutY="20.0" maxHeight="60.0" maxWidth="120.0" minHeight="60.0" minWidth="120.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="&lt;Back">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font></Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Users/user/Desktop/로고.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_23_findpw.FindPwController">
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="umform" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="44.0" prefWidth="750.0">
                <children>
@@ -38,8 +23,11 @@
                         <Font size="18.0" />
                      </font></Label>
                </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </HBox>
-            <VBox prefHeight="100.0" prefWidth="750.0">
+            <VBox prefHeight="86.0" prefWidth="750.0">
                <children>
                   <Label prefHeight="45.0" prefWidth="162.0" text="비밀번호를 변경해주세요.">
                      <font>
@@ -50,6 +38,9 @@
                         <Font name="System Bold" size="14.0" />
                      </font></Label>
                </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </VBox>
             <HBox prefHeight="45.0" prefWidth="550.0" spacing="50.0">
                <children>
@@ -60,7 +51,7 @@
                   <PasswordField maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" prefHeight="24.0" prefWidth="120.0" />
                </children>
                <VBox.margin>
-                  <Insets left="200.0" />
+                  <Insets left="250.0" top="20.0" />
                </VBox.margin>
             </HBox>
             <HBox prefHeight="45.0" prefWidth="550.0" spacing="50.0">
@@ -75,21 +66,49 @@
                      </HBox.margin></PasswordField>
                </children>
                <VBox.margin>
-                  <Insets left="200.0" />
+                  <Insets left="250.0" />
                </VBox.margin>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button maxHeight="24.0" maxWidth="120.0" minHeight="24.0" minWidth="120.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="120.0" text="비밀번호 변경">
+                  <Button alignment="CENTER" maxHeight="48.0" maxWidth="173.0" minHeight="24.0" minWidth="120.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="173.0" styleClass="Button" text="비밀번호 변경">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Button>
                </children>
                <VBox.margin>
-                  <Insets left="300.0" />
+                  <Insets />
                </VBox.margin>
             </HBox>
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="HBox-upper" BorderPane.alignment="CENTER">
+         <children>
+            <Button maxHeight="72.0" maxWidth="70.0" minHeight="50.0" minWidth="55.0" mnemonicParsing="false" onAction="#backButtonProc" prefHeight="72.0" prefWidth="70.0" style="-fx-background-color: #98c1d9;" styleClass="Button" text="&lt;">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+            <StackPane alignment="BOTTOM_LEFT" prefHeight="150.0" prefWidth="750.0">
+               <children>
+                  <ImageView fitHeight="141.0" fitWidth="437.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@mab.png" />
+                     </image>
+                     <StackPane.margin>
+                        <Insets left="70.0" />
+                     </StackPane.margin>
+                  </ImageView>
+                  <Label alignment="BOTTOM_LEFT" styleClass="g-label" text="취뽀Health Center">
+                     <StackPane.margin>
+                        <Insets left="210.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

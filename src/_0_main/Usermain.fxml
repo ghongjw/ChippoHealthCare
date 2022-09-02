@@ -134,7 +134,7 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="155.0" prefWidth="158.0" spacing="30.0">
                                  <children>
-                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" onAction="#umLogoutButtonProc" prefHeight="40.0" prefWidth="119.0" styleClass="Button" text="로그아웃" />
+                                    <Button fx:id="umLogoutButton" minHeight="40.0" mnemonicParsing="false" onAction="#umLogoutButtonProc" prefHeight="40.0" prefWidth="150.0" styleClass="Button" text="로그아웃" />
                                     <Button fx:id="umgoToUiButton" mnemonicParsing="false" onAction="#umgoToUiButtonProc" styleClass="Button" text="회원정보수정" />
                                  </children>
                               </VBox>

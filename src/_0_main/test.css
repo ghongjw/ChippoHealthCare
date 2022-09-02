@@ -33,8 +33,10 @@
 .HBox-upper{
     position:fixed;
     -fx-background-color:
-	 #090a0c;
+	 #293241;
      height: 150;
+    -fx-alignment: center_left;
+    -fx-padding:0 0 0 10;
 }
 .g-label{
    -fx-margin-bottom: 10;
@@ -46,4 +48,28 @@
     -fx-text-fill :#ee6c4d;
 
 
+}
+.button-d{
+    -fx-background-color: 
+    #98c1d9;
+-fx-background-insets: 0,1,2,0;
+-fx-text-fill: white;
+-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+-fx-font-family: "Arial";
+-fx-font-size: 12px;
+
+}
+.button-cancle{
+    -fx-background-color: 
+    #ee6c4d;
+-fx-background-insets: 0,1,2,0;
+-fx-text-fill: white;
+-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+-fx-font-family: "Arial";
+-fx-font-size: 12px;
+
+}
+.radioButton{
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    
 }
