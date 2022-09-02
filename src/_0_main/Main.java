@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application{
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		launch(args);	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -19,6 +20,11 @@ public class Main extends Application{
 		opener.welcomeOpen();
 		
 		primaryStage.show();
+=======
+		// TODO Auto-generated method stub
+		System.out.println("aaaa");
+	}
+>>>>>>> master
 
 	}
 }
