@@ -107,6 +107,7 @@ public class Opener {
 			primaryStage.setTitle("로그인 화면");
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			System.out.println();
 
 		} catch (Exception e) {
 			e.printStackTrace();
