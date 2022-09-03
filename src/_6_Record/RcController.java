@@ -61,8 +61,6 @@ public class RcController implements Initializable{
 				"30","31","32","33","34","35","36","37","38","39",
 				"40","41","42","43","44","45","46","47","48","49",
 				"50","51","52","53","54","55","56","57","58","59");
-
-
 		//과거만 선택가능
 		Callback<DatePicker, DateCell> callB = new Callback<DatePicker, DateCell>() {
 			@Override
@@ -78,7 +76,6 @@ public class RcController implements Initializable{
 						if(localDate != null) {
 							date = localDate.toString();
 						}
-
 					}
 				};
 			}
@@ -86,13 +83,14 @@ public class RcController implements Initializable{
 		};
 		rcDatePicker.setDayCellFactory(callB);
 	}
-
 	//유저메인으로 돌아가기
 	public void backButtonProc() {
 		opener.umOpen();
 		rcService.discon();
 	}
 	public void RcSaveButtonProc() {
+		
+		rcService.saveButtonclick(sHour,sMine,Hour);
 		int sh=0;
 		int eh=0;
 		int sm=0; 
@@ -102,6 +100,8 @@ public class RcController implements Initializable{
 		sMin = Smin.getValue();
 		eHour =Ehour.getValue();
 		eMin = Emin.getValue();
+		
+		
 		sh = Integer.parseInt(sHour);
 		eh = Integer.parseInt(eHour);
 		sm = Integer.parseInt(sMin);
@@ -111,7 +111,6 @@ public class RcController implements Initializable{
 		EndTime=eHour+":"+eMin;}
 		catch(Exception e){
 			CommonService.msg("시간을 입력 해 주세요");
-			
 		}
 		if(rcDatePicker.getValue()==null||Shour==null||Smin==null||Ehour==null||Emin==null) {
 			CommonService.msg("시간을 입력 해 주세요");
@@ -129,6 +128,13 @@ public class RcController implements Initializable{
 				rcService.setRsetRecordInsertecord(id,date,StartT,EndTime,recordArea.getText());
 				CommonService.msg("저장되었습니다");
 			}
+		}
+		if(recordArea.getText().length()>100) {
+			CommonService.msg("공백 포함 100자만 입력해 주세요");
+		}else {
+			System.out.println("c");
+			rcService.setRsetRecordInsertecord(id,date,StartT,EndTime,recordArea.getText());
+			CommonService.msg("저장되었습니다");
 		}
 
 	}
@@ -152,7 +158,6 @@ public class RcController implements Initializable{
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	public void setClickedDate(String clikedDate) {
 		this.clikedDate=clikedDate;
 		String[] tmp = clikedDate.split("-");
@@ -165,6 +170,9 @@ public class RcController implements Initializable{
 	}
 	public void setlabelandtext() {
 		rcService.setRsetRecord(id,clikedDate);
+	}
+	public void textAreaClicked() {
+		recordArea.clear();
 	}
 
 

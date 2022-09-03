@@ -262,7 +262,6 @@ public class Opener {
 		try {
 			Parent umform = loader.load();
 			umCon = loader.getController();
-			// umCon.setOpenerinfo(opener,id,name,login,expireYear,expireMonth,expireDay,ptcount);
 			umCon.setOpener(opener);
 			umCon.setOpenerinfo(opener, id, name);
 			Scene scene = new Scene(umform);
@@ -306,7 +305,6 @@ public class Opener {
 
 	// 이용권 구매 화면띄우기
 	public void PcOpen() {
-		System.out.println("여기");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
 		try {
 			Parent pcForm = loader.load();
@@ -462,7 +460,6 @@ public class Opener {
 		try {
 			Parent mmform = loader.load();
 			MController mCon = loader.getController();
-			System.out.println(opener);
 			mCon.setOpener(opener);
 
 			Scene scene = new Scene(mmform);

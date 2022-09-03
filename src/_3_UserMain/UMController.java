@@ -105,15 +105,12 @@ public class UMController implements Initializable {
 		this.userId = id;
 		this.userName = name;
 		this.setNodes();
-		System.out.println(this.opener);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
 		// setOpener();
 		umService = new UMService();
-
 	}
 
 	public void setNodes() {
@@ -141,7 +138,7 @@ public class UMController implements Initializable {
 		todayselct(emptydate);
 	}
 
-	// oper참조값 불러오기
+	// op둗r참조값 불러오기
 
 	public void umLogoutButtonProc() {
 		opener.logoutPg();
@@ -275,7 +272,6 @@ public class UMController implements Initializable {
 	// 버튼 클릭으로 이용권 구매페이지로 전환
 	public void umGoTOPerchaseProc() {
 		opener.PcOpen();
-		System.out.println(opener);
 	}
 
 	// 버튼 클릭으로 PT예약페이지로 전환
