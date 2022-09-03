@@ -14,7 +14,7 @@ public class InbodyRegService {
 	private InbodyRegDAO inbodyregdao = new InbodyRegDAO();
 
 	public void inbodyResisterProc(ComboBox year, ComboBox month, ComboBox day, TextField height, TextField age,
-			TextField weight, TextField musle, TextField fat, TextField fatper, TextField bmi) {
+			TextField weight, TextField musle, TextField fat, TextField fatper, TextField bmi ,String id) {
 
 		InbodyRegDTO irDto = new InbodyRegDTO();
 
@@ -28,6 +28,8 @@ public class InbodyRegService {
 		irDto.setfat(fat.getText());
 		irDto.setfatper(fatper.getText());
 		irDto.setBmi(bmi.getText());
+		
+		
 
 		String dates = "";
 
@@ -36,7 +38,7 @@ public class InbodyRegService {
 
 		irDto.setDates(dates);
 
-		inbodyregdao.insert(irDto);
+		inbodyregdao.insert(irDto, id);
 
 		CommonService.dateArr(dates);
 	}

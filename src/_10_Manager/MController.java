@@ -8,7 +8,6 @@ import _0_main.Opener;
 import javafx.fxml.Initializable;
 
 public class MController implements Initializable {
-	private Main main;
 	private Opener opener;
 
 	public void setOpener(Opener opener) {

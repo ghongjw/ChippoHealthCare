@@ -5,11 +5,35 @@ import _1_login.LoginDTO;
 public class RegDTO extends LoginDTO {
 	private String name;
 	private String gender;
-
 	private String address;
-
 	private String email;
 	private String branch;
+	private String mobile;
+	private String age;
+	private String ptcount;
+	private int num;
+	private int expireyear;
+	private int expiremonth;
+	private int expireday;
+	///////////////////////////////////////////////////////////////////
+	private String purpose;
+	private String confirmNum;
+	///////////////////////////////////////////////////////////////////
+	public String getconfirmNum() {
+		return confirmNum;
+	}
+
+	public void setconfirmNum(String confirmNum) {
+		this.confirmNum = confirmNum;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
 
 	public String getName() {
 		return name;
@@ -50,9 +74,6 @@ public class RegDTO extends LoginDTO {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-
-	private String mobile;
-	private String ptcount;
 
 	public String getMobile() {
 		return mobile;
@@ -102,9 +123,14 @@ public class RegDTO extends LoginDTO {
 		this.expireday = expireday;
 	}
 
-	private int num;
-	private int expireyear;
-	private int expiremonth;
-	private int expireday;
+	public String getPurpose() {
+		return purpose;
+	}
+
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
+	}
+
+	
 
 }

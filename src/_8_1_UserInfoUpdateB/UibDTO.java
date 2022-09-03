@@ -2,7 +2,7 @@ package _8_1_UserInfoUpdateB;
 
 public class UibDTO {
 
-	private String pw, pwcon, email, emailbox, phone, address, gender, point, men, women, addemail;
+	private String pw, pwcon, email, name, emailbox, mobile, address, gender, point, men, women, addemail, purpose;
 
 	public String getPw() {
 		return pw;
@@ -28,12 +28,12 @@ public class UibDTO {
 		this.email = email;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getMobile() {
+		return mobile;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public String getGender() {
@@ -83,11 +83,29 @@ public class UibDTO {
 	public void setWomen(String women) {
 		this.women = women;
 	}
-	
+
 	public void setAddemail(String addemail) {
 		this.addemail = addemail;
-	}public String getAddemail() {
+	}
+
+	public String getAddemail() {
 		return addemail;
 	}
 
+	public String getPurpose() {
+		return purpose;
+	}
+
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
+	}
+
+	public String getName() {
+		return name;
+
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

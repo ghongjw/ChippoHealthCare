@@ -1,4 +1,4 @@
-package _11_0_TrainManagement;
+package _11_4_scheduleManagement;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -19,7 +19,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
-public class TMcontroller implements Initializable {
+public class SMcontroller implements Initializable {
 	@FXML
 	private VBox schedulebox;
 	@FXML
@@ -28,15 +28,19 @@ public class TMcontroller implements Initializable {
 	private ListView<String> trainerList;
 	@FXML
 	private DatePicker datepicker;
+	
+	// 체크박스 가져가기
+	@FXML
+	private CheckBox time7, time9, time11, time13, time15, time17, time19, time21, time23;
 	@FXML
 	private Label name7, name9, name11, name13, name15, name17, name19, name21, name23;
 	private Opener opener;
-	private TMService tmService;
-	private TMDTO tmDto = new TMDTO();
+	private SMService tmService;
+	private SMDTO tmDto = new SMDTO();
 	private String point;
 	private String trainername;
 	private String date;
-	private TMDAO tmDao = new TMDAO();
+	private SMDAO tmDao = new SMDAO();
 
 	public void setOpener(Opener opener) {
 		this.opener = opener;
@@ -46,7 +50,7 @@ public class TMcontroller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		tmService = new TMService();
+		tmService = new SMService();
 		tmService.settmDto(tmDto);
 		// 지점 추가
 		pointList.getItems().addAll("영등포점", "창동점", "홍제점", "의정부점", "강남점", "송파점", "분당점", "성수점", "노량진점", "부산점");
@@ -123,6 +127,22 @@ public class TMcontroller implements Initializable {
 //		opener.delOpen();
 	}
 
+	// 트레이너 관리 화면에서 저장 버튼 누르면 동작하는 메서드
+	public void saveProc() {
+		// 저장 눌렀을 때
+		// 체크박스 체크유무로 DB에 t1~9를 Y or N 바꿔줌
+		CheckBox[] checkBox = { time7, time9, time11, time13, time15, time17, time19, time21, time23 };
+		String[] time = { "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9" };
+		for (int i = 0; i < checkBox.length; i++) {
+			if (checkBox[i].isSelected() == true) {
+				tmDao.setYes(point, trainername, date, time[i]);
+			} else {
+				tmDao.setNo(point, trainername, date, time[i]);
+			}
+		}
+		CommonService.msg("저장 완료");
+	}
+
 	// 트레이너 관리 화면에서 검색 버튼 누르면 동작하는 메서드
 	public void searchProc() {
 		if (point == null || trainername == null || date == null) {
@@ -142,13 +162,32 @@ public class TMcontroller implements Initializable {
 	}
 
 	public void getSchedule() {
+		CheckBox[] checkBox = { time7, time9, time11, time13, time15, time17, time19, time21, time23 };
+		String[] YesNo = tmService.getYesNo(point, trainername, date, tmDto);
 		String[] PTmembers = tmService.getMatchMemeber(point, trainername, date, tmDto);
 		Label[] label = { name7, name9, name11, name13, name15, name17, name19, name21, name23 };
 
-		for (int j = 0; j < label.length; j++) {
-			label[j].setText(PTmembers[j]);
+		// PTmembers 확인용 출력
+		for (int i = 0; i < PTmembers.length; i++) {
+			System.out.println(PTmembers[i]);
 		}
 
+		// DB에서 스케줄표 y or n 여부 확인해서 체크박스 체크여부 구분
+		for (int i = 0; i < checkBox.length; i++) {
+			if (YesNo[i].equals("y")) {
+				// 체크박스 체크된 상태로 출력
+				checkBox[i].setSelected(true);
+				label[i].setText(PTmembers[i]);
+			} else if (YesNo[i].equals("n")) {
+				checkBox[i].setSelected(false);
+
+				// n이면 회원 이름 라벨에 넣어주는 메서드
+				for (int j = 0; j < label.length; j++) {
+					label[j].setText(PTmembers[j]);
+				}
+
+			}
+		}
 	}
 
 	public void setSchedule() {

@@ -1,9 +1,28 @@
 package _22_findId;
 
 public class FindIdDTO {
+		private String id;
 		private String name;
-		private String moblie;
+		private String mobile;
 		private String confirmNum;
+		public String getMobile() {
+			return mobile;
+		}
+		public void setMobile(String mobile) {
+			this.mobile = mobile;
+		}
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public String getconfirmNum() {
+			return confirmNum;
+		}
+		public void setconfirmNum(String confirmNum) {
+			this.confirmNum = confirmNum;
+		}
 		public String getName() {
 			return name;
 		}
@@ -11,19 +30,11 @@ public class FindIdDTO {
 			this.name = name;
 		}
 	
-		public String getMoblie() {
-			return moblie;
-		}
-		public void setMoblie(String moblie) {
-			this.moblie = moblie;
-		}
+
 	
-		public String getconfirmNum() {
-			return confirmNum;
-	}
 	
-		public void setconfirmNum(String confirmtest) {
-			this.confirmNum = confirmtest;
-	}
+	
+	
+	
 	
 }

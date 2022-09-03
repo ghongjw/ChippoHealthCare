@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class MSService {
 	private MSDAO msDao = new MSDAO();
 
-	public void getMemberInfo(String name, MSDTO msDto) {
-		msDao.getMemberInfo(name, msDto);
+	public ArrayList<MSDTO> getMemberInfo(String name) {
+		return msDao.getMemberInfo(name);
 	}
 
 	public ArrayList<MSDTO> getAllData() {

@@ -8,7 +8,9 @@ import _11_0_TrainManagement.TMcontroller;
 import _11_1_regTrainer.RTController;
 import _11_2_deleteTrainer.deleteController;
 import _11_3_newSchedule.newScheduleController;
+import _11_4_scheduleManagement.SMcontroller;
 import _12_0_memberSearch.MSController;
+import _12_1_memberRevise.MRController;
 import _1_login.LoginController;
 import _201_agreement.AgreementController;
 import _21_IDPW.IDPWController;
@@ -23,15 +25,16 @@ import _4_perchase.PcConfirmController;
 import _4_perchase.PcController;
 import _5_book.BoController;
 import _6_Record.RcController;
+import _7_1_inbodyResister.InbodyRegController;
+import _7_inbodySelect.InbodyController;
+import _8_1_UserInfoUpdateB.UibController;
+import _8_UserInfoUpdateA.UiaController;
 import _9_UserPTUpdate.UPController;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class Opener {
 
@@ -53,7 +56,6 @@ public class Opener {
 	private Opener opener;
 
 	private TMcontroller tmCon;
-	private String clickedDate;
 
 	public void setTmCon(TMcontroller tmCon) {
 		this.tmCon = tmCon;
@@ -245,7 +247,8 @@ public class Opener {
 
 			Scene scene = new Scene(Register);
 			Stage regStage = new Stage();
-
+			ComboBox<String> branchBox = (ComboBox<String>) Register.lookup("#branchCombo");
+			branchBox.getItems().addAll("홍제점", "성수점", "송파점", "영등포점", "강남점", "창동점", "분당점", "의정부점", "노량진점", "부산점");
 			primaryStage.setTitle("취뽀 회원 가입");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -262,10 +265,11 @@ public class Opener {
 		try {
 			Parent umform = loader.load();
 			umCon = loader.getController();
+			// umCon.setOpenerinfo(opener,id,name,login,expireYear,expireMonth,expireDay,ptcount);
 			umCon.setOpener(opener);
 			umCon.setOpenerinfo(opener, id, name);
 			Scene scene = new Scene(umform);
-			
+//			System.out.println("오프너쪽 id : " + id);
 			CommonService.setId(id);
 
 			primaryStage.setTitle("유저 메인 화면");
@@ -284,6 +288,7 @@ public class Opener {
 		Parent logoutForm;
 		try {
 			logoutForm = loader.load();
+
 			umLougoutCon = loader.getController();
 			umLougoutCon.setumConfirmForm(logoutForm);
 			umLougoutCon.setUmController(umCon);
@@ -305,6 +310,7 @@ public class Opener {
 
 	// 이용권 구매 화면띄우기
 	public void PcOpen() {
+		System.out.println("여기");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
 		try {
 			Parent pcForm = loader.load();
@@ -373,13 +379,11 @@ public class Opener {
 	public void rcOpen() {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("record.fxml"));
 		try {
-			//System.out.println("clickedDate"+clickedDate);
 			Parent rcForm = loader.load();
 			RcController boController = loader.getController();
 			boController.setOpener(this);
 			boController.setId(id);
 			boController.setName(name);
-			boController.setClickedDate(clickedDate);
 			Scene scene = new Scene(rcForm);
 			primaryStage.setTitle("운동 기록 화면");
 			primaryStage.setScene(scene);
@@ -395,6 +399,8 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("inbodySelect.fxml"));
 		try {
 			Parent isForm = loader.load();
+			InbodyController inbodyCon = loader.getController();
+			inbodyCon.setOpener(opener);
 
 			Scene scene = new Scene(isForm);
 			primaryStage.setTitle("인바디 화면");
@@ -411,6 +417,8 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("InbodyRegister.fxml"));
 		try {
 			Parent irForm = loader.load();
+			InbodyRegController ircon = loader.getController();
+			ircon.setOpener(opener);
 
 			Scene scene = new Scene(irForm);
 			primaryStage.setTitle("인바디 기록 화면");
@@ -428,6 +436,9 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoUpdate1.fxml"));
 		try {
 			Parent uicForm = loader.load();
+			UiaController uiccon = loader.getController();
+			uiccon.setOpener(opener);
+
 			Scene scene = new Scene(uicForm);
 			primaryStage.setTitle("회원정보 비밀번호 확인 화면");
 			primaryStage.setScene(scene);
@@ -444,6 +455,9 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoUpdate2.fxml"));
 		try {
 			Parent uiForm = loader.load();
+			UibController uicon = loader.getController();
+			uicon.setOpener(opener);
+
 			Scene scene = new Scene(uiForm);
 			primaryStage.setTitle("회원정보 수정 화면");
 			primaryStage.setScene(scene);
@@ -454,6 +468,23 @@ public class Opener {
 		}
 	}
 
+	public void userPTUpdateOpen() {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("userPTUpdate.fxml"));
+		try {
+			Parent pUForm = loader.load();
+			UPController upcontroller = loader.getController();
+			upcontroller.setOpener(opener);
+			// upcontroller.getUserId(id);
+			// upcontroller.getUserName(name);
+			Scene scene = new Scene(pUForm);
+			primaryStage.setTitle("PT 수정 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("//회원정보 수정화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+	}
 
 	// 10번 관리자 창 띄우기
 	public void mmOpen() { // ManagementMain
@@ -559,6 +590,26 @@ public class Opener {
 
 	}
 
+	// 11-4 트레이너 스케줄 관리창 띄우기
+	public void scheduleManagementOpen() { // newSchedule
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("scheduleManagement.fxml"));
+		try {
+			Parent scheduleManagementform = loader.load();
+			SMcontroller scheduleManagementCon = loader.getController();
+			scheduleManagementCon.setOpener(opener);
+
+			Scene scene = new Scene(scheduleManagementform);
+
+			primaryStage.setTitle("스케줄 생성 화면");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			CommonService.msg("스케줄 생성 화면에 문제가 발생했습니다. 관리자에게 문의하세요.");
+			e.printStackTrace();
+		}
+
+	}
+
 	// 12번 회원검색 창 띄우기
 	public void msOpen() { // MemberSearch
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("memberSearch.fxml"));
@@ -568,9 +619,6 @@ public class Opener {
 			MSCon.setOpener(opener);
 
 			Scene scene = new Scene(msform);
-
-			TableView<String> memberTable = (TableView<String>) msform.lookup("#memberList");
-			// 이름 검색했을때 해당 이름이 추가돼야하는데 DB랑 연관지어야함
 
 			primaryStage.setTitle("회원검색 화면");
 			primaryStage.setScene(scene);
@@ -587,6 +635,9 @@ public class Opener {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("memberRevise.fxml"));
 		try {
 			Parent reviseform = loader.load();
+			MRController mrCon = loader.getController();
+			mrCon.setOpener(opener);
+
 			Scene scene = new Scene(reviseform);
 
 			ComboBox<String> pointCombo = (ComboBox<String>) reviseform.lookup("#point");
@@ -647,12 +698,5 @@ public class Opener {
 
 	public void setPtcount(String ptcount) {
 		this.ptcount = ptcount;
-	}
-	public void setclickedDate(String clickedDate) {
-		//작동
-		this.clickedDate=clickedDate;
-	}
-	public String getClickedDate() {
-		return clickedDate;
 	}
 }

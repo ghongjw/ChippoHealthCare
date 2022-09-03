@@ -11,36 +11,34 @@ import javafx.scene.control.Label;
 public class FindId01Controller implements Initializable {
 	@FXML
 	private Label selecklabel;
-	
 
 	private FindIDService findIdService;
 	private Opener opener;
-	private FindIdDTO findIdDTO;
+	private FindIdDTO findIDDTO;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-	
 	}
 
-	public void confirmNumCheck() {
-
-	}
 	public void setfiService(FindIDService findIdService) {
-		this.findIdService=findIdService;
+		this.findIdService = findIdService;
 		selecklabel.setText(findIdService.getId());
 	}
 
 	public void setOpener(Opener opener) {
 		this.opener = opener;
 	}
+
 	public void loginButtonproc() {
-		opener.Login();
-	}
-	public void findPwButtonProc() {
-		opener.Findpw0Open();
-	}
-	public void backbuttonproc() {
+//		System.out.println("로그인 버튼 눌렀따");
 		opener.Login();
 	}
 
+	public void findPwButtonProc() {
+		opener.Findpw0Open();
+	}
+
+	public void backbuttonproc() {
+		opener.Login();
+	}
 }

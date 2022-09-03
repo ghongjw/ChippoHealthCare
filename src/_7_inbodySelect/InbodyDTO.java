@@ -2,7 +2,7 @@ package _7_inbodySelect;
 
 public class InbodyDTO {
 
-	private String date, age, height, weight, musle, pat, patper, bmi;
+	private String date, age, height, weight, musle, fat, fatper, bmi, id;
 
 	public String getAge() {
 		return age;
@@ -36,20 +36,20 @@ public class InbodyDTO {
 		this.musle = musle;
 	}
 
-	public String getPat() {
-		return pat;
+	public String getFat() {
+		return fat;
 	}
 
-	public void setPat(String pat) {
-		this.pat = pat;
+	public void setFat(String fat) {
+		this.fat = fat;
 	}
 
-	public String getPatper() {
-		return patper;
+	public String getFatper() {
+		return fatper;
 	}
 
-	public void setPatper(String patper) {
-		this.patper = patper;
+	public void setFatper(String fatper) {
+		this.fatper = fatper;
 	}
 
 	public String getBmi() {
@@ -66,5 +66,11 @@ public class InbodyDTO {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 }

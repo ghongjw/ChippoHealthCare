@@ -43,7 +43,7 @@ public class MSController implements Initializable {
 	@FXML
 	private MSService msService = new MSService();
 	private Opener opener;
-	private MSDTO msDto = new MSDTO();
+//	private MSDTO msDto = new MSDTO();
 	private static String selectName;
 
 	ObservableList<Person> list = FXCollections.observableArrayList();
@@ -53,7 +53,7 @@ public class MSController implements Initializable {
 	}
 
 	// 회원 검색 화면에서 뒤로가기 버튼 누르면 동작하는 메서드
-	public void backproc() {
+	public void backProc() {
 		opener.mmOpen();
 	}
 
@@ -67,8 +67,8 @@ public class MSController implements Initializable {
 	}
 
 	public boolean Empty() {
-		msService.getMemberInfo(nameTextfield.getText(), msDto);
-		if (msDto.getName() == null)
+		ArrayList<MSDTO> msDtoList = msService.getMemberInfo(nameTextfield.getText());
+		if (msDtoList.isEmpty())
 			// 비어있으면 true 반환
 			return true;
 		return false;
@@ -77,18 +77,48 @@ public class MSController implements Initializable {
 
 	// 회원 검색 화면에서 검색 버튼 누르면 동작하는 메서드
 	public void searchProc() {
+		// 아무것도 입력 안하고 검색했을때 모든 정보 보이게하는 조건
 		if (nameTextfield.getText().isEmpty()) {
-			CommonService.msg("이름을 입력해주세요.");
-		} else if (Empty()) {
-			CommonService.msg("존재하지 않는 이름입니다. 확인 후 다시 입력해주세요.");
-		} else {
 			memberList.getItems().clear();
-			msService.getMemberInfo(nameTextfield.getText(), msDto);
-			list.addAll(new Person(new SimpleStringProperty(msDto.getName()),
-					new SimpleStringProperty(msDto.getGender()), new SimpleIntegerProperty(msDto.getAge()),
-					new SimpleStringProperty(msDto.getMobile()), new SimpleStringProperty(msDto.getBranch()),
-					new SimpleStringProperty("DTO에 운동목적 없음"), new SimpleStringProperty(msDto.getExpiryDate()),
-					new SimpleIntegerProperty(msDto.getPtcount())));
+			ArrayList<MSDTO> DtoList = msService.getAllData(); // -> List(DTO들 담긴)
+
+			for (int i = 0; i < DtoList.size(); i++) {
+				MSDTO msDto = new MSDTO();
+				msDto = (DtoList.get(i));
+				if (msDto.getName().equals("관리자")) {
+
+				} else {
+					list.addAll(new Person(new SimpleStringProperty(msDto.getName()),
+							new SimpleStringProperty(msDto.getGender()), new SimpleIntegerProperty(msDto.getAge()),
+							new SimpleStringProperty(msDto.getMobile()), new SimpleStringProperty(msDto.getBranch()),
+							new SimpleStringProperty(msDto.getPurposse()),
+							new SimpleStringProperty(msDto.getExpiryDate()),
+							new SimpleIntegerProperty(msDto.getPtcount())));
+				}
+			}
+		}
+		// 입력한 문자가 해당하는 데이터가 없을 때 메세지 뜨는 조건
+		else if (Empty()) {
+			CommonService.msg("존재하지 않는 이름입니다. 확인 후 다시 입력해주세요.");
+		}
+		// 입력한 문자가 해당하는 데이터들을 다 보여주는 조건
+		else {
+			memberList.getItems().clear();
+			ArrayList<MSDTO> DtoList = msService.getMemberInfo(nameTextfield.getText());
+			for (int i = 0; i < DtoList.size(); i++) {
+				MSDTO msDto = new MSDTO();
+				msDto = DtoList.get(i);
+				if (msDto.getName().equals("관리자")) {
+
+				} else {
+					list.addAll(new Person(new SimpleStringProperty(msDto.getName()),
+							new SimpleStringProperty(msDto.getGender()), new SimpleIntegerProperty(msDto.getAge()),
+							new SimpleStringProperty(msDto.getMobile()), new SimpleStringProperty(msDto.getBranch()),
+							new SimpleStringProperty(msDto.getPurposse()),
+							new SimpleStringProperty(msDto.getExpiryDate()),
+							new SimpleIntegerProperty(msDto.getPtcount())));
+				}
+			}
 		}
 	}
 
@@ -102,7 +132,9 @@ public class MSController implements Initializable {
 				if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
 					StringProperty name = memberList.getSelectionModel().getSelectedItem().getName();
 					String stringName = name.toString();
-					selectName = stringName.substring(23, 26);
+					stringName = stringName.substring(23).replaceAll("]", "");
+//					System.out.println("더블 클릭된 이름 : " + stringName);
+					selectName = stringName;
 					opener.reviseOpen();
 				}
 			}
@@ -125,11 +157,15 @@ public class MSController implements Initializable {
 		for (int i = 0; i < DtoList.size(); i++) {
 			MSDTO msDto = new MSDTO();
 			msDto = (DtoList.get(i));
-			list.addAll(new Person(new SimpleStringProperty(msDto.getName()),
-					new SimpleStringProperty(msDto.getGender()), new SimpleIntegerProperty(msDto.getAge()),
-					new SimpleStringProperty(msDto.getMobile()), new SimpleStringProperty(msDto.getBranch()),
-					new SimpleStringProperty("DTO에 운동목적 없음"), new SimpleStringProperty(msDto.getExpiryDate()),
-					new SimpleIntegerProperty(msDto.getPtcount())));
+			if (msDto.getName().equals("관리자")) {
+
+			} else {
+				list.addAll(new Person(new SimpleStringProperty(msDto.getName()),
+						new SimpleStringProperty(msDto.getGender()), new SimpleIntegerProperty(msDto.getAge()),
+						new SimpleStringProperty(msDto.getMobile()), new SimpleStringProperty(msDto.getBranch()),
+						new SimpleStringProperty(msDto.getPurposse()), new SimpleStringProperty(msDto.getExpiryDate()),
+						new SimpleIntegerProperty(msDto.getPtcount())));
+			}
 		}
 		memberList.setItems(list);
 

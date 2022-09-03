@@ -86,12 +86,13 @@ public class UMController implements Initializable {
 	private String userName;
 
 	ArrayList<Label> sdays = new ArrayList<Label>();
+	public static String staticId;
 	Label todayLabel;
 
 	private int year, month, day, todayYear, todayMonth, todayDay, emptydate;
 	private String stryear, strmonth, strday;
 
-	private String cYear, cMonth, cDay, clickedDate;
+	private String cYear, cMonth, cDay, clickdDate;
 	private Label[] sDays;
 	private VBox[] vboxs = new VBox[42];
 
@@ -105,12 +106,16 @@ public class UMController implements Initializable {
 		this.userId = id;
 		this.userName = name;
 		this.setNodes();
+		staticId = userId;
+		System.out.println(this.opener);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 		// setOpener();
 		umService = new UMService();
+
 	}
 
 	public void setNodes() {
@@ -138,7 +143,7 @@ public class UMController implements Initializable {
 		todayselct(emptydate);
 	}
 
-	// op둗r참조값 불러오기
+	// oper참조값 불러오기
 
 	public void umLogoutButtonProc() {
 		opener.logoutPg();
@@ -272,6 +277,7 @@ public class UMController implements Initializable {
 	// 버튼 클릭으로 이용권 구매페이지로 전환
 	public void umGoTOPerchaseProc() {
 		opener.PcOpen();
+		System.out.println(opener);
 	}
 
 	// 버튼 클릭으로 PT예약페이지로 전환
@@ -281,9 +287,6 @@ public class UMController implements Initializable {
 
 	// 운동기록전환
 	public void umGoToRcProc() {
-		clickedDate = stryear+"-"+strmonth+"-"+strday;
-		opener.setclickedDate(clickedDate);
-		System.out.println(clickedDate);
 		opener.rcOpen();
 	}
 
@@ -308,15 +311,15 @@ public class UMController implements Initializable {
 		}
 		cDay = label.getText();
 
-		if(cDay.length()==1) {
-			clickedDate = cYear + "-" + cMonth + "-0" + cDay;
-		}else clickedDate = cYear + "-" + cMonth + "-" + cDay;
-		opener.setclickedDate(clickedDate);
 		if (cDay.equals(" ") == false) {
-			opener.rcOpen();
+			opener.userPTUpdateOpen();
 		}
+		clickdDate = cYear + "-" + cMonth + "-" + cDay;
 	}
 
+	public String clikedDateMehod() {
+		return clickdDate;
+	}
 
 	public void todayselct(int a) {
 		int tmp = day + a - 2;

@@ -27,9 +27,9 @@ public class InbodyRegDAO {
 
 	}
 
-	public void insert(InbodyRegDTO irDto) {
+	public void insert(InbodyRegDTO irDto, String id) {
 
-		String sql = "INSERT INTO inbody VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO inbody VALUES(?,?,?,?,?,?,?,?,?)";
 		try {
 			ps = con.prepareStatement(sql);
 
@@ -41,7 +41,7 @@ public class InbodyRegDAO {
 			ps.setString(6, irDto.getfat());
 			ps.setString(7, irDto.getfatper());
 			ps.setString(8, irDto.getBmi());
-
+			ps.setString(9, id); // 로그인된 아이디 가져와야됨
 			ps.executeUpdate();
 
 		} catch (SQLException e) {

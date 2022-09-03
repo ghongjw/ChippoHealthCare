@@ -63,13 +63,12 @@ public class UMDAO {
 		return ptc;
 	}
 
-	public ArrayList<String> ptbooked(String id, String monyear) {
+	public ArrayList<String> ptbooked(String monyear) {
 		ArrayList<String> ptb = new ArrayList<String>();
-		String sql = "SELECT BOOKPTDATE FROM USERID_TIME WHERE id = ? and BOOKPTDATE LIKE ? AND TRAINER IS NOT NULL";
+		String sql = "SELECT BOOKPTDATE FROM USERID_TIME WHERE BOOKPTDATE LIKE ? AND TRAINER IS NOT NULL";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, id);
-			ps.setString(2, '%' + monyear + '%');
+			ps.setString(1, '%' + monyear + '%');
 			rs = ps.executeQuery();
 			while (rs.next())
 				ptb.add(rs.getString("BOOKPTDATE"));

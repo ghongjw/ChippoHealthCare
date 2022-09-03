@@ -5,13 +5,11 @@ import java.util.ResourceBundle;
 
 import _0_main.CommonService;
 import _0_main.Opener;
+import _3_UserMain.UMController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class InbodyRegController implements Initializable {
@@ -32,11 +30,11 @@ public class InbodyRegController implements Initializable {
 	private TextField bmi;
 
 	@FXML
-	private ComboBox year;
+	private ComboBox<String> year;
 	@FXML
-	private ComboBox month;
+	private ComboBox<String> month;
 	@FXML
-	private ComboBox day;
+	private ComboBox<String> day;
 
 	@FXML
 	private Button back;
@@ -67,8 +65,9 @@ public class InbodyRegController implements Initializable {
 
 	// 등록 버튼 클릭시 호출
 	public void addProc() {
-
-		inbodyservice.inbodyResisterProc(year, month, day, height, age, weight, musle, fat, fatper, bmi);
+		
+		System.out.println(UMController.staticId);
+		inbodyservice.inbodyResisterProc(year, month, day, height, age, weight, musle, fat, fatper, bmi , UMController.staticId);
 
 		CommonService.msg("등록되었습니다.");
 
@@ -76,7 +75,7 @@ public class InbodyRegController implements Initializable {
 
 	}
 
-	public void backProc() {
+	public void backproc() {
 
 		opener.inbodySelectOpen();
 

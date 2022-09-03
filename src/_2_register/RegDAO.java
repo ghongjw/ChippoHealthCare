@@ -25,23 +25,27 @@ public class RegDAO {
 	}
 
 	public void insert(RegDTO reg) {
-		String sql = "INSERT INTO health_user VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO health_user VALUES(?,?,?, ?,?,?, ?,?,?, ?,?,?, ?,?,?)";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, reg.getNum());
-			ps.setString(2, reg.getId());
-			ps.setString(3, reg.getPw());
-			ps.setString(4, reg.getEmail());
-			ps.setString(5, reg.getMobile());
-			ps.setString(6, reg.getAddress());
-			ps.setString(7, reg.getBranch());
-			ps.setString(8, reg.getPtcount());
-			ps.setString(9, "n");
-			ps.setInt(10, reg.getExpireyear());
-			ps.setInt(11, reg.getExpiremonth());
-			ps.setInt(12, reg.getExpireday());
+			ps.setString(1, reg.getId());
+			ps.setString(12, reg.getPw());
+			ps.setString(10, reg.getName());
+			ps.setString(14, reg.getAge());
+			ps.setString(13, reg.getGender());
+			ps.setString(2, reg.getEmail());
+			ps.setString(3, reg.getMobile());
+			ps.setString(4, reg.getAddress());
+			ps.setString(5, reg.getBranch());
+			ps.setString(15, reg.getPurpose());
+			ps.setString(11, "n");
+			ps.setInt(6, 0);
+			ps.setInt(7, 0);
+			ps.setInt(8, 0);
+			ps.setInt(9, 0);
 			ps.executeUpdate();
 		} catch (Exception e) {
+			System.out.println("회원가입쪽에서 DB에 insert시키는 쿼리 실패");
 			e.printStackTrace();
 		}
 	}
@@ -74,4 +78,5 @@ public class RegDAO {
 		}
 		return check;
 	}
+
 }

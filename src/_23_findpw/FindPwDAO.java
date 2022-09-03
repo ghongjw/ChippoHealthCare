@@ -23,7 +23,7 @@ public class FindPwDAO {
 				e.printStackTrace();
 			}
 		}
-	
+		
 		public void disconnection() {
 			try {
 				if(rs != null) rs.close();
@@ -32,5 +32,23 @@ public class FindPwDAO {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+		}
+		public String getPWformName(String name, String mobile, String id)  {
+			String sql = "SELECT pw from health_user WHERE id = ? AND name = ? AND mobile = ?";
+			String pw = "";
+			try {
+				ps=con.prepareStatement(sql);
+				ps.setString(1, id);
+				ps.setString(2, name);
+				ps.setString(3, mobile);
+				rs=ps.executeQuery();
+				if(rs.next()) {
+				pw = rs.getString("pw");
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}return pw;
+		}
+		public void getpw(String name, String moblie, String id) {
 		}
 }

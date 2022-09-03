@@ -1,6 +1,7 @@
 package _12_1_memberRevise;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import _0_main.CommonService;
@@ -83,6 +84,7 @@ public class MRController implements Initializable {
 		mrDao.update(mrDto);
 
 		CommonService.msg("저장 완료");
+		opener.msOpen();
 	}
 
 	@Override
@@ -90,8 +92,10 @@ public class MRController implements Initializable {
 		MSController msCon = new MSController();
 		msCon.getSelectName(); // 선택한 사람 이름 가져옴
 		MSDAO msDao = new MSDAO();
+		ArrayList<MSDTO> msDtoList = msDao.getMemberInfo(msCon.getSelectName());
 		MSDTO msDto = new MSDTO();
-		msDao.getMemberInfo(msCon.getSelectName(), msDto);
+		msDto = msDtoList.get(0);
+
 		name.setText(msDto.getName());
 		oldName = msDto.getName();
 		if (msDto.getGender().equals("남")) {
@@ -103,6 +107,7 @@ public class MRController implements Initializable {
 		phone.setText(msDto.getMobile());
 		point.setValue(msDto.getBranch());
 		days.setText(msDto.getExpiryDate());
+		purpose.setText(msDto.getPurposse());
 		pt.setText(Integer.toString(msDto.getPtcount()));
 
 		point.valueProperty().addListener(new ChangeListener<String>() {

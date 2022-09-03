@@ -6,10 +6,10 @@
 	-fx-text-fill: linear-gradient(white, #d0d0d0);
 }
 .label-Sat{
-	-fx-text-fill: #689bed;
+	-fx-text-fill: #D4E6F1;
 }
 .label-Son{
-	-fx-text-fill: #ed7c68;
+	-fx-text-fill: #FADBD8;
 }
 .Button {
     -fx-background-color: 
@@ -47,17 +47,8 @@
     -fx-font-size : 36;
     -fx-text-fill :#ee6c4d;
 
-}
-#dayecordBox{
-	 -fx-background-color: 
-        #293241;
-    -fx-background-insets: 0,1,2,0;
-    -fx-text-fill: white;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-    -fx-padding: 10 20 10 20;
-}
 
-
+}
 .button-d{
     -fx-background-color: 
     #98c1d9;
@@ -78,35 +69,7 @@
 -fx-font-size: 12px;
 
 }
-.button-cancleB{
-    -fx-background-color: 
-    #ee6c4d;
--fx-background-insets: 0,1,2,0;
--fx-text-fill: white;
--fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
--fx-font-family: "Arial";
--fx-font-size: 18px;
-
-}
 .radioButton{
     -fx-text-fill: linear-gradient(white, #d0d0d0);
     
 }
-.checkBox{
-    -fx-text-fill: linear-gradient(white, #d0d0d0);
-    
-}
-.table-view{
-    -fx-background-color: transparent;
-    -fx-border-color: #ccc;
-    -fx-border-width: 2 0 0 0;
-  }
-  .table-view .column-header{
-    -fx-background-color: #293241;
-    -fx-pref-height: 40px;
-    -fx-border-color: #bfbfbf;
-    -fx-border-width: 0 0 1 0;
-  }
-  .datePicker{
-  	 -fx-text-fill: black;
-  }

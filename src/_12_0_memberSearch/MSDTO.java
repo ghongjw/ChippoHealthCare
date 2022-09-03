@@ -7,6 +7,15 @@ public class MSDTO {
 	private String mobile;
 	private String address;
 	private String branch;
+	private String purposse;
+	public String getPurposse() {
+		return purposse;
+	}
+
+	public void setPurposse(String purposse) {
+		this.purposse = purposse;
+	}
+
 	private int expire_year;
 	private int expire_month;
 	private int expire_day;
