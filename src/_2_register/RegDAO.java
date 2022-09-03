@@ -28,6 +28,7 @@ public class RegDAO {
 		String sql = "INSERT INTO health_user VALUES(?,?,?, ?,?,?, ?,?,?, ?,?,?, ?,?,?)";
 		try {
 			ps = con.prepareStatement(sql);
+<<<<<<< HEAD
 			ps.setString(1, reg.getId());
 			ps.setString(12, reg.getPw());
 			ps.setString(10, reg.getName());
@@ -43,6 +44,20 @@ public class RegDAO {
 			ps.setInt(7, 0);
 			ps.setInt(8, 0);
 			ps.setInt(9, 0);
+=======
+			ps.setInt(1, reg.getNum());
+			ps.setString(2, reg.getId());
+			ps.setString(3, reg.getPw());
+			ps.setString(4, reg.getEmail());
+			ps.setString(5, reg.getMobile());
+			ps.setString(6, reg.getAddress());
+			ps.setString(7, reg.getBranch());
+			ps.setString(8, reg.getPtcount());
+			ps.setString(9, "n");
+			ps.setInt(10, reg.getExpireyear());
+			ps.setInt(11, reg.getExpiremonth());
+			ps.setInt(12, reg.getExpireday());
+>>>>>>> refs/heads/newB
 			ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("회원가입쪽에서 DB에 insert시키는 쿼리 실패");

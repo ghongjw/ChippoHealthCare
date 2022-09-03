@@ -10,7 +10,11 @@ public class IDPWController {
 	public void setOpener(Opener opener) {
 		this.opener = opener;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> refs/heads/newB
 	public void backButtonProc() {
 		opener.Login();
 	}

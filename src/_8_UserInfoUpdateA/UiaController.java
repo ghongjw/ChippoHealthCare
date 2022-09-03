@@ -39,12 +39,23 @@ public class UiaController implements Initializable {
 	}
 
 	public void confirm() {
+<<<<<<< HEAD
 
 		if (uiaservice.userinfoproc(password.getText(), UMController.staticId)) {
 			CommonService.msg("확인되었습니다.");
 			opener.userInfoUpdateOpen();
 		} else {
 			CommonService.msg("아이디 또는 비밀번호를 확인 후 다시 입력하세요.");
+=======
+		
+		CommonService.msg("확인되었습니다.");
+		opener.userInfoUpdateOpen();
+		
+	}
+		
+	public void back() {
+		opener.umOpen();
+>>>>>>> refs/heads/newB
 		}
 	}
 

@@ -75,6 +75,10 @@ public class RegDTO extends LoginDTO {
 		this.branch = branch;
 	}
 
+
+	private String mobile;
+	private String ptcount;
+
 	public String getMobile() {
 		return mobile;
 	}
@@ -123,14 +127,9 @@ public class RegDTO extends LoginDTO {
 		this.expireday = expireday;
 	}
 
-	public String getPurpose() {
-		return purpose;
-	}
-
-	public void setPurpose(String purpose) {
-		this.purpose = purpose;
-	}
-
-	
+	private int num;
+	private int expireyear;
+	private int expiremonth;
+	private int expireday;
 
 }

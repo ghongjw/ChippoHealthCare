@@ -43,7 +43,11 @@ public class MSController implements Initializable {
 	@FXML
 	private MSService msService = new MSService();
 	private Opener opener;
+<<<<<<< HEAD
 //	private MSDTO msDto = new MSDTO();
+=======
+	private MSDTO msDto = new MSDTO();
+>>>>>>> refs/heads/newB
 	private static String selectName;
 
 	ObservableList<Person> list = FXCollections.observableArrayList();
@@ -53,7 +57,7 @@ public class MSController implements Initializable {
 	}
 
 	// 회원 검색 화면에서 뒤로가기 버튼 누르면 동작하는 메서드
-	public void backProc() {
+	public void backproc() {
 		opener.mmOpen();
 	}
 
@@ -67,8 +71,13 @@ public class MSController implements Initializable {
 	}
 
 	public boolean Empty() {
+<<<<<<< HEAD
 		ArrayList<MSDTO> msDtoList = msService.getMemberInfo(nameTextfield.getText());
 		if (msDtoList.isEmpty())
+=======
+		msService.getMemberInfo(nameTextfield.getText(), msDto);
+		if (msDto.getName() == null)
+>>>>>>> refs/heads/newB
 			// 비어있으면 true 반환
 			return true;
 		return false;
@@ -77,11 +86,29 @@ public class MSController implements Initializable {
 
 	// 회원 검색 화면에서 검색 버튼 누르면 동작하는 메서드
 	public void searchProc() {
+<<<<<<< HEAD
 		// 아무것도 입력 안하고 검색했을때 모든 정보 보이게하는 조건
 		if (nameTextfield.getText().isEmpty()) {
 			memberList.getItems().clear();
 			ArrayList<MSDTO> DtoList = msService.getAllData(); // -> List(DTO들 담긴)
+=======
+		if (nameTextfield.getText().isEmpty()) {
+			CommonService.msg("이름을 입력해주세요.");
+		} else if (Empty()) {
+			CommonService.msg("존재하지 않는 이름입니다. 확인 후 다시 입력해주세요.");
+		} else {
+			memberList.getItems().clear();
+			msService.getMemberInfo(nameTextfield.getText(), msDto);
+			list.addAll(new Person(new SimpleStringProperty(msDto.getName()),
+					new SimpleStringProperty(msDto.getGender()), new SimpleIntegerProperty(msDto.getAge()),
+					new SimpleStringProperty(msDto.getMobile()), new SimpleStringProperty(msDto.getBranch()),
+					new SimpleStringProperty("DTO에 운동목적 없음"), new SimpleStringProperty(msDto.getExpiryDate()),
+					new SimpleIntegerProperty(msDto.getPtcount())));
+		}
+	}
+>>>>>>> refs/heads/newB
 
+<<<<<<< HEAD
 			for (int i = 0; i < DtoList.size(); i++) {
 				MSDTO msDto = new MSDTO();
 				msDto = (DtoList.get(i));
@@ -135,6 +162,19 @@ public class MSController implements Initializable {
 					stringName = stringName.substring(23).replaceAll("]", "");
 //					System.out.println("더블 클릭된 이름 : " + stringName);
 					selectName = stringName;
+=======
+	// 회원 검색 화면에서 row 누르면 동작하는 메서드
+	public void ReviseProc() {
+		// tableview row 더블클릭하면 동작하는 코드
+		memberList.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+					StringProperty name = memberList.getSelectionModel().getSelectedItem().getName();
+					String stringName = name.toString();
+					selectName = stringName.substring(23, 26);
+>>>>>>> refs/heads/newB
 					opener.reviseOpen();
 				}
 			}
@@ -157,6 +197,7 @@ public class MSController implements Initializable {
 		for (int i = 0; i < DtoList.size(); i++) {
 			MSDTO msDto = new MSDTO();
 			msDto = (DtoList.get(i));
+<<<<<<< HEAD
 			if (msDto.getName().equals("관리자")) {
 
 			} else {
@@ -166,6 +207,13 @@ public class MSController implements Initializable {
 						new SimpleStringProperty(msDto.getPurposse()), new SimpleStringProperty(msDto.getExpiryDate()),
 						new SimpleIntegerProperty(msDto.getPtcount())));
 			}
+=======
+			list.addAll(new Person(new SimpleStringProperty(msDto.getName()),
+					new SimpleStringProperty(msDto.getGender()), new SimpleIntegerProperty(msDto.getAge()),
+					new SimpleStringProperty(msDto.getMobile()), new SimpleStringProperty(msDto.getBranch()),
+					new SimpleStringProperty("DTO에 운동목적 없음"), new SimpleStringProperty(msDto.getExpiryDate()),
+					new SimpleIntegerProperty(msDto.getPtcount())));
+>>>>>>> refs/heads/newB
 		}
 		memberList.setItems(list);
 

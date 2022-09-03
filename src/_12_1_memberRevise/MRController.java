@@ -1,7 +1,10 @@
 package _12_1_memberRevise;
 
 import java.net.URL;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> refs/heads/newB
 import java.util.ResourceBundle;
 
 import _0_main.CommonService;
@@ -108,6 +111,35 @@ public class MRController implements Initializable {
 		point.setValue(msDto.getBranch());
 		days.setText(msDto.getExpiryDate());
 		purpose.setText(msDto.getPurposse());
+		pt.setText(Integer.toString(msDto.getPtcount()));
+
+		point.valueProperty().addListener(new ChangeListener<String>() {
+
+			@Override
+			public void changed(ObservableValue ov, String t, String t1) {
+				getpoint = t1;
+			}
+		});
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		MSController msCon = new MSController();
+		msCon.getSelectName(); // 선택한 사람 이름 가져옴
+		MSDAO msDao = new MSDAO();
+		MSDTO msDto = new MSDTO();
+		msDao.getMemberInfo(msCon.getSelectName(), msDto);
+		name.setText(msDto.getName());
+		oldName = msDto.getName();
+		if (msDto.getGender().equals("남")) {
+			man.setSelected(true);
+		} else {
+			woman.setSelected(true);
+		}
+		age.setText(Integer.toString(msDto.getAge()));
+		phone.setText(msDto.getMobile());
+		point.setValue(msDto.getBranch());
+		days.setText(msDto.getExpiryDate());
 		pt.setText(Integer.toString(msDto.getPtcount()));
 
 		point.valueProperty().addListener(new ChangeListener<String>() {

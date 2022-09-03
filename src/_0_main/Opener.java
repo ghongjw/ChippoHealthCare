@@ -30,11 +30,14 @@ import _7_inbodySelect.InbodyController;
 import _8_1_UserInfoUpdateB.UibController;
 import _8_UserInfoUpdateA.UiaController;
 import _9_UserPTUpdate.UPController;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class Opener {
 
@@ -56,6 +59,7 @@ public class Opener {
 	private Opener opener;
 
 	private TMcontroller tmCon;
+	private String clickedDate;
 
 	public void setTmCon(TMcontroller tmCon) {
 		this.tmCon = tmCon;
@@ -310,7 +314,6 @@ public class Opener {
 
 	// 이용권 구매 화면띄우기
 	public void PcOpen() {
-		System.out.println("여기");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("perchase.fxml"));
 		try {
 			Parent pcForm = loader.load();
@@ -379,11 +382,13 @@ public class Opener {
 	public void rcOpen() {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("record.fxml"));
 		try {
+			//System.out.println("clickedDate"+clickedDate);
 			Parent rcForm = loader.load();
 			RcController boController = loader.getController();
 			boController.setOpener(this);
 			boController.setId(id);
 			boController.setName(name);
+			boController.setClickedDate(clickedDate);
 			Scene scene = new Scene(rcForm);
 			primaryStage.setTitle("운동 기록 화면");
 			primaryStage.setScene(scene);
@@ -698,5 +703,12 @@ public class Opener {
 
 	public void setPtcount(String ptcount) {
 		this.ptcount = ptcount;
+	}
+	public void setclickedDate(String clickedDate) {
+		//작동
+		this.clickedDate=clickedDate;
+	}
+	public String getClickedDate() {
+		return clickedDate;
 	}
 }

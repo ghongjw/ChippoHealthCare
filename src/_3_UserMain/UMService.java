@@ -84,8 +84,16 @@ public class UMService {
 			monyear = year + "-0" + month;
 		} else if (month.length() == 2) {
 			monyear = year + "-" + month;
+
+	public ArrayList<Integer> bookedPtDate(String year, String month) {
+		
+		String monyear = "";
+		if (month.length() == 1) {
+			monyear = year + "-0" + month;
+		} else if (month.length() == 2) {
+			monyear = year + "-" + month;
 		}
-		ArrayList<String> PTDay = umDao.ptbooked(monyear);
+		ArrayList<String> PTDay = umDao.ptbooked(userId, monyear);
 		ArrayList<Integer> Ptmon = new ArrayList();
 		System.out.println("monyear:" + monyear);
 		for (int i = 0; i < PTDay.size(); i++) {

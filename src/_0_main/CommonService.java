@@ -72,4 +72,8 @@ public class CommonService {
 	public static void setId(String id) {
 		comid = id;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/heads/newB
