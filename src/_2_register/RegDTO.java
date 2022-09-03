@@ -52,7 +52,7 @@ public class RegDTO extends LoginDTO {
 	}
 
 	private String mobile;
-	private int ptcount;
+	private String ptcount;
 
 	public String getMobile() {
 		return mobile;
@@ -62,11 +62,11 @@ public class RegDTO extends LoginDTO {
 		this.mobile = mobile;
 	}
 
-	public int getPtcount() {
+	public String getPtcount() {
 		return ptcount;
 	}
 
-	public void setPtcount(int ptcount) {
+	public void setPtcount(String ptcount) {
 		this.ptcount = ptcount;
 	}
 

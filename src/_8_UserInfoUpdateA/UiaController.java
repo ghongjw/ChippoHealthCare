@@ -39,9 +39,7 @@ public class UiaController implements Initializable{
 	}
 		
 	public void back() {
-			
 		opener.umOpen();
-			
 		}
 		
 	

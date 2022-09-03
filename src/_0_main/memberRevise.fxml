@@ -9,24 +9,36 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" styleClass="umform" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane maxHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox styleClass="HBox-upper" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="home" fitHeight="150.0" fitWidth="208.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Users/SON/Desktop/취뽀헬스장%20프로젝트/SemiProject/src/로고.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="back" layoutX="47.0" layoutY="56.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="&lt;" />
+            <Button fx:id="back" maxHeight="70.0" maxWidth="55.0" minHeight="70.0" minWidth="55.0" mnemonicParsing="false" onAction="#backproc" prefHeight="70.0" prefWidth="55.0" styleClass="Button" text="&lt;" />
+            <StackPane prefHeight="150.0" prefWidth="745.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_LEFT">
+                     <image>
+                        <Image url="@mab.png" />
+                     </image>
+                     <StackPane.margin>
+                        <Insets left="70.0" />
+                     </StackPane.margin>
+                  </ImageView>
+                  <Label alignment="BOTTOM_LEFT" styleClass="g-label" text="취뽀 Health Center" StackPane.alignment="BOTTOM_LEFT">
+                     <StackPane.margin>
+                        <Insets bottom="10.0" left="210.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
          </children>
-      </AnchorPane>
+      </HBox>
    </top>
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="TOP_CENTER">
@@ -39,49 +51,134 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER" prefHeight="574.0" prefWidth="750.0">
+            <VBox alignment="TOP_CENTER" prefHeight="570.0" prefWidth="260.0" spacing="20.0">
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
                <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="433.0" prefWidth="120.0" spacing="40.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
                      <children>
-                        <Label text="이름" />
-                        <Label text="성별" />
-                        <Label text="나이" />
-                        <Label text="휴대폰" />
-                        <Label text="지점" />
-                        <Label text="운동목적" />
-                        <Label text="남은 기간" />
-                        <Label text="남은 PT 횟수" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER_LEFT" prefHeight="433.0" prefWidth="150.0" spacing="30.0">
-                     <children>
+                        <Label text="이름">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font></Label>
                         <TextField fx:id="name" maxWidth="150.0" prefHeight="29.0" prefWidth="122.0" />
-                        <HBox prefHeight="0.0" prefWidth="272.0" spacing="10.0">
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="250.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+                     <children>
+                        <Label text="성별">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="272.0" spacing="30.0">
                            <children>
-                              <RadioButton fx:id="man" mnemonicParsing="false" text="남">
+                              <RadioButton fx:id="man" mnemonicParsing="false" styleClass="radioButton" text="남">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="gender" />
-                                 </toggleGroup></RadioButton>
-                              <RadioButton fx:id="woman" mnemonicParsing="false" text="여" toggleGroup="$gender" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="woman" mnemonicParsing="false" styleClass="radioButton" text="여" toggleGroup="$gender" />
                            </children>
                         </HBox>
-                        <TextField fx:id="age" maxWidth="150.0" prefHeight="0.0" prefWidth="272.0" />
-                        <TextField fx:id="phone" maxWidth="150.0" prefHeight="29.0" prefWidth="193.0" />
-                        <ComboBox fx:id="point" prefHeight="29.0" prefWidth="150.0" />
-                        <TextField fx:id="purpose" maxWidth="150.0" prefHeight="29.0" prefWidth="193.0" />
-                        <TextField fx:id="days" maxWidth="150.0" prefHeight="29.0" prefWidth="193.0" />
-                        <TextField fx:id="pt" maxWidth="150.0" prefHeight="29.0" prefWidth="193.0" />
                      </children>
-                  </VBox>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="250.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+                     <children>
+                        <Label text="나이">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font></Label>
+                        <TextField fx:id="age" maxWidth="150.0" prefHeight="0.0" prefWidth="272.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="250.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="85.0">
+                     <children>
+                        <Label text="휴대폰">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font></Label>
+                        <TextField fx:id="phone" maxWidth="150.0" prefHeight="29.0" prefWidth="193.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="250.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="105.0">
+                     <children>
+                        <Label text="지점">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font></Label>
+                        <ComboBox fx:id="point" prefHeight="29.0" prefWidth="150.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="250.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="70.0">
+                     <children>
+                        <Label text="운동목적">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font></Label>
+                        <TextField fx:id="purpose" maxWidth="150.0" prefHeight="29.0" prefWidth="193.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="250.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="65.0">
+                     <children>
+                        <Label text="남은 기간">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <TextField fx:id="days" maxWidth="150.0" prefHeight="29.0" prefWidth="193.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="250.0" />
+                     </padding>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </center>
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" text="저장" />
+            <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" styleClass="Button" text="저장" />
          </children>
       </HBox>
    </bottom>

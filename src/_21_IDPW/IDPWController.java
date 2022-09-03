@@ -11,7 +11,7 @@ public class IDPWController {
 		this.opener = opener;
 	}
 	
-	public void BackProc() {
+	public void backButtonProc() {
 		opener.Login();
 	}
 	public void FindId0() {

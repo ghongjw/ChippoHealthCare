@@ -13,10 +13,10 @@ public class LoginDAO {
 	LoginDTO loginDto;
 
 	public LoginDAO() {
+		loginDto = new LoginDTO();
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "oracle";
 		String password = "oracle";
-		loginDto = new LoginDTO();
 
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -27,7 +27,8 @@ public class LoginDAO {
 	}
 
 	public boolean selectIdInfo(String inputId, String inputPw) {
-	System.out.println("userid"+inputId);
+		System.out.println("userid : " + inputId);
+		System.out.println("userpw : " + inputPw);
 		String sql = "select id, pw, name, login, expire_year, expire_month, expire_day from health_user where id=? and pw=?";
 		try {
 			ps = con.prepareStatement(sql);
@@ -51,13 +52,14 @@ public class LoginDAO {
 		return false;
 
 	}
+
 	public void setLogedIn(String inputId) {
 		String sql = "update health_user set login = 'y' where id = ?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, inputId);
 			ps.executeUpdate();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("로그인 쿼리 에러 발생");
@@ -77,7 +79,8 @@ public class LoginDAO {
 		}
 
 	}
-	public LoginDTO getLoginDto(){
+
+	public LoginDTO getLoginDto() {
 		return loginDto;
 	}
 
