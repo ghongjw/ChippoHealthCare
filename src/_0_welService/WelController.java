@@ -15,13 +15,14 @@ public class WelController implements Initializable {
 	public void nextPage() {
 
 		opener.Login();
+		System.out.println("haha");
 
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }
