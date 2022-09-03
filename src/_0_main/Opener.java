@@ -373,6 +373,7 @@ public class Opener {
 	public void rcOpen() {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("record.fxml"));
 		try {
+			//System.out.println("clickedDate"+clickedDate);
 			Parent rcForm = loader.load();
 			RcController boController = loader.getController();
 			boController.setOpener(this);

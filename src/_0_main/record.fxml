@@ -69,7 +69,7 @@
                   </HBox>
                   <VBox alignment="TOP_CENTER" prefHeight="53.0" prefWidth="750.0">
                      <children>
-                        <Label text="PT 예약이 없습니다.">
+                        <Label fx:id="ptReserviedLabel" text="PT 예약이 없습니다.">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -78,14 +78,14 @@
                   </VBox>
                   <HBox alignment="CENTER" prefHeight="263.0" prefWidth="750.0" spacing="50.0">
                      <children>
-                        <VBox fx:id="dayecordBox" alignment="CENTER" prefHeight="75.0" prefWidth="431.0" spacing="10.0" style="-fx-background-color: #293241;">
+                        <VBox fx:id="dayecordBox" alignment="TOP_CENTER" prefHeight="155.0" prefWidth="655.0" spacing="10.0" style="-fx-background-color: #293241;">
                            <children>
-                              <Label fx:id="StartTimeLabel1" text="운동을 기록해 보세요">
+                              <Label fx:id="workoutTimeLabel" text="운동을 기록해 보세요">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="StartTimeLabel11" text="savedTime">
+                              <Label fx:id="savedTimeLabel" maxWidth="700.0">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -93,22 +93,7 @@
                                     <Insets left="201.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="labelFirst">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelSecond">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="LabelThird">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelForth">
+                              <Label fx:id="labelFirst" maxWidth="600.0" prefHeight="83.0" prefWidth="600.0">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -178,7 +163,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="recordArea" maxWidth="400.0" minWidth="100.0" prefHeight="105.0" prefWidth="400.0" />
+                        <TextArea fx:id="recordArea" maxWidth="400.0" minWidth="100.0" prefHeight="105.0" prefWidth="400.0" style="overflow:hidden" />
                      </children>
                      <padding>
                         <Insets left="170.0" />
@@ -187,7 +172,7 @@
                   <HBox alignment="CENTER" prefHeight="141.0" prefWidth="750.0" spacing="100.0">
                      <children>
                         <Button fx:id="RcSaveButton" mnemonicParsing="false" onAction="#RcSaveButtonProc" prefHeight="70.0" prefWidth="150.0" styleClass="Button" text="저장" />
-                        <Button fx:id="RcSaveButton1" mnemonicParsing="false" onAction="#RcSaveButtonProc" prefHeight="70.0" prefWidth="150.0" styleClass="button-cancleB" text="취소" />
+                        <Button fx:id="RcCancleButton" mnemonicParsing="false" onAction="#RcCancleButtonProc" prefHeight="70.0" prefWidth="150.0" styleClass="button-cancleB" text="취소" />
                      </children>
                   </HBox>
                </children>

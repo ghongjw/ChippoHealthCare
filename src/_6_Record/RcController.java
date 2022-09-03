@@ -27,10 +27,23 @@ public class RcController implements Initializable{
 	private String StartT;
 	private String EndTime;
 	private RcService rcService;
+	private RcDTO rcDto;
+	
 	private String sHour,sMin,eHour,eMin;
 	private String clikedDate;
+	private String pickedDate;
+	private String textAreaMemo;
 
 	@FXML private Button backButton;
+	@FXML private Label ptReserviedLabel;
+	@FXML private Label workoutTimeLabel;
+	@FXML private Label savedTimeLabel;
+	@FXML private Label labelFirst;
+	//@FXML private Label labelSecond;
+	//@FXML private Label LabelThird;
+	//@FXML private Label labelForth;
+	
+	
 	@FXML private Button RcSaveButton;
 	@FXML private DatePicker rcDatePicker;
 	@FXML private ComboBox<String> Shour;
@@ -45,6 +58,7 @@ public class RcController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		rcService = new RcService();
+		rcDto = rcService.getRcDto();
 		Shour.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12",
 				"13","14","15","16","17","18","19","20","21","22","23","24");
 		Ehour.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12",
@@ -62,81 +76,60 @@ public class RcController implements Initializable{
 				"40","41","42","43","44","45","46","47","48","49",
 				"50","51","52","53","54","55","56","57","58","59");
 		//과거만 선택가능
-		Callback<DatePicker, DateCell> callB = new Callback<DatePicker, DateCell>() {
-			@Override
-			public DateCell call(final DatePicker param) {
-				return new DateCell() {
-					@Override
-					public void updateItem(LocalDate item, boolean empty) {
-						super.updateItem(item, empty); 
-						//To change body of generated methods, choose Tools | Templates.
-						LocalDate today = LocalDate.now();
-						setDisable(empty || item.compareTo(today) > 0);
-						LocalDate localDate = rcDatePicker.getValue();
-						if(localDate != null) {
-							date = localDate.toString();
-						}
-					}
-				};
-			}
-
-		};
-		rcDatePicker.setDayCellFactory(callB);
+//		Callback<DatePicker, DateCell> callB = new Callback<DatePicker, DateCell>() {
+//			
+//			@Override
+//			public DateCell call(final DatePicker param) {
+//				return new DateCell() {
+//					@Override
+//					public void updateItem(LocalDate item, boolean empty) {
+//						super.updateItem(item, empty); 
+//						//To change body of generated methods, choose Tools | Templates.
+//						LocalDate today = LocalDate.now();
+//						setDisable(empty || item.compareTo(today) > 0);
+//						LocalDate localDate = rcDatePicker.getValue();
+//						if(localDate != null) {
+//								//date = localDate.toString();
+//							
+//						}
+//					}
+//				};
+//			}
+//
+//		};
+//		rcDatePicker.setDayCellFactory(callB);
+		rcDatePicker.valueProperty().addListener((ov, oldValue, newValue) -> {
+			date = newValue.toString();
+			rcService.setRsetRecord(id,date);
+			setlabelsandtexts();
+        });
 	}
+	
 	//유저메인으로 돌아가기
 	public void backButtonProc() {
 		opener.umOpen();
 		rcService.discon();
 	}
+	//저장버튼
 	public void RcSaveButtonProc() {
-		
-		rcService.saveButtonclick(sHour,sMine,Hour);
-		int sh=0;
-		int eh=0;
-		int sm=0; 
-		int em=0; 
-		try {
 		sHour = Shour.getValue();
 		sMin = Smin.getValue();
 		eHour =Ehour.getValue();
 		eMin = Emin.getValue();
 		
+		textAreaMemo=recordArea.getText();
 		
-		sh = Integer.parseInt(sHour);
-		eh = Integer.parseInt(eHour);
-		sm = Integer.parseInt(sMin);
-		em = Integer.parseInt(eMin);
+		rcService.saveButtonclick(sHour,sMin,eHour,eMin,date,textAreaMemo,id);
+		setlabelsandtexts();
+		RcCancleButtonProc();
+	}
+	public void RcCancleButtonProc(){
+		Shour.setPromptText("");
+		Smin.setPromptText("");
+		Ehour.setPromptText("");
+		Emin.setPromptText("");
+		recordArea.clear();
 		
-		StartT=sHour+":"+sMin;
-		EndTime=eHour+":"+eMin;}
-		catch(Exception e){
-			CommonService.msg("시간을 입력 해 주세요");
-		}
-		if(rcDatePicker.getValue()==null||Shour==null||Smin==null||Ehour==null||Emin==null) {
-			CommonService.msg("시간을 입력 해 주세요");
-		}else {
-			if(em<sm) {
-				if(eh<=sh) {
-					CommonService.msg("시간을 역행하고 있어요!");
-				}else {
-					System.out.println("a");
-					rcService.setRsetRecordInsertecord(id,date,StartT,EndTime,recordArea.getText());
-					CommonService.msg("저장되었습니다");
-					}
-			}else {
-				System.out.println("b");
-				rcService.setRsetRecordInsertecord(id,date,StartT,EndTime,recordArea.getText());
-				CommonService.msg("저장되었습니다");
-			}
-		}
-		if(recordArea.getText().length()>100) {
-			CommonService.msg("공백 포함 100자만 입력해 주세요");
-		}else {
-			System.out.println("c");
-			rcService.setRsetRecordInsertecord(id,date,StartT,EndTime,recordArea.getText());
-			CommonService.msg("저장되었습니다");
-		}
-
 	}
 	public void setOpener(Opener opener) {
 		this.opener=opener;
@@ -161,20 +154,23 @@ public class RcController implements Initializable{
 	public void setClickedDate(String clikedDate) {
 		this.clikedDate=clikedDate;
 		String[] tmp = clikedDate.split("-");
-		System.out.println(clikedDate);
+		System.out.println("clicked"+clikedDate);
 		int cYear= Integer.parseInt(tmp[0]);
 		int cMon= Integer.parseInt(tmp[1]);
 		int cDay= Integer.parseInt(tmp[2]);
-		
 		rcDatePicker.setValue(LocalDate.of(cYear,cMon,cDay));
+		setlabelsandtexts();
 	}
-	public void setlabelandtext() {
-		rcService.setRsetRecord(id,clikedDate);
+	public void setlabelsandtexts() {
+		rcService.setRsetRecord(id,date);
+		//date까지는 옴
+		System.out.println("dyro : "+rcDto.getWorkoutTimeLabelT());
+		ptReserviedLabel.setText(rcDto.getPtReserviedLabelT());
+		workoutTimeLabel.setText(rcDto.getWorkoutTimeLabelT());
+		savedTimeLabel.setText(rcDto.getSavedTimeLabelT());
+		labelFirst.setText(rcDto.getFirstT());
+		//labelSecond.setText(rcDto.getSecondT());
+		//LabelThird.setText(rcDto.getThirdT());
+		//labelForth.setText(rcDto.getForthT());
 	}
-	public void textAreaClicked() {
-		recordArea.clear();
-	}
-
-
-
 }
