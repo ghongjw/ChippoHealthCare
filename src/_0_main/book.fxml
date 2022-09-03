@@ -59,14 +59,14 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+                  <HBox alignment="CENTER" minHeight="60.0" prefHeight="60.0" prefWidth="750.0" spacing="10.0">
                      <children>
-                        <ComboBox fx:id="boSetBranch" onMouseClicked="#branchselectProc" prefWidth="150.0" promptText="지점선택" />
+                        <ComboBox fx:id="boSetBranch" minHeight="35.0" onMouseClicked="#branchselectProc" prefHeight="35.0" prefWidth="150.0" promptText="지점선택" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
                      <children>
-                        <ComboBox fx:id="boSetTrainer" prefWidth="150.0" promptText="트레이너선택" />
+                        <ComboBox fx:id="boSetTrainer" minHeight="35.0" prefWidth="150.0" promptText="트레이너선택" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">

@@ -6,10 +6,10 @@
 	-fx-text-fill: linear-gradient(white, #d0d0d0);
 }
 .label-Sat{
-	-fx-text-fill: #D4E6F1;
+	-fx-text-fill: #689bed;
 }
 .label-Son{
-	-fx-text-fill: #FADBD8;
+	-fx-text-fill: #ed7c68;
 }
 .Button {
     -fx-background-color: 
@@ -47,8 +47,26 @@
     -fx-font-size : 36;
     -fx-text-fill :#ee6c4d;
 
-
 }
+#dayecordBox{
+	 -fx-background-color: 
+        #293241;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-padding: 10 20 10 20;
+}
+#recordArea1ro{
+	-fx-background-color:
+	#FFFFFF;
+	-fx-border-color:
+	#FFFFFF;
+	
+	
+        
+	
+}
+
 .button-d{
     -fx-background-color: 
     #98c1d9;
@@ -67,6 +85,16 @@
 -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 -fx-font-family: "Arial";
 -fx-font-size: 12px;
+
+}
+.button-cancleB{
+    -fx-background-color: 
+    #ee6c4d;
+-fx-background-insets: 0,1,2,0;
+-fx-text-fill: white;
+-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+-fx-font-family: "Arial";
+-fx-font-size: 18px;
 
 }
 .radioButton{

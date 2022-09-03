@@ -16,12 +16,14 @@ public class RcService {
 		}
 		
 	}
+	
 	public void discon() {
 		rcDao.disconnection();
 		
 	}
 	public void setRsetRecord(String id, String clikedDate) {
 		if(rcDao.dateExiste(id, clikedDate).equals("")) {
+			
 		}else {
 			
 		}

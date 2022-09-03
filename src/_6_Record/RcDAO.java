@@ -27,7 +27,7 @@ public class RcDAO {
 		}
 	}
 	public void setRecordInsert(String id, String date, String startT, String endTime, String text) {
-		String sql = "Insert into userid_time (id, workoutday, start_time, end_time, record_memo) values (?,?,?,?,?)";
+		String sql = "Insert into userid_time (id, workoutday, start_time, end_time, record_memo,ptbooked,trainer,bookptdate) values (?,?,?,?,?,'','','')";
 		try {
 			ps=con.prepareStatement(sql);
 			ps.setString(1, id);

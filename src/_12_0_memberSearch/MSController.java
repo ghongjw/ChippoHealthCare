@@ -53,7 +53,7 @@ public class MSController implements Initializable {
 	}
 
 	// 회원 검색 화면에서 뒤로가기 버튼 누르면 동작하는 메서드
-	public void backProc() {
+	public void backproc() {
 		opener.mmOpen();
 	}
 
