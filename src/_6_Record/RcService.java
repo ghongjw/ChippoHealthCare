@@ -106,9 +106,8 @@ public class RcService {
 			eh = Integer.parseInt(eHour);
 			sm = Integer.parseInt(sMin);
 			em = Integer.parseInt(eMin);
-
 		} catch (Exception e) {
-			CommonService.msg("시간을 입력 해 주세요");
+			//CommonService.msg("시간을 입력 해 주세요");
 		}
 		if (date == null || sHour == null || sMin == null || eHour == null || eMin == null) {
 			CommonService.msg("시간을 입력 해 주세요");

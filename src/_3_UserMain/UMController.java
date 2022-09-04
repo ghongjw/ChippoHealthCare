@@ -138,7 +138,7 @@ public class UMController implements Initializable {
 		todayselct(emptydate);
 	}
 
-	// op둗r참조값 불러오기
+	// opener참조값 불러오기
 
 	public void umLogoutButtonProc() {
 		opener.logoutPg();
