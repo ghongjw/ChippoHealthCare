@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_9_UserPTUpdate.UPController">
+   <top>
+      <AnchorPane maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="back" layoutX="24.0" layoutY="74.0" mnemonicParsing="false" onAction="#back" text="&lt;" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label text="PT 수정">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <ComboBox fx:id="dateselect" prefWidth="300.0" promptText="날짜선택" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="750.0" spacing="40.0">
+               <children>
+                  <Label text="운동시작시간">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="start" mnemonicParsing="false" onAction="#startButton" text="시작" />
+                  <Label fx:id="workoutstart" text="WorkoutStart">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="750.0" spacing="40.0">
+               <children>
+                  <Label text="운동 끝 시간">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="end" mnemonicParsing="false" onAction="#endButton" text="종료" />
+                  <Label fx:id="workoutend" text="WorkoutEnd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="44.0" prefWidth="750.0" spacing="100.0">
+                     <children>
+                        <Label text="PT 예약시간">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pttiem" text="PT WORKOUT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button fx:id="cancle" mnemonicParsing="false" onAction="#cancle" prefHeight="70.0" prefWidth="150.0" text="PT예약 취소" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="750.0" spacing="100.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
