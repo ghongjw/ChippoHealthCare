@@ -11,7 +11,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		System.out.println("완료");
+		System.out.println("완료++");
 
 		Opener opener = new Opener();
 		opener.setOpener(opener);
